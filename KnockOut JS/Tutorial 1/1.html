@@ -1,0 +1,24 @@
+<!--Include Knockout Js library-->
+<script src="../knockout-3.5.1.js" ></script>
+
+<p>Firstname:<span data-bind="text:firstname"></span></p>
+
+<!-- Example One -->
+<!-- Basic of Knockout Js -->
+<script>
+    // created object
+    var obj = {
+        firstname:"Praduman"
+    };
+    ko.applyBindings(obj);    // this applyBinding binds the viewModel to view.
+</script>
+
+<!-- Example two -->
+<!-- Basic of Knockout Js -->
+<script>
+    // created object
+    var myViewModel = {
+        firstname:"Praduman"
+    };
+    ko.applyBindings(myViewModel);    // this applyBinding binds the viewModel to view.
+</script>

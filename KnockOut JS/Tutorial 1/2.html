@@ -1,0 +1,18 @@
+<script src="../knockout-3.5.1.js"></script>
+
+<p>First Name : <input type="text" data-bind="value:firstname"> </p>
+
+<!-- input value me jese hi change hoga, vo automatically viewModel me update ho jayega -->
+
+<p>First Name : <input data-bind="value:firstname"></p>
+
+<p>First Name :<span data-bind="text:firstname"></span></p>
+
+<!-- observable -->
+
+<script>
+    var myViewModel ={
+        firstname:ko.observable("Praduman")
+    };
+    ko.applyBindings(myViewModel);
+</script>

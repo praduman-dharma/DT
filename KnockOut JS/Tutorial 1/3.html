@@ -1,0 +1,23 @@
+<!-- Subscribe and keyup -->
+
+<script src="../knockout-3.5.1.js"></script>
+
+<!-- with keyup -->
+<p>First Name : <input data-bind="value:firstname,valueUpdate:'keyup'"></p>
+
+<p>First Name : <span data-bind="text:firstname"></span> </p>
+
+<!-- without keyup -->
+<p>First Name : <input data-bind="value:firstname">  </p>
+<script>
+    var myViewModel={
+        firstname:ko.observable("Praduman")
+        // if firstname value is changed in myViewModel it automatically update in input type because of observable 
+    };
+
+    myViewModel.firstname.subscribe(function(val){
+        console.log("Someone change your name ");
+        console.log(val);
+    })
+    ko.applyBindings(myViewModel);
+</script>

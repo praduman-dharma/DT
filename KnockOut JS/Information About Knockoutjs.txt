@@ -1,0 +1,78 @@
+Download Knockout Js file >> https://knockoutjs.com/
+Download Knockout Mapping Js file >> https://raw.githubusercontent.com/SteveSanderson/knockout.mapping/master/build/output/knockout.mapping-latest.js
+1.Knockout(KO) is JavaScript library that helps us to create rich, responsive and interactive user interface with a data model of an application.
+
+2. KO follows MVVM pattern
+
+3. Unlike JQuery which mostly for animation or event handling . Knockout JS is foucused on desiging scalable and data-driven UI.
+
+
+# KO Main Features
+
+// Declarative Bindings - A simple and most convenient way to connect parts of your UI to your data model.
+
+// Dependency Tracking - It automatically updates the UI whenever your data model changes.
+
+When UI updates, KO automatically changes data model.
+
+// Rrivially extensible - Implement custom behaviours as new Declarative bindings for easy reuse in just a few lines of code.
+
+
+# Additional benifits
+
+// Pure JavaScript library.
+// Can be added on top of your existing web application.
+// It's very compact and is around 13kb after zipping
+// Works on any mainstream browser. It means supported in every browser.
+
+
+# What is MVVM(Model-View-ViewModel)
+It's an arcitectural pattern designed by Microsoft originally for WPF and Silverlight application.
+
+// Microsoft Silverlight is a component of many web browsers that lets them play music and videos. Silverlight used to be incredibly popular, but was eventually made obsolete by HTML5.
+
+
+// Model 
+
+- Bussiness logic is part of model. Example >> Emlploye age should not be less than  18 and other logic.
+Or logic of  computing net salary of employes .
+And Model also supposed to have all the logic required for fetching data from the server.
+
+
+// View
+
+- View means UI(User InterFace)
+- View part mostly represented by html/css
+- When using KO, your view is simply your HTML document with decalarative bindings to link it to the view model.
+
+
+//  View Model
+# But their is no any direct connection between Model and View.
+
+- View Model one which binds Model and View together.
+
+- It retrieves data from the model(M) and exposes it to the view(V) as properties in a form that the view can easily consume.
+
+- Example  >> Model is data and bussiness funcionality. But that data may not be ready for presentaion on view.
+- Exmaple >> If the name not in proper format and length than view would like to display that name in red colour.
+or 
+If the age of person is less than 18, than display that data in red colour.
+If the age of person is greater than 18, than display that data in green colour.
+
+That logic of red and green going to be present in viewModel.
+
+// Note that this is not the UI itself: it doesn't have any concept of buttons or display styles.
+
+- In KO, view models are pure JavaScript objects that hold no knowledge of HTML.
+
+
+// Conclusion of MVVM
+
+From Sever we are going to get data.
+All the data is available in form of Model Objects.
+Model Objects will be read by viewModel and viewModel will have some extra properties which are going to facilitate easy presentaion of the data on the view.
+
+
+// Using Ajax we keep fetching data from server and displaying it in model. Or taking data from model and updating the database on server.
+
+

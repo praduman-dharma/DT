@@ -1,0 +1,14 @@
+<!-- if and if not -->
+<script src="../knockout-3.5.1.js"></script>
+
+<!--  if -->
+
+<label><input type="checkbox" data-bind="checked: displayMessage" /> Display message</label>
+
+<div data-bind="if: displayMessage">Here is a message. Astonishing.</div>
+
+<script>
+    ko.applyBindings({
+        displayMessage: ko.observable(false)
+    });
+</script>
