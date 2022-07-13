@@ -1,0 +1,133 @@
+Step 1 > run below command in your path for installing magento2.4.4 using composer
+
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.4
+
+example > path > C:\wamp64\www\ 
+	  command > create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.4
+
+
+First > 
+
+Enable below extensions by remove semicolon(;) from begining of the line.
+
+extension=intl
+extension=soap
+extension=sockets
+extension=xsl
+
+Step 1 > Download composer
+
+Step 2 > Download Elasticsearch
+
+Step 3 > run elasticsearch  from www > elasticsearch >> bin >> batchfile >> run as administration
+
+step 4 > extract magento zip in www folder
+
+
+step 5 >  Now we will install Magento 2.4 via command line on windows localhost. If you want to install Magento on localhost then need to changes in file vendor\magento\framework\Image\Adapter\Gd2.php like below code.
+
+
+From > 
+private function validateURLScheme(string $filename) : bool
+{
+	$allowed_schemes = ['ftp', 'ftps', 'http', 'https'];
+	$url = parse_url($filename);
+	if ($url && isset($url['scheme']) && !in_array($url['scheme'], $allowed_schemes)) {
+		return false;
+	}
+
+	return true;
+}
+
+To > 
+private function validateURLScheme(string $filename) : bool
+{
+	$allowed_schemes = ['ftp', 'ftps', 'http', 'https'];
+	$url = parse_url($filename);
+	if ($url && isset($url['scheme']) && !in_array($url['scheme'], $allowed_schemes) && !file_exists($filename)) {
+		return false;
+	}
+
+	return true;
+}
+
+
+Step 6 >  
+
+After above changes then run below command for install Magento 2.4
+
+php bin/magento setup:install --base-url=http://localhost/magento244/pub/ --db-host=localhost --db-name=magento244 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=user@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --backend-frontname="admin" --search-engine=elasticsearch7 --elasticsearch-host=localhost --elasticsearch-port=9200
+
+
+Step 7 > php bin/magento setup:upgrade
+
+
+step 7 > 
+Fixed Admin Login Issue
+After installatin if showing black page on admin login page then need changes in file vendor\magento\framework\View\Element\Template\File\Validator.php like below code.
+
+From > 
+
+protected function isPathInDirectories($path, $directories)
+{
+    if (!is_array($directories)) {
+        $directories = (array)$directories;
+    }
+    $realPath = $this->fileDriver->getRealPath($path);
+    foreach ($directories as $directory) {
+        if (0 === strpos($realPath, $directory)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+To > 
+
+protected function isPathInDirectories($path, $directories)
+{
+    if (!is_array($directories)) {
+        $directories = (array)$directories;
+    }
+    $realPath = $this->fileDriver->getRealPath($path);
+    foreach ($directories as $directory) {
+      // add below line for fix this issue
+      $directory = $this->fileDriver->getRealPath($directory);
+        if (0 === strpos($realPath, $directory)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+Step 8 > 
+
+Disable TwoFactorAuth Module
+In localhost you can disable module Magento_TwoFactorAuth via running below command.
+
+php bin/magento module:disable Magento_TwoFactorAuth
+
+
+Step 9 > 
+
+Fixed Icon and Images Loading Issue
+If images and icons is not loading then run below commands
+
+
+php bin/magento setup:static-content:deploy -f
+php bin/magento indexer:reindex
+php bin/magento cache:flush
+
+
+
+// Error > Even if after running static and upgrade command frotend and backend not showing properly then check
+
+> core_config_data table in magento phpMyAdmin
+
+and change vaue of unsecure/base_url
+from > http://localhost/magento244/
+To > http://localhost/magento244/pub/
+
+
+
+

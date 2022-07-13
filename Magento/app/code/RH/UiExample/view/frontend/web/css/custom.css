@@ -1,0 +1,18 @@
+.top {
+    border-top: 2px solid;
+}
+.toolbar-number{
+    margin-right: 10px;
+}
+.limiter-label {
+    margin-top: 10px;
+    display: inline-block;
+}
+.pager {
+    display: flex;
+}
+ul.items.pages-items {
+    position: relative;
+    margin: 4px;
+}
+

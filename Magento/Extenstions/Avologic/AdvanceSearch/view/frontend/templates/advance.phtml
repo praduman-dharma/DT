@@ -1,0 +1,100 @@
+<div class="container">
+    <form action="" method="POST">
+        <div class="ajax-advanced-search">
+            <h2 class="legend">TRY OUR Quick Advanced Search SELECTOR</h2>
+            <div class="ajax-advanced-search-main">
+                <div class="tickroom">
+                    <?php
+
+                    $Attributes = $block->getDisplayAttributes();
+                    $value = explode(',', $Attributes);
+
+                    foreach ($value as $data) {
+                        $attrCode = $data;
+                        $optionLabel = $block->getAttrLabel($attrCode);
+                        $optionId = $block->getAttrOptIdByLabel($attrCode);
+                        if (count($optionId) > 1) {
+                            echo "<label class='ticktext_select'>Select $optionLabel</label>";
+                        }
+                        echo "<input type='hidden' value='$attrCode' name='attributeId'>";
+                        echo "<div class='field-container'>";
+                        foreach ($optionId as $keys => $data) {
+                            if ($keys > 0) {
+                                $value = $data["value"];
+                                $label = $data["label"];
+                                echo "<input type='checkbox' value='$value' class='optionId' name='optionId'>" . $label . "<br>";
+                            }
+                        }
+                        echo "</div>";
+                    }  ?>
+                    <div class="search-price">
+                        <label class="ticktext_select" for="price">Price</label>
+                        <div class="input-range">
+                            <input name="priceFrom" id="price" title="Price" class="input-price" type="number" pattern="\d*" maxlength="128">
+                            <span class="separator">-</span>
+                            <input name="priceTo" id="price_to" title="Price" class="input-price" type="number" pattern="\d*" maxlength="128">
+                            <small>(<?php echo $block->getCurrentCurrencyCode();  ?>)</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="second_img">
+                    <img src="<?php echo $this->getViewFileUrl('Avologic_AdvanceSearch::images/second-1.png'); ?>">
+                </div>
+            </div>
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" class="action search primary" title="Search" id="button" name="submit" value="Search">
+                    <span>Search</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="result" style="display:none">
+</div>
+
+
+<script>
+    require(['jquery'], function() {
+        jQuery(document).ready(function() {
+            jQuery(".result").hide();
+            jQuery('#button').click(function() {
+                jQuery(".container").hide();
+
+
+                var attribute = [];
+                jQuery.each(jQuery("input[type=hidden][name=attributeId]"), function() {
+                    attribute.push(jQuery(this).val());
+                });
+
+                var favorite = [];
+                jQuery.each(jQuery("input[type=checkbox][name=optionId]:checked"), function() {
+                    favorite.push(jQuery(this).val());
+                });
+
+                var priceFrom = jQuery('#price').val();
+                var priceTo = jQuery('#price_to').val();
+
+                var url = "<?php echo $block->getBaseUrl() . 'productfinder/result/productlist/' ?>";
+                jQuery.ajax({
+                    url: url,
+                    type: "POST",
+                    data: {
+                        listId: `${favorite}`,
+                        attributeId: `${attribute}`,
+                        pricefrom: priceFrom,
+                        priceto: priceTo
+                    },
+                    showLoader: true,
+                    cache: false,
+                    success: function(response) {
+                        jQuery(".result").show();
+                        jQuery(".result").html(response.output);
+                    }
+                });
+                return false;
+            });
+        });
+    });
+</script>

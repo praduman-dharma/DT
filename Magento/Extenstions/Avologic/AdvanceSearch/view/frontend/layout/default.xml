@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Avologic_AdvanceSearch::css/main.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" template="Avologic_AdvanceSearch::search_show.phtml" name="serach.pos" />
+        </referenceContainer>
+        <referenceBlock name="header.links">
+            <block class="Avologic\AdvanceSearch\Block\Link" name="custom-header-link" ifconfig="avologic/general/searchpos">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Product Finder</argument>
+                    <argument name="path" xsi:type="string" translate="true">productfinder</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceBlock name="footer_links">
+            <block class="Avologic\AdvanceSearch\Block\Link" name="custom-footer-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Product Finder</argument>
+                    <argument name="path" xsi:type="string" translate="true">productfinder</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <referenceBlock name="footer_links">
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="2custom-link">
+                <arguments>
+                    <argument name="label" xsi:type="string">Footer Link</argument>
+                    <argument name="path" xsi:type="string">productfinder</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

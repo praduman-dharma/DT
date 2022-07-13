@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector</title>
+    <style>
+        body{
+            font-family: arial;
+        }
+        #box{
+            padding: 10px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>jQuery Selectors</h1>
+    <div id="box" class="test">
+        <h2>Test Box 2</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis, recusandae!</p>
+    </div>
+
+    <ul id="list">
+        <li>Orange</li>
+        <li class="test">Banana</li>
+        <li>Grapes</li>
+        <li class="test">Apple</li>
+        <li>Guava</li>
+    </ul>
+    
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            // var a = $('#list').css('color','red');               // adding color 
+            // var a = $('#list').css('border','2px solid red');    // adding border
+            // a = $('#list li').css('border','2px solid blue');    // adding color in li   
+            // a = $('li:first').css('border','2px solid red');    // adding border to first li
+            // a = $('li:last').css('border','2px solid red');    // adding border to last li
+            // a = $('ul li:eq(2)').css('border','2px solid red');    // adding border to li
+            // index 2
+            // a = $('ul li:gt(2)').css('border','2px solid red');    // adding border to li whose index is greate than 2
+            // a = $('ul li:lt(2)').css('border','2px solid red');    // adding border to li whose index is less than 2
+            // var a = $('.test').css('border','2px solid red');    // appling on test class
+            // var a = $('*').css('color','blue');           // changing all text color
+            // var a = $('*').css('border','2px solid red'); // adding border for every element
+        });
+    </script>
+</body>
+</html>

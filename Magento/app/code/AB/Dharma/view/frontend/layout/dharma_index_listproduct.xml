@@ -1,0 +1,11 @@
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Product</title>
+    </head> 
+    <body>
+        <referenceContainer name="content">
+            <block class="AB\Dharma\Block\ListProduct" name="dharma_result_product" template="AB_Dharma::listproduct.phtml" />
+        </referenceContainer>
+    </body>
+</page>

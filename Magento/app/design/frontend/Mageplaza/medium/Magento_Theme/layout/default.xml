@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="footer-bottom-content">
+        <block class="Magento\Framework\View\Element\Template" name="report.bugs.bottom" template="Magento_Theme::html/bugreport.phtml"/>
+    </referenceContainer>
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_img_width" xsi:type="number">300</argument>
+                <argument name="logo_img_height" xsi:type="number">300</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceContainer name="page.top">
+            <block class="Magento\Cms\Block\Block" name="home.banner" before="page.header">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header_banner_section</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="footer-container">
+            <block class="Magento\Cms\Block\Block" name="footer.banner" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">footer_banner</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Syntax</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="test1">
+        <h2>Test Box 1</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, numquam!</p>
+    </div>
+
+    <div id="test2">
+        <h2>Test Box 2</h2>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, numquam!</p>
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            // console.log("hello");
+            var a = $('#test1').html();
+            console.log(a);
+
+            var b = $('#test2').html();
+            console.log(b);
+        });
+
+    </script>
+</body>
+</html>

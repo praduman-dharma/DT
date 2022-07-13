@@ -1,0 +1,104 @@
+
+// camaweigh
+
+
+ftp
+198.187.31.68
+developer@camaweigh.com
+Zhongwen.12345
+
+username = dev
+password = admin@123
+
+https://www.camaweigh.com
+https://www.camaweigh.com/admin
+
+
+// cloudwaysapps
+
+ftp >>  Public IP: 167.99.92.29
+Username: pwa-magento
+PAss :  p6hRvmJZR4p6
+
+
+ssh
+Public IP:167.99.92.29
+Username:master_bmmemvtypu 
+Password:8XhM4qjX 
+
+/applications/fvrcqjmfsg/public_html
+
+http://phpstack-666225-2367229.cloudwaysapps.com/
+http://phpstack-666225-2367229.cloudwaysapps.com/admin
+admin
+admin@123
+
+
+
+
+// Dharma Technolabs 
+
+Ftp Datails:
+		FTP Username: bharat@dharmatechnolabs.com
+		FTP server: ftp.dharmatechnolabs.com	
+		FTP & explicit FTPS port:  21
+		pass : )_5w;3
+
+
+pass : )_5w;3[HQWbI123
+
+SSH Datails:
+dharmatechnolabs.com
+Username: dharmate
+Password: Y0#im]2oGED33k728
+
+// [~/public_html/TestofGit]#
+
+
+// SuperBazaar 
+
+// staging
+
+Secure Base URL: https://8f888d9f54.nxcli.net/
+Admin URL      : https://8f888d9f54.nxcli.net/superbazaradmin 
+developer
+admin@1234
+
+
+
+Online Grocery in Australia| Indian Grocery store Melbourne - SuperBazaar
+https://8f888d9f54.nxcli.net
+
+
+Hostname: 8f888d9f54.nxcli.net
+Port: 22
+Username: a8aaeb85_1
+Password: PureedAcidCastAmazed
+Command: ssh a8aaeb85_1@8f888d9f54.nxcli.net
+
+
+// phpmyadmin
+https://8f888d9f54.nxcli.net/ad.php
+
+username >> a8aaeb85_superba
+password >> CivetEasingEmceesTinged
+
+
+// SuperBazaar 
+
+// live
+
+a5efa15198.nxcli.net
+a5efa15198.nxcli.net/superbazaradmin
+
+// backend 
+username : dev1
+password : admin@1234
+
+Hostname : a5efa15198.nxcli.net
+Port	: 22
+Username: a3173ac3_2
+Password: LuresDrawnHattedInside
+
+
+> /a5efa15198.nxcli.net/html

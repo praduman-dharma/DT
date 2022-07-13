@@ -1,0 +1,15 @@
+.test1{
+    float: left;
+    background-color: pink;
+    width: 250px;
+    height: 200px;
+    padding: 20px;
+}
+
+.test2{
+    float: right;
+    width: 250px;
+    height: 200px;
+    padding: 20px;
+    background-color: orange;
+}

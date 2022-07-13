@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="DT_Slider::css/slider.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+             <block class="DT\Slider\Block\ProductSlider" name="dt_slider_productslider" template="DT_Slider::homepage.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

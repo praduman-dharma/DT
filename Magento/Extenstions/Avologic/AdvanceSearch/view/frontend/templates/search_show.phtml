@@ -1,0 +1,18 @@
+<style>
+    <?php
+
+    $helper = $this->helper('Avologic\AdvanceSearch\Helper\Show');
+    $values = $helper->getGeneralConfig('searchpos');
+    if (empty($values)) { ?>.footer li.footer-search {
+        display: block;
+    }
+
+    <?php
+    } else { ?>.footer li.footer-search {
+        display: none;
+    }
+
+    <?php
+    }
+    ?>
+</style>

@@ -1,0 +1,31 @@
+<div><input type="submit" id="button">
+<div class="result" style="display:none">
+</div>
+</div>
+<script>
+    require(['jquery'], function() {
+        jQuery(document).ready(function() {
+            jQuery(".result").hide();
+            jQuery("#button").click(function() {
+                jQuery("#button").hide();
+
+                var url = "<?php echo $block->getBaseUrl() . 'dharma/result/productlist/' ?>";
+                jQuery.ajax({
+                    url: url,
+                    type: "POST",
+                    data: {
+                        listId: "3"
+                    },
+                    // showLoader: true,
+                    cache: false,
+                    success: function(response) {
+                        console.log(response.output);
+                        jQuery(".result").show();
+                        jQuery(".result").html(response.output);
+                    }
+                });
+                return false;
+            });
+        });
+    });
+</script>

@@ -1,0 +1,189 @@
+<?php
+
+use Magento\Framework\App\Action\Action;
+?>
+
+<div class="flex-container">
+    <div class="raw_container">
+        <?php
+        $uniuqProductSkus = array();
+
+        $attributeIdCode = $block->getAttributeIdData();
+        if (isset($attributeIdCode)) {
+
+            $priceFrom = $block->getPriceFromData();
+            $priceTo = $block->getPriceToData();
+
+            $categoryId = $block->getListIdData();
+            $vrr = explode(',', $categoryId);
+            foreach ($vrr as $attributeId) {
+                $productCollection = $block->getProductCollection($attributeId);
+                foreach ($productCollection as $product) {
+                    $result = [
+                        'id'        => $product->getId(),
+                        '_sku'      => $product->getSku(),
+                        'product_url' => $product->getProductUrl($product),
+                        'title'     => $product->getName(),
+                        'raw_price' => $product->getFinalPrice()
+                    ];
+        ?>
+                    <?php
+                    if (in_array($result["_sku"], $uniuqProductSkus)) {
+                        continue;
+                    } else {
+                        array_push($uniuqProductSkus, $result["_sku"]);
+                    ?>
+                        <?php
+                        $productId = $result['id'];
+                        $pruductUrl = $result['product_url'];
+                        $imgUrl = $this->getItemImage($productId);
+                        ?>
+
+                        <div class="raw_product">
+                            <div class="image-box">
+                                <a href="<?= $pruductUrl ?>">
+                                    <img src="<?= $imgUrl; ?>" alt="product-image" />
+                                </a>
+                            </div>
+                            <div class="details">
+                                <div class="product name product-item-name">
+                                    <strong><a href="<?= $pruductUrl ?>"><?= $result['title'] ?></a></strong>
+                                </div>
+                                <div class="product-price">
+                                    <span><?php
+                                            $value =  $result['raw_price'];
+                                            $symbol = $block->getCurrentCurrencySymbol();
+                                            $price = "$symbol";
+                                            $price .= number_format($value, 2);
+                                            echo $price;
+                                            ?></span>
+                                </div>
+                            </div>
+
+                            <?php
+
+                            $postParams = $block->getAddToCartPostParams($product);
+
+                            ?>
+
+                            <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtmlAttr($product->getSku()) ?>" action="<?= $block->escapeUrl($postParams['action']) ?>" method="post">
+                                <input type="hidden" name="product" value="<?= /* @noEscape */ $postParams['data']['product'] ?>">
+                                <input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+                                <?= $block->getBlockHtml('formkey') ?>
+                                <button type="submit" title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>" class="action tocart primary">
+                                    <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                                </button>
+                            </form>
+
+                        </div>
+        <?php
+                    }
+                }
+            }
+        } 
+        // else {
+            // $location = $block->getBaseUrl() . 'checkout/cart/';
+            // header("Location: $location");
+            // exit;
+        // }
+        ?>
+    </div>
+    <?php
+    $priceFrom = $this->getPriceFromData();
+    $priceTo = $this->getPriceToData();
+    if (empty($uniuqProductSkus) && empty($attributeId) && empty($priceFrom) && empty($priceTo)) {
+    ?>
+        <div>
+            <li class="error-msg">
+                <span> &#x274C; Please specify at least one search term.</span>
+            </li>
+            <div class="advanced-search-summary-para">
+                <p>
+                    You need to ? <a id="more-search" class="custom-search-amount">Modify your search</a>
+                </p>
+            </div>
+        </div>
+    <?php } else { ?>
+        <div class="advanced-search-summary-container">
+            <p class="custom-search-amount">
+                <?php if (count($uniuqProductSkus) == 0) { ?>
+                    No items were found using the following search criteria
+                <?php
+                } else {
+                ?>
+                    <strong> <?php echo count($uniuqProductSkus);  ?> item(s)</strong> were found using the following search criteria
+                <?php } ?>
+            </p>
+            <div class="advanced-search-summary">
+                <?php
+                $attributeIdCode = $block->getAttributeIdData();
+                $arr = explode(',', $attributeIdCode);
+
+                foreach ($arr as $item) {
+                    $categoryId = $block->getListIdData();
+                    if (!empty($categoryId)) {
+                        $optionLabel = $block->getMainAttrLabel($item);
+                        echo "<ul class='items'>
+                        <li class='items'><strong>$optionLabel: </strong><span class='showAttribute'>";
+
+                        $vrr = explode(',', $categoryId);
+                        $resultstr = array();
+                        foreach ($vrr as $attributeId) {
+                            $AttrLabel = $this->getAttrLabel($item, $attributeId);
+                            if (empty($AttrLabel)) {
+                                continue;
+                            }
+                            $resultstr[] = $AttrLabel;
+                            if (isset($resultstr[0]["value"])) {
+                                array_splice($resultstr, 0);
+                            }
+                            for ($i = 0; $i < count($resultstr); $i++) {
+                                if (isset($resultstr[$i]["value"])) {
+                                    array_splice($resultstr, $i, $i);
+                                }
+                            }
+                        }
+                        echo implode(", ", $resultstr);
+                        echo "</span></li>
+                </ul>";
+                    }
+                }
+                ?>
+                <?php
+                $priceFrom = $this->getPriceFromData();
+                $priceTo = $this->getPriceToData();
+                if (!empty($priceFrom) && !empty($priceTo)) {
+                    echo "<ul class='items'>
+                        <li class='items'><strong>Price:</strong> $priceFrom - $priceTo</li>
+                </ul>";
+                } elseif (!empty($priceFrom) && empty($priceTo)) {
+                    echo "<ul class='items'>
+                        <li class='items'><strong>Price:</strong> $priceFrom and greater</li>
+                </ul>";
+                } else {
+                    if (!empty($priceTo)) {
+                        echo "<ul class='items'>
+                            <li class='items'><strong>Price:</strong>  up to $priceTo</li>
+                    </ul>";
+                    }
+                }
+                ?>
+                <p>
+                    Don't see what you're looking for? <a id="more-search" class="custom-search-amount">Modify your search</a>
+                </p>
+            </div>
+        </div>
+    <?php } ?>
+</div>
+
+<script>
+    require(['jquery'], function() {
+        jQuery(document).ready(function() {
+            jQuery('#more-search').click(function() {
+                jQuery(".result").hide();
+                jQuery(".container").show();
+            });
+            jQuery(".showAttribute:empty").parent().hide();
+        });
+    });
+</script>

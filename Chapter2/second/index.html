@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th,td{
+            text-align: center;
+        }
+
+        #box{
+            border: 1px solid black;
+        }
+        .border{
+            border: 1px solid black;
+        }        
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Example : Nested</caption>
+        <tr>
+            <th colspan="2">CI</th>
+            <th>All <br>Genders</th>
+            <th>By Gender
+                <table id="box" style="width:100%" >
+                        <tr>
+                            <th>
+                                <div class="border">Males</div>
+                            </th>
+                            <th>
+                                <div class="border">Females</div>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="border">
+                                    9215604
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="border">
+                                    4512358
+                                </div>
+                            </td>
+                        </tr>
+                </table>
+            </th>
+        </tr>
+        <tr>
+            <th>Rural</th>
+            <td>6521458</td>
+            <td>4215389</td>
+            <td>4152348</td>
+        </tr>
+    </table>
+</body>
+</html>

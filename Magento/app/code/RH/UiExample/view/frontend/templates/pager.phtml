@@ -1,0 +1,61 @@
+<?php
+// get custom data
+$custom_data = $block->getCustomData();
+
+$helper = $this->helper("RH\UiExample\Helper\Data");
+$values = $helper->getGeneralConfig('display_title');
+$color = $helper->getGeneralConfig('color_field');
+?>
+<style>
+    .helper h1{
+        background-color:<?php echo "#".$color ?> ;
+        padding: 10px;
+    }
+</style>
+<div class="helper">
+    <?php
+    echo "<h1>" . $values . "</h1>";
+    ?>
+</div>
+<fieldset class="fieldset">
+    <?php
+    if (count($custom_data)) {
+    ?>
+        <div class="table-wrapper custom-data ">
+            <table class="data table table-data-items ">
+                <caption class="table-caption"><?= $block->escapeHtml('Custom Pagination') ?></caption>
+                <thead>
+                    <tr>
+                        <th scope="col" class="col ID"><?= $block->escapeHtml('ID') ?></th>
+                        <th scope="col" class="col Title"><?= $block->escapeHtml('Title') ?></th>
+                        <th scope="col" class="col Description"><?= $block->escapeHtml('Description') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($custom_data as $item) : ?>
+                        <tr>
+                            <td data-th="ID" class="col id">
+                                <span><?= $block->escapeHtml($item->getID()) ?></span>
+                            </td>
+                            <td data-th="Title" class="col title">
+                                <span><?= $block->escapeHtml($item->getBlogTitle()) ?></span>
+                            </td>
+                            <td data-th="Description" class="col title">
+                                <span><?= $block->escapeHtml($item->getBlogDescription()) ?></span>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php if ($block->getPagerHtml()) : ?>
+            <div class="order-products-toolbar toolbar top">
+                <?= $block->getPagerHtml() ?>
+            </div>
+        <?php endif ?>
+    <?php } else { ?>
+        <div class="message info empty">
+            <span><?= $block->escapeHtml('You have no data in table.') ?></span>
+        </div>
+    <?php  } ?>
+</fieldset>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="footer_links">
+            <referenceBlock name="catalog-search-advanced-link" remove="true"/>
+            <block class="Magento\Framework\View\Element\Html\Link\Current" name="about-us" before="search-term-popular-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">About Us</argument>
+                    <argument name="path" xsi:type="string">more-about-us</argument>
+                    <argument name="attributes" xsi:type="array">
+                        <item name="target" xsi:type="string">_blank</item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+
+        <!-- <referenceContainer name="footer">
+            <block class="Magento\Cms\Block\Block" name="footer.static.block">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">quick_links</argument>
+                </arguments>
+            </block>
+        </referenceContainer> -->
+
+    </body>
+</page>

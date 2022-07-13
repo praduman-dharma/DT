@@ -1,0 +1,206 @@
+php -dmemory_limit=5G bin/magento setup:install --base-url="http://localhost/magento237" --db-host="localhost" --db-name="magento237" --db-user="root" --db-password="" --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="admin@1234" --use-rewrites="1" --backend-frontname="admin"
+
+for magento 2.4.4 don't forget to write pub in base rul > example > 
+http://localhost/magento2444/pub/
+
+php bin/magento setup:install --base-url=http://localhost/magento2444/ --db-host=localhost --db-name=magento2444 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=admin@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --search-engine=elasticsearch7 --elasticsearch-host=localhost --elasticsearch-port=9200
+
+admin_r1cti6
+
+C:\wamp64\www\magento233\app\code\Ced\Wallet\Helper\GenerateOTP.php
+
+
+// Create layout file withou block  > 
+
+<block class="Magento\Framework\View\Element\Template" template="Vendor_Module::custom.phtml">
+
+<block class="Magento\Framework\View\Element\Template" template="Dharma_AdvanceSearch::homepage.phtml" />
+
+
+<?php echo $block->getBaseUrl() . 'dharma/result/productlist/' ?>";
+
+
+// Composer
+Use the Public key as your username and the Private key as your password.
+Public Key: e042610264e17ebe7f5e7c25a6f44732
+Private Key: 925c984b853aefaa4b12506b553091c6
+
+
+// composer Public key and Private key of sir
+
+Public Key: b4cb57f02a59c678a386fed6ae3625b5
+Private Key: f2c2f7f7acb82bd8a8371ce115cb415f
+
+
+Create Admin user - 
+
+php bin/magento admin:user:create --admin-user=devTwo --admin-password=dev2@1234 --admin-email=devtwo@gmail.com --admin-firstname=devtwo --admin-lastname=devtwo
+
+php -d memory_limit=6G bin/magento setup:static-content:deploy --theme Codazon/unlimited_sport en_AU -f
+
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy en_US en_AU -f
+
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy en_AU en_US -f
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --area frontend en_AU -f
+
+
+for admin 
+
+php -d memory_limit=6G bin/magento setup:static-content:deploy --area adminhtml en_US -f
+
+
+
+Enable developer mode - php bin/magento deploy:mode:set developer
+
+php -dmemory_limit=5G composer require mageplaza/magento-2-social-login
+
+db - magento237
+pass - admin@1234
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy -f
+
+php -dmemory_limit=5G bin/magento setup:upgrade
+
+
+
+php -dmemory_limit=5G bin/magento config:set catalog/search/engine elasticsearch7
+
+php bin/magento indexer:reindex
+
+php -dmemory_limit=5G bin/magento indexer:reindex
+
+
+php bin/magento indexer:reset catalog_product_attribute
+
+php bin/magento indexer:reindex catalog_product_attribute
+
+// compile 
+php -dmemory_limit=5G bin/magento setup:di:compile
+
+
+php bin/magento module:status
+
+php bin/magento module:enable Mageplaza_HelloWorld
+
+php bin/magento module:disable Custome_Block
+
+
+// French
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy -f --theme Magento/luma fr_FR
+
+// Arabic
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --theme Magento/luma ar_SA -f
+
+// Russian
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --theme Magento/luma ru_RU -f
+
+// Israel - Hebrew
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --theme Magento/luma he_IL -f
+
+// combine
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --theme Magento/luma fr_FR ar_SA ru_RU he_IL -f
+
+php bin/magento setup:static-content:deploy --theme Magento/luma --theme Magento/theme_number_two
+
+Multi language store done,
+language French,Arabic,Russian,Hebrew language of Israel
+
+Store
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --theme Mageplaza/simple --theme Mageplaza/medium --theme Mageplaza/advance -f
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --theme Mageplaza/medium -f
+
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --theme Magento/luma --theme Mageplaza/medium -f
+
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --theme Magento/luma --theme Magento/blank --theme Mageplaza/medium fr_FR ar_SA ru_RU he_IL -f
+
+
+
+
+
+vendor - Codazon
+theme - fastest
+
+// Mysql
+
+$ mysql -u root -p -e "delete from <dbname>.theme where theme_path ='<Vendor>/<theme>' AND area ='frontend' limit 1"
+
+
+
+$ mysql -u root -p -e "SELECT * FROM magento237"
+
+
+Adding header and footer
+header_banner_section
+
+collection
+
+$productCollection = $block->getProductCollection();
+foreach ($productCollection as $product) {
+    print_r($product->getData());    
+    echo "<br>";
+}
+
+
+// Delete Table from database 
+DELETE FROM setup_module WHERE module ='module_name';
+
+php bin/magento setup:db-schema:upgrade
+
+
+<div class="link">
+    <a href="http://localhost/magento237/uiexample/index/index">Show Grid</a>
+</div>
+
+
+// Call block in cms page
+{{block class="Magento\Framework\View\Element\Template" template="Custome_Block::homepage.phtml"}}
+
+{{block class="Magento\Framework\View\Element\Template" template="RH_UiExample::homepage.phtml"}}
+
+
+{{block class="Magento\Cms\Block\Block" block_id="[Identifier]"}}
+
+{{block class="Magento\Cms\Block\Block" block_id="[rh_uiexample_addlink_block]"}}
+
+
+
+
+ backup - 
+ php -dmemory_limit=5G bin/magento setup:backup --code --media --db
+
+// installation error 
+
+  Unable to apply data patch Magento\Theme\Setup\Patch\Data\RegisterThemes for module Magento_Theme. Original excepti
+  on message: Wrong file
+
+// solution > C:\wamp64\www\magento244\vendor\magento\framework\Image\Adapter\Gd2.php
+
+
+replcae > if ($url && isset($url['scheme']) && !in_array($url['scheme'], $allowed_schemes)) {
+
+with > if ($url && isset($url['scheme']) && !in_array($url['scheme'], $allowed_schemes) && !file_exists($filename)) {
+
+
+php bin/magento module:disable Magento_TwoFactorAuth
+
+
+
+
+Warning: file_put_contents(C:/wamp64/www/magento244/generated/metadata/primary|global|plugin-list.php): Failed to o
+  pen stream: No such file or directory in C:\wamp64\www\magento244\vendor\magento\framework\Interception\PluginListG
+  enerator.php on line 414
+
+
+
+
+username and password
+magento244 > admin123
+magento237 > admin@1234

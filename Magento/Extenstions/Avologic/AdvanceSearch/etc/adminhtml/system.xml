@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="avologic" translate="label" sortOrder="10">
+            <label>Avologic</label>
+        </tab>
+        <section id="avologic" translate="label" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>ADVANCED SEARCH SELECTOR</label>
+            <tab>avologic</tab>
+            <resource>Avologic_AdvanceSearch::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+
+                <field id="allowattributesinview" translate="label comment" type="multiselect" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Product Attributes to show in advance search page</label>
+                    <source_model>Avologic\AdvanceSearch\Model\ResourceModel\ViewPageAttributes</source_model>
+                    <comment>Selected attribute will display in configure product detail page.</comment>
+                </field>
+
+                <field id="searchpos" translate="label comment" sortOrder="12" type="select" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Link In</label>
+                    <!-- source model which we created for drop down options -->
+                    <source_model>Avologic\AdvanceSearch\Model\Config\Source\Show</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

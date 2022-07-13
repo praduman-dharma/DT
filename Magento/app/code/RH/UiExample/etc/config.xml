@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <uiexample>
+            <general>
+                <version>1.0.0</version>
+                <enable>1</enable>
+                <display_title>Another Blog</display_title>
+                <color_field>ffffff</color_field>
+            </general>
+        </uiexample>
+    </default>
+</config>

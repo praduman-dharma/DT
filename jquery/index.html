@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome To Registration Form</title>
+    <script src="js/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.5/chosen.jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.5/chosen.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
+
+    <style>
+        body {
+            margin: 0px;
+            background-color: #f26724;
+            background-image: url(image/background.jpg);
+            color: #f9fcf5;
+            font-family: Arial, Helvetica, sans-serif;
+            height: 3000px;
+        }
+
+        #main {
+            width: 600px;
+            height: auto;
+            overflow: hidden;
+            padding-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 5px;
+            padding-left: 10px;
+            margin-top: 100px;
+            border-top: 3px double #f1f1f1;
+            border-bottom: 3px double #f1f1f1;
+            padding-top: 20px;
+        }
+
+        #main table {
+            font-family: "Comic Sans MS", cursive;
+        }
+
+        /* css code for textbox */
+        #main .tb {
+            height: 28px;
+            width: 230px;
+            border: 1px solid #f26724;
+            color: #fd7838;
+            font-weight: bold;
+            border-left: 5px solid #f7f7f7;
+            opacity: 0.9;
+        }
+
+        #main .tb:focus {
+            height: 28px;
+            border: 1px solid #f26724;
+            outline: none;
+            border-left: 5px solid #f7f7f7;
+        }
+
+        /* css code for button*/
+        #main .btn {
+            width: 150px;
+            height: 32px;
+            outline: none;
+            color: #f7f7f7;
+            font-weight: bold;
+            border: 0px solid #f26724;
+            text-shadow: 0px 0.5px 0.5px #fff;
+            border-radius: 2px;
+            font-weight: 600;
+            color: #f26724;
+            letter-spacing: 1px;
+            font-size: 14px;
+            background-color: #f1f1f1;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+
+        #main .btn:hover {
+            background-color: #f26724;
+            outline: none;
+            border-radius: 2px;
+            color: #f1f1f1;
+            border: 1px solid #f1f1f1;
+            -webkit-transition: 1s;
+            -moz-transition: 1s;
+            transition: 1s;
+        }
+
+        button.bottom {
+            position: fixed;
+            bottom: 59px;
+            border-radius: 32px;
+            padding: 12px 10px;
+            width: 10%;
+            right: 47px;
+            border: solid palegreen 1px;
+            font-family: -webkit-body;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        button.btn {
+            position: fixed;
+            bottom: 110px;
+            border-radius: 32px;
+            padding: 12px 10px;
+            width: 10%;
+            right: 47px;
+            border: solid palegreen 1px;
+            font-family: -webkit-body;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+
+        .ptr {
+            position: fixed;
+            bottom: 1px;
+            border-radius: 32px;
+            padding: 12px 10px;
+            width: 9%;
+            right: 45px;
+            border: solid palegreen 1px;
+            font-family: -webkit-body;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        a.printPage {
+            font-weight: 20px;
+            text-decoration: none;
+            color: black;
+            font-family: -webkit-body;
+        }
+
+        #parent {
+            width: 40%;
+            background-color: rebeccapurple;
+            margin: 10px auto;
+            border-radius: 34px;
+
+        }
+
+        #newElement {
+            height: 40px;
+            width: 100px;
+            margin: 0 auto;
+            color: white
+        }
+
+        div#newElement {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 180px;
+        }
+
+        div#newElement p {
+            width: 300px;
+        }
+
+        .error {
+            display: block;
+            color: black;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main div code -->
+    <div id="main">
+        <div class="h-tag">
+            <h2 class="blink">Create Your Account</h2>
+        </div>
+        <!-- create account div -->
+        <div class="login">
+            <form action="" id="formABC">
+                <table cellspacing="2" align="center" cellpadding="8" border="0">
+                    <tr>
+                        <td align="right" class="bold">Enter Name :</td>
+                        <td><input type="text" placeholder="Enter user here" id="t1" class="tb"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="bold">Enter Email ID :</td>
+                        <td><input type="text" placeholder="Enter Email ID here" id="t2" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="bold">Enter Phone Number :</td>
+                        <td><input type="text" placeholder="Enter Phone Number here" id="t3" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="bold">Enter Username :</td>
+                        <td><input type="text" placeholder="Enter Username here" id="t4" class="tb" /></td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" class="bold">Select Country :</td>
+                        <td>
+                            <select onchange="val()" class="tb chosen" id="select_id">
+                                <option value="Select">Select</option>
+                                <option value="India">India</option>
+                                <option value="Russia">Russia</option>
+                                <option value="USA">USA</option>
+                                <option value="UK">UK</option>
+                                <option value="Srilanka">Srilanka</option>
+                                <option value="Japan">Japan</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Taiwan">Taiwan</option>
+                                <option value="Israel">Israel</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" class="bold">Maximum 15 characters </td>
+                        <td><textarea id="textarea" maxlength="15" class="tb"></textarea>
+                            <div>
+                                <span id="rchars">15 </span>Character(s) Remaining
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td align="right" class="bold">Enter Password :</td>
+                        <td><input type="password" placeholder="Enter Password here" id="t5" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td align="right" class="bold">Enter Confirm Password :</td>
+                        <td><input type="password" placeholder="Enter Password here" id="t6" class="tb" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="reset" value="Clear Form" id="res" class="btn" />
+                            <!-- <input type="submit" value="Create Account" class="btn" onclick="registration()"
+                                disabled="disabled" id="submitbtn" /> -->
+                            <input type="submit" value="Create Account" class="btn" disabled="disabled"
+                                id="submitbtn" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <!-- create account box ending here.. -->
+    </div>
+    <div id="parent">
+
+    </div>
+    <!-- Main div ending here... -->
+
+    <!-- <p id="para">Lorem ipsum dolor sit amet.</p> -->
+
+    <button class="bottom" onclick="scrollToTop()">
+        Click to scroll to top
+    </button>
+
+    <div>
+        <a class="ptr printPage" href="#" id="ptr">Print</a>
+    </div>
+
+    <button class="btn" onclick="insert()">
+        Insert Div
+    </button>
+
+    <script>
+        // jquery validation
+
+        $(document).ready(function () {
+
+
+        });
+
+    </script>
+
+    <script>
+        // scroll to top
+        function scrollToTop() {
+            $(window).scrollTop(0);
+        }
+
+        // disable right click
+        $(document).bind("contextmenu", function (e) {
+            return false;
+        });
+
+        // submit enable/disable
+        $('#t6').click(function () {
+            if ($('#submitbtn').is(':disabled')) {
+                $('#submitbtn').removeAttr('disabled');
+            } else {
+                $('#submitbtn').attr('disabled', 'disabled');
+            }
+        });
+
+        // blink text 
+        function blink_text() {
+            $('.blink').fadeOut(500);
+            $('.blink').fadeIn(500);
+        }
+        setInterval(blink_text, 1000);
+
+        // Insert Div
+        function insert() {
+            $("#parent").append('<div id = "newElement">'
+                + '<p>A Computer Science portal for geeks</p></div>');
+        }
+
+
+    </script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            // Print page
+            $('a.printPage').click(function () {
+                window.print();
+                return false;
+            });
+
+            // Limit character input in the textarea including count. 
+            var maxLength = 15;
+            $('textarea').keyup(function () {
+                var textlen = maxLength - $(this).val().length;
+                $('#rchars').text(textlen);
+            });
+
+
+            // Make first word bold of all elements.
+            $(".bold").each(function () {
+                var txt = $(this);
+                txt.html(txt.text().replace(/(^\w+)/, '<strong>$1</strong>'));
+                // console.log("hello");
+            });
+
+            // Search
+            $(".chosen").chosen();
+
+            // jquery validation
+            $('#submitbtn').click(function (e) {
+                e.preventDefault();
+                var name = $('#t1').val();
+                var email = $('#t2').val();
+                var phone = $('#t3').val();
+                var uname = $('#t4').val();
+                var pwd = $('#t5').val();
+                var cpwd = $('#t6').val();
+                var text = $('#textarea').val();
+
+                // Expression
+                var letters = /^[A-Za-z]+$/;
+                var regEx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                var phoneno = /^\d{10}$/;
+
+
+                $('.error').remove();
+
+                if (name.length < 1) {
+                    $('#t1').before('<span class="error">This field is required</span>');
+                }
+                else {
+                    var validName = letters.test(name);
+                    if (!validName) {
+                        $('#t1').before('<span class="error">Enter valid name</span>');
+                    }
+                }
+
+                if (email.length < 1) {
+                    $('#t2').before('<span class="error">This field is required</span>');
+                } else {
+                    var validEmail = regEx.test(email);
+                    if (!validEmail) {
+                        $('#t2').before('<span class="error">Enter a valid email</span>');
+                    }
+                }
+
+                if (phone.length < 1) {
+                    $('#t3').before('<span class="error">This field is required</span>');
+                } else {
+                    var validPhone = phoneno.test(phone);
+                    if (!validPhone) {
+                        $('#t3').before('<span class="error">Enter a valid Number</span>');
+                    }
+                }
+
+                if (uname.length < 1) {
+                    $('#t4').before('<span class="error">This field is required</span>');
+                } else {
+                    var validUser = letters.test(uname);
+                    if (!validUser) {
+                        $('#t4').before('<span class="error">Enter a valid Username</span>');
+                    }
+                }
+
+                if (text.length < 1) {
+                    $('#textarea').before('<span class="error">This field is required</span>');
+                }
+
+                if (pwd.length < 6) {
+                    $('#t5').before('<span class="error">Password must be at least  6 characters long</span>');
+                }
+                if (pwd != cpwd) {
+                    $('#t6').before('<span class="error">Password Not Matched</span>');
+                } else {
+                    alert('Thank You for Login & You are Redirecting to Homepage');
+                    window.location = "index.html";
+                }
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>

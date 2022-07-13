@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Tabs functionality</title>
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#tabs-1").tabs();
+        });  
+    </script>
+    <style>
+        #tabs-1 {
+            font-size: 14px;
+        }
+
+        .ui-widget-header {
+            background: lightpink;
+            border: 1px solid #b9cd6d;
+            color: lightyellow;
+            font-weight: bold;
+        }
+
+        .ui-tabs .ui-tabs-nav {
+            margin: 0;
+            padding: 0.2em 0.2em 0;
+            display: flex;
+            justify-content: center;
+            gap: 0 40px;
+            background-color: white;
+        }
+
+        .para {
+            text-align: center;
+        }
+
+        .ui-tabs .ui-tabs-nav li.ui-tabs-active {
+            border-bottom: 4px solid brown;
+        }
+        .ui-tabs .ui-tabs-nav li.ui-tabs {
+            border-bottom: 4px solid #e6e6e6;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tabs-1">
+        <ul>
+            <li><a href="#tabs-2">Email me</a></li>
+            <li><a href="#tabs-3">Scan QR Code</a></li>
+        </ul>
+        <div id="tabs-2">
+            <p class="para">Enter your email and we'll send you link</p>
+            <p class="para">to download the free app</p>
+        </div>
+        <div id="tabs-3">
+            <p>Man said to God --- Why did you make women so beautiful?<br />
+                God said to man --- So that you will love them.<br />
+                Man said to God --- But why did you make them so dumb?<br />
+                God said to man --- So that they will love you.<br /> </p>
+        </div>
+    </div>
+</body>
+
+</html>

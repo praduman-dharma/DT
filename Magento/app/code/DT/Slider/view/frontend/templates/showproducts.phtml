@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .raw_container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0px;
+            padding: 30px 0;
+            /* border: 2px solid black; */
+        }
+
+        .raw_product {
+            display: flex;
+            flex-direction: column;
+            margin: 5px;
+            /* border: 2px solid black; */
+            width: 200px
+        }
+
+        .name {
+            margin: 10px;
+        }
+
+        .price {
+            margin: 4px;
+        }
+
+        b,
+        strong {
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <?php
+           $name = "Mobile";
+           $categoryName = $block->getCategoryName($name);
+           foreach($categoryName as $category){
+               $result = [ 
+                   'id'  => $category->getID()
+               ];
+           }
+        //    echo $result['id'];
+        ?>
+    </div>
+    <?php if(isset($result["id"])){  ?>
+    <div class="raw_container">
+        <?php
+        // $categoryId = 3; // this is the category holding your products  
+        $categoryId = $result['id'];
+        $categoryProducts = $block->getCategoryProducts($categoryId);
+        foreach ($categoryProducts as $product) {
+            $result = [
+                'id'        => $product->getId(),
+                '_sku'      => $product->getSku(),
+                'product_url' => $product->getProductUrl($product),
+                'title'     => $product->getName(),
+                'raw_price' => $product->getFinalPrice()
+                // 'raw_price' => $product->getPrice()
+            ];
+        ?>
+
+            <?php
+            $productId = $result['id'];
+            $imgUrl = $this->getItemImage($productId);
+            ?>
+            <div class="raw_product">
+                <div class="image-box">
+                    <img src="<?= $imgUrl; ?>" alt="product-image" />
+                </div>
+                <div class="details">
+                    <div class="name">
+                        <strong><?= $result['title'] ?></strong>
+                    </div>
+                    <div class="price">
+                        <span class="price"><?php
+                                            $value =  $result['raw_price'];
+                                            $price = "$";
+                                            $price .= number_format($value, 2);
+                                            echo $price;
+                                            ?></span>
+                        <!-- <span class="price"><?= $result['raw_price'] ?></span> -->
+                    </div>
+                </div>
+            </div>
+
+        <?php } ?>
+    </div>
+    <?php } ?>
+</body>
+
+</html>

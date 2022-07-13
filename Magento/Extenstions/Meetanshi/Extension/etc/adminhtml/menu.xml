@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+   <menu>
+    	<add id="Meetanshi_Extension::view" title="Form" module="Meetanshi_Extension" sortOrder="50" resource="Meetanshi_Extension::view"/>
+
+        <add id="Meetanshi_Extension::menu" title="Manage Form" module="Meetanshi_Extension" sortOrder="20" parent="Meetanshi_Extension::view" action="cust/index/index" resource="Meetanshi_Extension::menu"/>
+</menu>
+</config>

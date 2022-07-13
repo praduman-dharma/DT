@@ -1,0 +1,46 @@
+php -d memory_limit=6G bin/magento setup:static-content:deploy --theme Codazon/fastest_food_drink en_AU en_US -f
+
+
+php -d memory_limit=6G bin/magento setup:static-content:deploy --area adminhtml en_AU en_US -f
+
+
+
+// admin email >> admin@superbazaar.com.au
+
+(iBank Credentials Case Sensitive - Username and Password --> DemoShopper)
+
+// Customer login information
+
+testingdevcheck@gmail.com 
+
+admin@123
+
+
+pradhyumanp.dharmatechnolabs@gmail.com
+
+Praduman123#
+
+product >> Malnad Bliss Filter Coffee Powder 500g
+
+bkp
+
+{
+   "http-basic": {
+      "repo.magento.com": {
+         "username": "583dad6f5b88639f50f45513ef932078",
+         "password": "91f137ce3ab7aca56b7044a3e992a195"
+      }
+   }
+}
+
+{
+    "http-basic": {
+        "repo.magento.com": {
+            "username": "<public-key>",
+            "password": "<private-key>"
+        }
+    }
+}
+
+
+
