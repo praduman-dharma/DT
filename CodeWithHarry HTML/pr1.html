@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="col-main-wrap">
+
+
+        
+        <form action="" method="get" id="form-validate">
+            <div class="fieldset ajax-advanced-search">
+                <h2 class="legend">TRY OUR Quick Advanced Search SELECTOR</h2>
+                <div class="tickroom" id="tickroom">
+                    <ul class="form-list ajax_advanced_search_list" id="advanced-search-list">
+
+                        <li class="first-step description odd">
+                            <label class="ticktext" for="description">Description</label>
+                            <div class="input-box">
+                                <input type="text" name="description" id="description" value="" title="Description"
+                                    class="input-text " maxlength="128">
+                            </div>
+                        </li>
+
+
+                        <li class="first-step sensor even">
+                            <label for="sensor" class="ticktext_select">Select Sensor </label>
+                            <div class="input-box">
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="3">
+                                    Temperature</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="4">
+                                    Humidity</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="5">
+                                    illumination</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="6">
+                                    AC Line Voltage</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="7">
+                                    Water Leak</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="8">
+                                    Pressure</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="9">
+                                    Flow</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="10">
+                                    Level</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="11">
+                                    Contact/ Prox switch</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="12">
+                                    RTD</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox" name="sensor[]"
+                                        value="21">
+                                    Soil Moisture</div>
+                            </div>
+                            <div class="input-box">
+                            </div>
+                        </li>
+
+                        <li class="first-step connectivity odd">
+                            <label for="connectivity" class="ticktext_select">Select Connectivity Options </label>
+                            <div class="input-box">
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox"
+                                        name="connectivity[]" value="13">
+                                    Standard Ethernet</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox"
+                                        name="connectivity[]" value="14">
+                                    Ethernet with POE</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox"
+                                        name="connectivity[]" value="15">
+                                    WiFi</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox"
+                                        name="connectivity[]" value="16">
+                                    GSM/ Cellular</div>
+                            </div>
+                            <div class="input-box">
+                            </div>
+                        </li>
+
+                        <li class="first-step peripherals even">
+                            <label for="peripherals" class="ticktext_select">Select Peripheral Options </label>
+                            <div class="input-box">
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox"
+                                        name="peripherals[]" value="20">
+                                    Color LCD Display</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox"
+                                        name="peripherals[]" value="19">
+                                    Form C Relay</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox"
+                                        name="peripherals[]" value="18">
+                                    SNMP V3 Support</div>
+                                <div class="checkbox custom-advance-search-home"><input type="checkbox"
+                                        name="peripherals[]" value="17">
+                                    Cloud Push</div>
+                            </div>
+                            <div class="input-box">
+                            </div>
+                        </li>
+
+                        <li class="first-step price last odd">
+                            <label class="ticktext" for="price">Price</label>
+                            <div class="input-range">
+                                <input name="price[from]" value="" id="price" title="Price"
+                                    class="input-text validate-number" type="text" pattern="\d*" maxlength="128">
+                                <span class="separator">-</span>
+                                <input name="price[to]" value="" id="price_to" title="Price"
+                                    class="input-text validate-number" type="text" pattern="\d*" maxlength="128">
+                                <small>(USD)</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="second_img"><img alt=""
+                        src="https://eesensors.com/skin/frontend/shopper/default/malav_search/images/second-1.png">
+                </div>
+                <script type="text/javascript">decorateList('advanced-search-list')</script>
+            </div>
+        </form>
+        <div style="border: 1px solid #cccccc;padding: 10px;" id="results"></div>
+        <div style="left: -2px; top: 0px; height: 783px; display: none;" id="loading-mask">
+            <p id="loading_mask_loader" class="loader"><img alt="Loading..."
+                    src="https://eesensors.com/skin//adminhtml/default/default/images/ajax-loader-tr.gif">
+                <br>Please wait...
+            </p>
+        </div>
+
+        <div class="buttons-set  aj_search_button">
+            <button id="home_cust_search" type="button" title="Search"
+                class="button"><span><span>Search</span></span></button>
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            //<![CDATA[
+            var dataForm = new VarienForm('form-validate', true);;
+            jQuery(document).ready(function () {
+                jQuery("#home_cust_search").click(function () {
+                    if (dataForm.validator.validate()) {
+                        jQuery("#loading-mask").show();
+                        jQuery.ajax({
+                            url: "https://eesensors.com/search/results/for/",
+                            type: "POST",
+                            //data: "size="+jQuery(this).val(),
+                            data: 'ajax=true&' + jQuery('#form-validate').serialize(),
+                            success: function (data) {
+                                jQuery('#results').html(data);
+                                jQuery("#loading-mask").hide();
+                                jQuery("#form-validate").hide();
+                                jQuery("#home_cust_search").hide();
+                                jQuery('.second_img').hide();
+                            }
+                        });
+                    }
+                });
+            });
+    //]]>
+        </script>
+
+    </div>
+</body>
+
+</html>

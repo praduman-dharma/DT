@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 6 practice set</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 150vh;
+        }
+        header{
+            background: black;
+            color: white;
+            
+        }
+        ul{
+            display: flex;
+            flex-direction: row;
+        }
+        li{
+            list-style: none;
+            padding: 25px 34px;
+        }
+        #navbar{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        #logo{
+            margin: 10px 34px;
+        }
+
+        #logo img{
+            height: 59px;
+            margin: 3px 6px;
+            border-radius: 50px;
+        }
+        .home{
+            background: url('./img/bg.jpg')  no-repeat;
+            height: 40vh;
+            width: 100vw;
+            /* background: url('../bg1.jpg') no-repeat center center/cover; */
+        }
+        .section{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .box1{
+            background: url('./img/1.png')  no-repeat center center/cover;
+            height: 200px;
+            width: 200px;
+            margin: 20px 40px;
+            /* background: red; */
+            border: 2px solid black;
+        }
+        .box2{
+            background: url('./img/2.png')  no-repeat center center/cover;
+            height: 200px;
+            width: 200px;
+            margin: 20px 40px;
+            /* background: blue; */
+            border: 2px solid black;
+        }
+        .box3{
+            background: url('./img/1.png')  no-repeat center center/cover;
+            height: 200px;
+            width: 200px;
+            margin: 20px 40px;
+            /* background: green; */
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav id=navbar>
+            <div id="logo">
+                <img src="./img/logo.png" alt="logo">
+            </div>
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="home">
+            <h1>Background Image</h1>
+        </div>
+        <div class="section">
+            <div class="box1">box1</div>
+            <div class="box2">box2</div>
+            <div class="box3">box3</div>
+        </div>
+    </div>
+</body>
+</html>
