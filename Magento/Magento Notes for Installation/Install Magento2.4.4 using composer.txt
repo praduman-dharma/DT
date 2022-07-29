@@ -56,7 +56,7 @@ Step 6 >
 
 After above changes then run below command for install Magento 2.4
 
-php bin/magento setup:install --base-url=http://localhost/magento244/pub/ --db-host=localhost --db-name=magento244 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=user@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --backend-frontname="admin" --search-engine=elasticsearch7 --elasticsearch-host=localhost --elasticsearch-port=9200
+php -dmemory_limit=6G bin/magento setup:install --base-url=http://localhost/magento2444/pub/ --db-host=localhost --db-name=magento2444 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=user@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --backend-frontname="admin" --search-engine=elasticsearch7 --elasticsearch-host=localhost --elasticsearch-port=9200
 
 
 Step 7 > php bin/magento setup:upgrade
