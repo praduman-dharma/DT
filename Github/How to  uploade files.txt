@@ -1,0 +1,99 @@
+Username > pradhyuman-Dharma
+password > pradhyuman$2022
+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
+
+github email >> ppraduman@outlook.com  
+
+
+What is Git >
+
+Version Control System
+
+Git is a software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development.
+
+
+Step 1 > git config --global user.name Praduman
+
+git config --global user.name "Pradhyuman"
+
+Step 2 > git config --gloabal user.email "praduman@gmail.com"
+
+git config --global user.email "pradhyumanp.dharmatechnolabs@gmail.com"
+
+Step 3 > touch .gitignore  > it is option step
+
+We add files and folder in .gitignore which are too large, that we don't want to upload on github.
+
+if you want to ignore folder write folder name in .gitignore with /(slash)
+
+Example 
+
+node_modules/
+
+Step 4 > git init   
+> it's initilize your project and create a git folder in your project
+
+if git folder not showing than enable hidden files
+
+Step 5 > git add . 
+
+> ye  command all content ko staging area me dal dega.
+
+Step 6 > git commit -m "Initial commit"
+
+Step 7 > git status
+
+> ye aapki repository ka status batata he
+
+> agar git status ke bad > On branch master , nothing to commit, woriking tree clean 
+
+> message show ho to aap apne project ko publish kar sakte he.
+
+Optional Step > git branch -M master
+
+Step 8 > than copy repository ssh  > Example > git@github.com:pradhyuman-Dharma/PluginTest.git
+
+Step 9 > git remote add origin git@github.com:pradhyuman-Dharma/PluginTest.git
+
+> iss command se aapki file ka content , link repository pe ja sakta he
+
+Step 10 > git push -u origin main
+
+
+After changes 
+Note >
+Step 1 >  git status > command koi file changes hoti he to usko detect karta he or inform karta he.
+
+Step 2 > git add . > 
+
+Step 3 > git commit -m "Changes"
+
+Step 4 > git push origin master
+
+	or
+
+Step 4 > git push -u origin master
+
+
+// How to get changes / or pull changes
+
+
+Step 1 > git fetch
+
+or
+
+git fetch <alias> <branch>
+
+Step 2 > git pull oringin master
+
+or 
+
+git pull <alias>
+
+
+// clone repository
+
+Step 1 > first go to folder where you want to clone repository 
+
+Step 2 > git clone <github repository link>
+

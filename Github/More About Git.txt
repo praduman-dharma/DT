@@ -1,0 +1,26 @@
+// Global
+
+Set username > git config --global user.name "Praduman"
+
+Check username > git config -- global user.name
+
+if you want to change user name than again run set username command
+
+Set email > git config --global user.email "praduman@gmail.com"
+
+Check email > git config --global user.email
+
+if you want to change user email than again run set useremailcommand
+
+// Local
+
+
+Set username > git config user.name "Praduman"
+
+Check username > git config user.name
+
+
+Set email > git config user.email "praduman@gmail.com"
+
+Check email > git config user.email
+
