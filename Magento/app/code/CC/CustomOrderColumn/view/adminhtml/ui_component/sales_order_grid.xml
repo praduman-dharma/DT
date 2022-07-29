@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="sales_order_columns">
+        <column name="discount_amount" class="Magento\Sales\Ui\Component\Listing\Column\PurchasedPrice">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">textRange</item>
+                    <item name="label" xsi:type="string" translate="true">Discount Amount</item>
+                </item>
+            </argument>
+        </column>
+        <column name="export_status" class="CC\CustomOrderColumn\Ui\Component\Listing\Column\Status">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string" translate="true">XML Exported</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_image" class="CC\CustomOrderColumn\Ui\Component\Listing\Column\ProductImage">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string" translate="true">Product Image</item>
+                </item>
+            </argument>
+        </column>
+        <!-- <column name="product_name" class="CC\CustomOrderColumn\Ui\Component\Listing\Column\ProductName">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string" translate="true">Product Name</item>
+                </item>
+            </argument>
+        </column> -->
+        <column name="product_qty" class="CC\CustomOrderColumn\Ui\Component\Listing\Column\ProductQty">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string" translate="true">Product Quntity</item>
+                </item>
+            </argument>
+        </column>
+        <column name="product_price" class="CC\CustomOrderColumn\Ui\Component\Listing\Column\ProductPrice">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="label" xsi:type="string" translate="true">Product Price</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

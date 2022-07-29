@@ -1,0 +1,97 @@
+•    General OOP and MVC concepts
+
+ Event-driven architecture
+ Magento module-based architecture
+ Magento directory structure/naming conventions/code pools/namespaces/module structure
+ Configuration XML
+ Factory and functional class groups
+ Class overrides
+•    Event observer Page 6 v.021811
+•    Request Flow
+•    Application initialization
+•    Front controller
+•    URL rewrites
+•    Request routing
+•    Modules initialization
+•    Design and layout initialization
+•    Structure of block templates
+•    Flushing data (output)
+Rendering
+•    Template structure
+•    Blocks
+•    Design layout SML schema, CMS content directives
+Working with Database in Magneto
+•    Models resource and collections
+•    Magneto Object Relational Mapping
+•    Write, install and upgrade scripts using set up resources
+Entity-Attribute-Value model
+•    Model concepts
+•    EAV entity
+•    Load and Save
+•    Attributes management
+Admin HTML
+•    Common structure/architecture
+•    Form and Grid Widgets
+•    System configuration XML and configuration scope
+•    ACL (permissions)
+•    Enabling and configuring extensions
+
+
+Magento overview
+Magento architecture
+Magento installation
+Magento - website  first page
+Magento - login-logout
+Magento dashboard
+Magento customize logo
+Magento - add store information
+Magento - product overview
+Magento - setup categories
+Magento - setup products
+Magento - setup inventory
+Magento - setup taxes
+Magento - setup shipping services
+Magento - invoice
+Magento - reports
+Magento - setup payment gateway
+Magento - setup payment methods
+Magento - setup cart price rule
+Magento - setup currencies
+Magento - setup checkout options
+Magento - setup content page
+Magento - setup store live
+Magento - check orders
+Magento - setup order options
+Magento - setup order emails
+Magento - create orders
+Magento - manage orders
+Magento - Add new user
+Magento - Add New user role
+Magento - delete user
+Magento - Add new customer group
+Magento - Add new customer
+Magento - Add new widget
+Magento - delete widget
+Magento - Add new page
+Magento - Delete page
+Magento - setup customers
+Magento - setup Google analytics
+Magento - setup pretty URLs
+Magento - setup youTube video
+Magento - setup page title
+Magento - setup page layout
+Magento - setup block
+Magento - setup newsletter
+Magento - set locale
+Magento - setup admin captcha
+Magento - check reviews
+Magento - check Search Terms
+Magento - enable automatic backup
+Magento - Environmental optimization
+Magento - configuration optimization
+Magento - code optimization
+Magento - cache management
+Magento - frontend optimization
+Magento - database performance
+Magento - Search engine optimization
+Magento - edit copyright information
