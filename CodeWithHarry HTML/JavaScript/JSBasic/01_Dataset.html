@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset Property</title>
+</head>
+
+<body>
+    <!-- <img src="https://source.unsplash.com/random/900x700" alt=""> -->
+
+    <button id="gotoNode" type="button" class="btn btn-default" name='gotoNode'
+        data-arg1='123'><img src="https://source.unsplash.com/random/900x700" alt=""></button>
+
+    <button id="gotoNode" type="button" class="btn btn-default" name='gotoNode'
+        data-arg1='1234'><img src="https://source.unsplash.com/random/900x700" alt=""></button>
+
+    <button id="gotoNode" type="button" class="btn btn-default" name='gotoNode'
+        data-arg1='12345'><img src="https://source.unsplash.com/random/900x700" alt=""></button>
+    <script>
+
+    btns = document.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function (event) {
+            let arg1 = event.target.getAttribute('data-arg1');
+            alert(arg1);
+            let arg2 = event.target;
+            // console.log(arg2);
+			//Add function here
+        });
+    }
+    </script>
+</body>
+
+</html>
