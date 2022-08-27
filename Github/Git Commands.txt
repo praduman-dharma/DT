@@ -1,0 +1,11 @@
+git commit --amend > this command is use to modify previous commit.
+
+Step 1 > git commit --amend
+Step 2 > You will see the insert window than press i key from keyboard
+Step 3 > Now you are in the insert mode. Modify your Changes than press ESC key from keyboard.
+Step 4 > than type :x! > for saving changes
+Step 4 > If you don't want to save your changes than type :q!
+
+That's It.
+
+

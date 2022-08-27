@@ -1,0 +1,212 @@
+
+// camaweigh
+
+
+ftp
+198.187.31.68
+developer@camaweigh.com
+Zhongwen.12345
+
+username = dev
+password = admin@123
+
+https://www.camaweigh.com
+https://www.camaweigh.com/admin
+
+
+// cloudwaysapps
+
+ftp >>  Public IP: 167.99.92.29
+Username: pwa-magento
+PAss :  p6hRvmJZR4p6
+
+
+ssh
+Public IP:167.99.92.29
+Username:master_bmmemvtypu 
+Password:8XhM4qjX 
+
+/applications/fvrcqjmfsg/public_html
+
+http://phpstack-666225-2367229.cloudwaysapps.com/
+http://phpstack-666225-2367229.cloudwaysapps.com/admin
+admin
+admin@123
+
+
+
+
+// Dharma Technolabs 
+
+Ftp Datails:
+		FTP Username: bharat@dharmatechnolabs.com
+		FTP server: ftp.dharmatechnolabs.com	
+		FTP & explicit FTPS port:  21
+		old pass : )_5w;3
+		pass : )_5w;3[HQWbI123 
+
+
+
+SSH Datails:
+dharmatechnolabs.com
+Username: dharmate
+Password: Y0#im]2oGED33k728
+
+// [~/public_html/TestofGit]#
+
+
+// SuperBazaar 
+
+// staging
+
+Secure Base URL: https://8f888d9f54.nxcli.net/
+Admin URL      : https://8f888d9f54.nxcli.net/superbazaradmin 
+developer
+admin@1234
+
+
+
+Online Grocery in Australia| Indian Grocery store Melbourne - SuperBazaar
+https://8f888d9f54.nxcli.net
+
+
+Hostname: 8f888d9f54.nxcli.net
+Port: 22
+Username: a8aaeb85_1
+Password: PureedAcidCastAmazed
+Command: ssh a8aaeb85_1@8f888d9f54.nxcli.net
+
+
+// phpmyadmin
+https://8f888d9f54.nxcli.net/ad.php
+
+username >> a8aaeb85_superba
+password >> CivetEasingEmceesTinged
+
+
+// SuperBazaar 
+
+// live
+
+a5efa15198.nxcli.net
+a5efa15198.nxcli.net/superbazaradmin
+
+// backend 
+username : dev1
+password : admin@1234
+
+Hostname : a5efa15198.nxcli.net
+Port	: 22
+Username: a3173ac3_2
+Password: LuresDrawnHattedInside
+
+
+> /a5efa15198.nxcli.net/html
+
+
+// postalflowers
+
+> Username and password for backend
+
+https://www.postalflowers.ie/postaladmin
+postal
+Cooper100!!
+
+> ftp
+91.210.235.180	
+sucuri@postalflowers.ie	
+78pZaFwnmnin
+
+> phpMyAdmin
+dbname = postalfl_mage838_copy_for_live
+username = postalfl_arun
+password = SFz.J0p?k3dC
+
+product name delivery Dublin Ireland
+
+
+create zip = zip -r FME.zip FME
+
+
+/// dadanddaughter
+
+## cpanel
+
+https://yes-pos.in:2083/
+yesponyi
+qE_8z83v6Un300tc!8
+
+## ftp
+
+FTP server: ftp.yes-pos.in
+FTP Username: developer@yes-pos.in
+FTP & explicit FTPS port:  21
+password:wX35vJzZXL$t
+
+### backend 
+https://nakodaeshopy.com/backoffice
+
+https://dadanddaughter.in/backoffice
+
+1. backoffice
+   Backoffice!@#123
+
+2. developer
+   admin@1234
+
+From >>
+
+ https://nakodaeshopy.com/
+
+To >>
+
+ https://dadanddaughter.in/
+
+
+
+/////  simondstore
+
+ip : 104.207.229.78
+
+
+Admin Details:
+
+https://simondstore.com/admin/
+user: simondstores
+pw: SimondStore2021!!
+
+Control Panel details:
+
+https://sip1-178.nexcess.net:2443/siteworx/?domain=simondstore.com
+username: mailto:sales@simondstore.com
+password: Spectra@12121
+
+Hosting Details:
+
+https://my.nexcess.net/login
+username: mailto:spectrainc17@gmail.com
+password: f9FshPol8:hbiUXgZB
+
+Please take a backup first. We do not have any backup with us.
+
+/// simondstores Ftp Details
+Host 	 : simondstore.com
+username : developer@simondstore.com
+password : IdylsRugbyHomierServos55
+
+21O76AP7W664
+
+/// simondstores SSH Details
+
+host : simondstore.com
+user name : simondst
+ssh pass : v14YN8TT3s68
+
+
+///
+https://devaws.fullthrottlealways.com/admin_1pk5sg
+admin
+admin@123
+
+
+

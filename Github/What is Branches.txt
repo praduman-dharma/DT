@@ -1,0 +1,19 @@
+Branch - Reason Behind creating new branch work on new feature without affecting main body of our project.
+
+git branch > This command will you the list of branches
+
+// For Creating Branch 
+git branch branchname > Create a Branch with name branchname
+
+example > git branch Testing > This command will create a new branch Testing
+
+How To Switch Branch.
+git checkout branchname
+
+example > git checkout Testing
+
+// Create new brach and switch to that branch using single command
+git checkout -b branchname
+
+git checkout -b Testing2
+
