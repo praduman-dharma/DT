@@ -1,0 +1,1 @@
+<?php print_r(system('/usr/local/bin/php bin/magento cache:flush')); ?>
