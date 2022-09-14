@@ -1,12 +1,25 @@
 Reference url > https://www.truecodex.com/course/magento-2/install-magento-24-in-windows-10-using-composer-and-command-line-with-elasticsearch
+path of auth.json >> C:/Users/MAIN/AppData/Roaming/Composer/auth.json
+
+max_execution_time = 18000
+max_input_time = 6000
+memory_limit = 1024M
+
+Composer >> composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.4
+
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.3.7
+
+composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.3.7-p4
 
 First > 
 
 Enable below extensions by remove semicolon(;) from begining of the line.
 
+extension=gd2
 extension=intl
 extension=soap
 extension=sockets
+extension=sodium
 extension=xsl
 
 Step 1 > Download composer
@@ -50,7 +63,18 @@ Step 6 >
 
 After above changes then run below command for install Magento 2.4
 
-php bin/magento setup:install --base-url=http://localhost/magento244/pub/ --db-host=localhost --db-name=magento244 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=user@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --backend-frontname="admin" --search-engine=elasticsearch7 --elasticsearch-host=localhost --elasticsearch-port=9200
+php -d memory_limit=6G bin/magento setup:install --base-url=http://localhost/magento244/pub/ --db-host=localhost --db-name=magento244 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=user@example.com --admin-user=admin --admin-password=admin@123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --backend-frontname="admin" --search-engine=elasticsearch7 --elasticsearch-host=localhost --elasticsearch-port=9200
+
+php -d memory_limit=6G bin/magento setup:install --base-url=http://localhost/magento245/pub/ --db-host=localhost --db-name=magento245 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=user@example.com --admin-user=admin --admin-password=admin@123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --backend-frontname="admin" --search-engine=elasticsearch7 --elasticsearch-host=localhost --elasticsearch-port=9200
+
+php bin/magento config:set catalog/search/elasticsearch7_server_hostname localhost
+
+
+php -d memory_limit=6G bin/magento setup:install --base-url=http://localhost/magento237/ --db-host=localhost --db-name=magento237 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=user@example.com --admin-user=admin --admin-password=admin@1234 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --backend-frontname="admin"
+
+php -d memory_limit=6G bin/magento setup:install --base-url=http://localhost/magento237p4/ --db-host=localhost --db-name=magento237p4 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=admin@example.com --admin-user=admin --admin-password=admin@123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --backend-frontname="admin"
+
+
 
 
 Step 7 > php bin/magento setup:upgrade
@@ -77,6 +101,8 @@ protected function isPathInDirectories($path, $directories)
 }
 
 To > 
+
+$realPath = str_replace('\\', '/', $this->fileDriver->getRealPath($path));
 
 protected function isPathInDirectories($path, $directories)
 {
@@ -113,6 +139,17 @@ php bin/magento indexer:reindex
 php bin/magento cache:flush
 
 
+Other Errors
+If you are runing di:compile and this error is showning >> Failed to Open Stream Error While Compiling PluginListGenerator.php
+Solution >> Solution for Failed to Open Stream Error While Compiling PluginListGenerator.php 
+
+Path >> vendor/magento/framework/Interception/ PluginListGenerator.php
+
+From >> $cacheId = implode('|', $this->scopePriorityScheme) . "|" . $this->cacheId;
+
+To >> $cacheId = implode('-', $this->scopePriorityScheme) . "-" . $this->cacheId;
+
+
 
 // Error > Even if after running static and upgrade command frotend and backend not showing properly then check
 
@@ -121,6 +158,22 @@ php bin/magento cache:flush
 and change vaue of unsecure/base_url
 from > http://localhost/magento244/
 To > http://localhost/magento244/pub/
+
+
+// Other Errors 
+1. >> Undefined constant "Magento\Framework\Encryption\Adapter\SODIUM_CRYPTO_AEAD_CHACHA20POLY1305_IETF_NPUBBYTES"
+Solution >> Run this command magento >> composer require paragonie/sodium_compat
+
+2. Only for Wampp >> Check all Php Extension is enabled or not from >> click on wampp icon >> PHP >> PHP Extensions >> Check the list
+
+magento233 >> admin123
+magento244 >> admin@123
+magento237 >> admin@1234
+magento245 >> admin@123
+magento237p4 >> admin@123
+
+
+
 
 
 
