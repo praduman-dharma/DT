@@ -1,0 +1,20 @@
+Step 1 - Open cmd in this directory > C:\wamp64\bin\mysql\mysql8.0.27\bin
+
+
+Below is a Export command 
+
+mysqldump -uroot -p --databases [database_name] > name_for_export_db.sql
+
+
+
+Step 2 
+
+For Example IF you want to download a worpress602 database than you can use command like below command.
+
+mysqldump -u root -p --databases wordpress602 > wordpress_db.sql
+
+
+
+If you want download file to specif location than you can also define the directory and folder name in the command like below.
+
+mysqldump -u root -p --databases wordpress602 > d:\wordpress_db.sql

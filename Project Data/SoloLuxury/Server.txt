@@ -1,0 +1,123 @@
+SSH/ftp
+
+IP :65.108.253.249
+USER : root
+PASS : SK2&32k^$c52&4
+
+*************************************
+
+https://dev13.sololuxury.com/admin
+dev13
+admin@123
+
+GIT BRANCH :sololuxury-dev13
+
+https://dev13.veralusso.com/in-en/admin
+dev13
+admin@123
+
+
+GIT BRANCH : veralusso-dev13
+
+
+https://dev13.avoir-chic.com/in-en/admin
+dev13
+admin@123
+
+
+GIT BRANCH : avoirchic-dev13
+
+
+https://dev13.suvandnat.com/in-en/admin
+dev13
+admin@123
+
+GIT BRANCH : suvandnat-dev13
+
+https://dev13.brands-labels.com/in-en/admin
+dev13
+admin@123
+
+GIT BRANCH : brands-dev13
+
+*****************************************
+
+After login ssh go to specific project
+
+su - sololuxury
+su - veralusso
+su - avoirchic
+su - suvandnat
+su - brands
+
+********************************************
+
+For permission 
+
+chown -R sololuxury.www-data public_html  >> where brands is directory user name
+
+php -d memory_limit=6G bin/magento setup:upgrade
+php -d memory_limit=6G bin/magento setup:static-content:deploy
+php -dmemory_limit=6G bin/magento setup:di:compile
+
+******************************************
+Access dataabse
+
+https://dev13.brands-labels.com/phpmyadmin  >> same for all website
+
+
+*********************************************
+GIT PROCESS
+
+Pull latest changes from stage
+
+git pull origin stage
+git push
+
+git reset <file>
+
+****************************
+git branch --show-current
+git fetch
+
+git switch brands-dev13
+git switch suvandnat-dev13
+
+
+git pull
+
+git status
+
+git add 
+
+git commit -m "Minicart update"
+
+git push
+
+usename :Bharatmali
+token : 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
+
+
+Customer login
+testingdevcheck@gmail.com
+admin@123
+
+// php myadmin
+
+// sololuxury
+sololuxury_admin
+DK4(fk43(2pfdk&2f
+
+
+
+// brands
+brands_admin
+Jvkoaw*5m9a0zzmw
+
+// susvandant
+suvandnat_admin
+Sk3f9Fkaf*2jfa
+
+avorichic > 
+username > avoirchic_admin
+password > Se3fk(2fk3av*2fa
