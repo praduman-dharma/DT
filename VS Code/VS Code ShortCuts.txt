@@ -1,7 +1,7 @@
 # Open Folder Using Command
 > code FolderName
 
-# Switch between files like switching between tabs in chrom
+# Switch between files like switching between tabs in chrome
 > alt + file number
 
 # Open any file in Open Folder

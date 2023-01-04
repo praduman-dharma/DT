@@ -105,6 +105,13 @@
             console.log("Updating list...")
             tit = document.getElementById('title').value;
             desc = document.getElementById('description').value;
+            if(tit.length < 1){
+                confirm("Please Add Title");
+                return;
+            } else if(desc.length < 1){
+                confirm("Plase Add Description");
+                return;
+            }
             if (localStorage.getItem('itemsJson') == null) {
                 itemJsonArray = [];
                 itemJsonArray.push([tit, desc]);

@@ -30,7 +30,7 @@ var num1 = 455;
 var num2 = 56.76;
 
 // String 
-// we can write string is single/double quetes
+// we can write string in single/double quotes
 var str1 = "This is String";
 var str2 = 'This is also a String';
 

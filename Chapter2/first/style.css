@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+.box {
+    padding: 20px;
+}
+
 .head{
     display: flex;
     justify-content: center;
@@ -29,6 +33,7 @@
     margin-top: 12px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .one{
     border: 2px solid rgb(206, 203, 203);
