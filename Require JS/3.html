@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>require keyword</title>
+</head>
+<body>
+    <p>
+        After loading the requireJS it will load the data-main attribute config file.
+    </p>
+    <p>
+        What require does is?
+        It will load a file as just like we are adding file as script src.
+        so it technically means that this bunch of code 
+        <!-- <script>
+            require(['config'],function(){
+                 // all of your code here..
+             });
+         </script> -->
+         is something like this only 
+         <!-- <script src="config.js"></script> -->
+    </p>
+
+    <p>
+        Than the question is why we are calling it using data-main attribute and requre function.
+        so The data-main attribute here is that this is an asynchronous call.
+        so when our require js loads the data-main will asynchronous call config file.
+        That means that it doesn't restrict your javascript code below this script tag from running.
+        So for Example you can check this files in network tab
+    </p>
+    <script data-main="config" src="require-2.3.6.js"></script>
+    <!-- <script>alert("before require keyword")</script> -->
+    <p>
+        The above alert will stop the execution of the page usnless we click on the ok button.
+        So you can clearly see the diffrence in the network tab.
+    </p>
+    <p>
+        so if we have some variable and methods from the config file.and if we try to use it just after a requieJS script, than it won't work. becuase the data-main is asynchronous loading the config file.
+
+        so code below the require js script might or might not run at times.
+        so you might not take any chances.
+    </p>
+    <p>
+        now you can see the before require keyword alert fires before the config js file is loaded and after require keyword is immediately fired after config.js file is loaded.
+
+        so we can call it(require) one time of call back function wich will be fired when config.js file is loaded and don't worry about duplicates, require js automatically handle know whether your file has been loaded once or twice and it will decide accordingly.
+    </p>
+    <p>
+        Even if you remove the data-main attribute from the above script the config.js file will still load becuase of the below require code.
+    </p>
+    <script>
+        require(['config'],function(){
+            // all of your code here..
+            alert("after require keyword");
+        });
+    </script>
+</body>
+</html>

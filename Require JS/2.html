@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting up RequireJS</title>
+</head>
+<body>
+    <p>
+       Another thing we need require with require js is "data-main" attribute.
+       The data-main attribute will accept the path as a string and it would basically load the configuration file of our requireJS application.
+    </p>
+    <p>
+        In data-main attribute give the path to config.js, not that we don't need to write the extension name after file, becuase the require js is design for work with javascript file, so it will automatically knows that will .js extension.
+    </p>
+    <p>
+        Than the third step is to inisilize your require js. for do that simple right the requrie function inside script.
+    </p>
+    <script data-main="config" src="require-2.3.6.js"></script>
+    <script>
+       require(['config'],function(){
+            // all of your code here..
+       });
+    </script>
+</body>
+</html>
