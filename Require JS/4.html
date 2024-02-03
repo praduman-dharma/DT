@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>config file</title>
+</head>
+<body>
+    <p>
+        The config js file would be the base file for require js application,and all of the instruction you want to send it require js library can be found in config.js file.
+        
+    </p>
+    <script data-main="config" src="require-2.3.6.js"></script>
+    <script>
+        require(['config'],function(){
+            // alert("hello");
+            // require(['js/CustomScripts/jqueryFile.js']);
+            // if you already added the base url in the config file than we don't need to write like above one, we can use below one
+            require(['CustomScripts/jqueryFile']);
+            // the above one is for how to load file after our configuration file is loaded.
+        });
+    </script>
+</body>
+</html>
