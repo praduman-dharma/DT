@@ -1,0 +1,159 @@
+﻿			Lampp installetion
+follow the link : https://magefan.com/blog/install-local-lamp-server-for-ubuntu
+
+1. Open terminal => Ctrl + Alt + T
+2. In terminal run command => sudo su
+3. Enter ubuntu password => 
+4. run command =>
+				1. Update the available package information. Run this command:sudo apt update
+
+			  	2. Install the Apache 2 webserver: sudo apt install apache2
+				
+				3. Install the MySQL database server: sudo apt install mysql-server
+				     => After the MySQL database server was installed, run the following command: mysql -uroot
+				     => Also, enter these commands, one by one, to create a new user: 
+					1. CREATE USER 'phpmyadmin'@'localhost' IDENTIFIED BY '<New-Password-Here>';
+					or
+					1. ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
+					2. GRANT ALL PRIVILEGES ON *.* TO 'phpmyadmin'@'localhost' WITH GRANT OPTION;
+					3. FLUSH PRIVILEGES;
+					4. exit
+
+5.Install php7.4 and all necessary PHP libraries to work with Apache 2 and modern platforms, like Magento 2:
+1. sudo apt-get install software-properties-common
+2. sudo add-apt-repository ppa:ondrej/php
+3. sudo apt-get update
+4. sudo apt install php7.4 libapache2-mod-php7.4 php7.4-curl php7.4-intl php7.4-zip php7.4-soap php7.4-xml php7.4-gd php7.4-mbstring php7.4-bcmath php7.4-common php7.4-xml php7.4-mysqli
+5.first disable old php version => sudo a2dismod php7.2
+6.enable new version => sudo a2enmod php7.4
+ 
+ 
+command for changing php version => sudo update-alternatives --config php
+ 
+ 
+----------------------------------------------------------------------------------------------------------------------------------------------- 
+ 
+ Install phpMyAdmin
+
+Follow this link :- https://magefan.com/blog/how-to-install-phpmyadmin
+
+
+***************************
+IF Error => This page isn’t workinglocalhost is currently unable to handle this request.
+HTTP ERROR 500 =>phpmyadmin error
+ How to check server error in ubuntu  ===>>>var/log/apache2/error.log   
+ 
+ IN var/log/apache2/error.log  error ==> Call to undefined function mb_strpos()
+ solution ==> mb_strpos is not a default function in core PHP, it's contained in the mbstring extension. You can easily install it with command ==>> sudo apt install php-mbstring
+     
+     
+   error ==> Cannot log in to the MySQL server  
+   
+   Solution ==> create new user with password ==>>>>1. mysql -uroot
+   						    2. ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+   						    3. exit 
+   						    
+   						    
+   						    
+   						    
+*********************************				
+Error => PHP 7.2.5+ is required.
+
+Currently installed version is: ' . PHP_VERSION . '
+'); } // phpcs:disable PSR1.Files.SideEffects define('PHPMYADMIN', true); // phpcs:enable require_once ROOT_PATH . 'libraries/constants.php'; /*  Activate autoloader */ if (! @is_readable(AUTOLOAD_FILE)) { die( '
+
+File ' . AUTOLOAD_FILE . ' missing or not readable.
+' . '
+
+Most likely you did not run Composer to ' . '' . 'install library files.
+' ); } require AUTOLOAD_FILE; global $route, $containerBuilder, $request; Common::run(); $dispatcher = Routing::getDispatcher(); Routing::callControllerForRoute($request, $route, $dispatcher, $containerBuilder); 
+
+
+Solution => run this commands
+	1. sudo apt install software-properties-common
+	2.sudo add-apt-repository ppa:ondrej/php
+	3.sudo apt-get update
+	4.sudo service apache2 restart
+	
+	
+	
+	
+Error=>	Login without a password is forbidden by configuration (see AllowNoPassword) 
+
+Solution =>  run this commands
+
+	     1. cd /etc/phpmyadmin/
+	     2. sudo nano config.inc.php  =>nano is editor which is use for edit read only file using terminal
+					  => for save after edit any file => ctrl+x => Enter
+					  
+
+
+
+Error=>mysqli::real_connect(): The server requested authentication method unknown to the client [caching_sha2_password]
+     =>mysqli::real_connect(): (HY000/2054): The server requested authentication method unknown to the client
+     
+Solution => 1.add this lines in /etc/mysql/my.cnf file => [mysqld]
+							  default-authentication-plugin=mysql_native_password
+							  
+	    2.run the command =>ALTER USER 'root1'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root1';	
+     				[note:- 'root1'->username and end of the line root1 is password]
+     
+ 
+Error => The configuration file now needs a secret passphrase (blowfish_secret).    
+		
+		
+Solution => Open /usr/share/phpmyadmin/config.inc.php file and look for following code
+	   	$cfg['blowfish_secret'] = '84657495123845128452'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+ 	 => Replace the secret with a random string that is at least 32 characters long:
+		$cfg['blowfish_secret'] = 'P5DS+radU0TOqI7HX$cH!eb3zwnDDoDr'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+		
+  Solution2 => if /usr/share/phpmyadmin/config.inc.php file is not exits
+  		then =>create config.inc.php and copy the code of config.sample.inc.php file
+  		 and
+  		 search	in code $cfg['blowfish_secret'] = ''; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+ 	 	=> Replace the secret with a random string that is at least 32 characters long:
+			$cfg['blowfish_secret'] = 'P5DS+radU0TOqI7HX$cH!eb3zwnDDoDr'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
+	  => also create the same file in etc/phpmyadmin		
+			
+			
+Error => The $cfg['TempDir'] (/usr/share/phpmyadmin/tmp/) is not accessible. phpMyAdmin is not able to cache templates and will be slow because of this.
+
+Solution => search in /usr/share/phpmyadmin/config.inc.php file $cfg['UploadDir'] = '';
+	   $cfg['SaveDir'] = '';
+
+	=> Add $cfg['TempDir'] = '/tmp'; to the file.like this:
+
+	/*
+	 * Directories for saving/loading files from server
+	 */
+	$cfg['UploadDir'] = '';
+	$cfg['SaveDir'] = '';
+	$cfg['TempDir'] = '/tmp';
+
+
+     
+  ******************************************************   
+     
+     for check apache2 in working or not : =>>>>>>>>
+     1.sudo systemctl status apache2
+     
+     for reinstall apache2 : ====>>>>
+     1.sudo apt-get --purge remove apache2
+     2.sudo apt-get autoremove
+     3.rm example.com.conf
+     4.sudo apt-get install apache2
+     5.sudo ufw allow 'Apache'
+     6.sudo systemctl status apache2
+     7.sudo service apache2 restart
+
+
+ ***************************************************************
+ 
+ 
+How to install elasticsearch
+
+
+Refer Url > https://digitalstartup.co.uk/t/how-to-install-and-setup-elasticsearch-for-magento-2-ubuntu/841
+
+
+***************************************************************

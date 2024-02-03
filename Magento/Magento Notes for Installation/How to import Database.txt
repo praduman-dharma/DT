@@ -1,0 +1,39 @@
+# linux
+
+Step 1 > Conncet mysql
+
+mysql -u root1 -p -S /var/run/mysqld/mysqld.sock
+
+Step 2 > Select database
+ 
+use Databasename 
+
+Ex . use test
+
+
+Step 3 > Import Databse by defining fullpath
+
+source file path to the .sql
+
+Ex .source /var/www/html/arbanah-magento/arbanah_horseco.sql
+
+
+***************************************
+
+# Wampp
+
+Step 1 - Open cmd in this directory > C:\wamp64\bin\mysql\mysql8.0.27\bin
+
+mysql -u root -p -h localhost
+
+Step 2 - C:\wamp\bin\mysql\mysql5.0.51b\bin> mysql.exe -use databasename -u username -p
+
+Step 3 - source myfilename.sql;
+	
+or > SOURCE /var/test.sql 
+
+Ex. SOURCE C:/wamp64/www/db_superbazaar.sql
+
+SOURCE P:/Magento/Project/db_superbazaar.sql
+
+Note - don't write folder path in "(quatoes).

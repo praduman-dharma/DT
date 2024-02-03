@@ -1,0 +1,19 @@
+# Skype
+
+snap refresh skype
+
+if above command return cannot update skype running pids 
+
+than run below command
+
+get pids
+
+ps -A
+
+kill pids
+exmaple > kill 10276
+
+# update Chrome
+
+1. sudo apt-get update
+2. sudo apt-get --only-upgrade install google-chrome-stable

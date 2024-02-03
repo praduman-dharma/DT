@@ -1,0 +1,141 @@
+# magenot2.3.7
+
+php -dmemory_limit=5G bin/magento setup:install --base-url="http://localhost/magento237" --db-host="localhost" --db-name="magento237" --db-user="root" --db-password="" --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="admin@1234" --use-rewrites="1" --backend-frontname="admin"
+
+# magenot2.4.4
+
+for magento 2.4.4 don't forget to write pub in base rul > example > 
+http://localhost/magento2444/pub/
+
+php bin/magento setup:install --base-url=http://localhost/magento2444/ --db-host=localhost --db-name=magento2444 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=admin@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --search-engine=elasticsearch7 --elasticsearch-host=localhost --elasticsearch-port=9200
+
+
+// Create layout file without block 
+
+<block class="Magento\Framework\View\Element\Template" template="Vendor_Module::custom.phtml">
+
+
+<block class="Magento\Framework\View\Element\Template" template="Dharma_AdvanceSearch::homepage.phtml" />
+
+
+// Composer Details
+
+Use the Public key as your username and the Private key as your password.
+Public Key: e042610264e17ebe7f5e7c25a6f44732
+Private Key: 925c984b853aefaa4b12506b553091c6
+
+
+// composer Public key and Private key of sir
+
+Public Key: b4cb57f02a59c678a386fed6ae3625b5
+Private Key: f2c2f7f7acb82bd8a8371ce115cb415f
+
+
+// Create Admin user - 
+
+php bin/magento admin:user:create --admin-user=devTwo --admin-password=dev2@1234 --admin-email=devtwo@gmail.com --admin-firstname=devtwo --admin-lastname=devtwo
+
+
+// run deploy for specific theme and language
+
+php -d memory_limit=6G bin/magento setup:static-content:deploy --theme Codazon/unlimited_sport en_AU -f
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy en_US en_AU -f
+
+// specific area frontend
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy --area frontend en_AU -f
+
+// specific area admin
+
+for admin 
+
+php -d memory_limit=6G bin/magento setup:static-content:deploy --area adminhtml en_US -f
+
+
+// Enable developer mode - php bin/magento deploy:mode:set developer
+
+
+// magento commands
+
+php -dmemory_limit=5G bin/magento setup:upgrade
+
+php -dmemory_limit=5G bin/magento setup:static-content:deploy -f
+
+php -dmemory_limit=5G bin/magento config:set catalog/search/engine elasticsearch7
+
+php bin/magento indexer:reindex
+
+php -dmemory_limit=5G bin/magento indexer:reindex
+
+php bin/magento indexer:reset catalog_product_attribute
+
+php bin/magento indexer:reindex catalog_product_attribute
+
+// compile 
+php -dmemory_limit=5G bin/magento setup:di:compile
+
+php bin/magento module:status
+
+php bin/magento module:enable Mageplaza_HelloWorld
+
+php bin/magento module:disable Vendor_Module
+
+php bin/magento module:disable Magento_TwoFactorAuth
+
+php bin/magento setup:static-content:deploy --theme Magento/luma --theme Magento/theme_number_two
+
+php bin/magento setup:db-schema:upgrade
+
+// create backup 
+
+php -dmemory_limit=5G bin/magento setup:backup --code --media --db
+
+
+// Mysql
+
+mysql -u root -p -e "delete from <dbname>.theme where theme_path ='<Vendor>/<theme>' AND area ='frontend' limit 1"
+
+mysql -u root -p -e "SELECT * FROM magento237"
+
+// Delete Table from database 
+
+DELETE FROM setup_module WHERE module ='module_name';
+
+// Call block in cms page
+
+{{block class="Magento\Framework\View\Element\Template" template="Custome_Block::homepage.phtml"}}
+
+{{block class="Magento\Framework\View\Element\Template" template="RH_UiExample::homepage.phtml"}}
+
+{{block class="Magento\Cms\Block\Block" block_id="[Identifier]"}}
+
+{{block class="Magento\Cms\Block\Block" block_id="[rh_uiexample_addlink_block]"}}
+
+// installation error 
+
+  Unable to apply data patch Magento\Theme\Setup\Patch\Data\RegisterThemes for module Magento_Theme. Original excepti
+  on message: Wrong file
+
+// solution > C:\wamp64\www\magento244\vendor\magento\framework\Image\Adapter\Gd2.php
+
+
+replcae > if ($url && isset($url['scheme']) && !in_array($url['scheme'], $allowed_schemes)) {
+
+with > if ($url && isset($url['scheme']) && !in_array($url['scheme'], $allowed_schemes) && !file_exists($filename)) {
+
+Other Errors
+If you are runing di:compile and this error is showning >> Failed to Open Stream Error While Compiling PluginListGenerator.php
+Solution >> Solution for Failed to Open Stream Error While Compiling PluginListGenerator.php 
+
+Path >> vendor/magento/framework/Interception/ PluginListGenerator.php
+
+From >> $cacheId = implode('|', $this->scopePriorityScheme) . "|" . $this->cacheId;
+
+To >> $cacheId = implode('-', $this->scopePriorityScheme) . "-" . $this->cacheId;
+
+
+
+username and password
+magento244 > admin123
+magento237 > admin@1234

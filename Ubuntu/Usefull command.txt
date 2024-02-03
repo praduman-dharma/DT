@@ -1,0 +1,187 @@
+The username : conceptive
+
+sudo chown -R conceptive /var/www/html/magento244/
+
+**************************************************
+
+How to start appache in ubuntu
+command : sudo service apache2 start
+
+**************************************************
+
+How to start mysql  in ubuntu
+sudo service mysql start
+
+**************************************************
+
+How to start elasticsearch  in ubuntu
+sudo systemctl start elasticsearch
+
+**************************************************
+
+
+localhost phpmyadmin
+
+username : root1
+password : root1
+
+
+http://localhost/magento244/pub/admin/
+
+username : admin
+pass     : admin@123
+
+**************************************************
+
+connect mysql with terminal
+
+mysql -u root1 -p -S /var/run/mysqld/mysqld.sock
+
+
+**************************************************
+
+// Composer
+Use the Public key as your username and the Private key as your password.
+Public Key: e042610264e17ebe7f5e7c25a6f44732
+Private Key: 925c984b853aefaa4b12506b553091c6
+
+
+**************************************************
+
+Change php version
+
+
+=> sudo a2dismod php8.1     ## Disable Old version
+=> sudo a2enmod php7.4      ## Enable new version
+
+sudo update-alternatives --config php
+
+above command will return the list of installed php version with a unique ID
+after that write the unique ID number and press enter
+
+
+How to give permission to folder
+
+if the frontend is not showing than give permission like below
+
+sudo chmod -R 777 var/*
+sudo chmod -R 777 var/log/*
+sudo chmod -R 777 var/cache/*
+sudo chmod -R 777 pub/*
+sudo chmod -R 777 generated/*
+sudo chmod -R 777 magento245/*
+
+sudo chmod -R 777 var/* var/cache/* pub/* generated/*
+
+sudo chmod -R 777 var/ var/cache/ pub/ generated
+
+
+*****************************************
+
+Change User
+
+
+root user 
+
+sudo su root
+
+*****************************************
+
+Create  Single Folder
+
+sudo mkdir Conceptive/
+
+Create Folder with sub folders
+
+sudo mkdir -p Conceptive/HelloWorld
+
+
+*****************************************
+Rename folder 
+mv /home/user/oldname /home/user/newname
+
+*****************************************
+Move folder 
+
+## Singel Folder
+
+sudo mv /dharma/Conceptive.zip /var/www/html/magento245/app/code/
+
+
+sudo mv /media/conceptive/Pradhyuman/New\ folder /dharma
+
+## Multiple Folder
+
+mv -t <destination> <src1> <src2> .... <srnN>
+
+
+mv -t Conceptive 
+
+
+## One Level Up
+
+mv /home/apache2/www/html/ ..
+
+    or
+
+mv /home/apache2/www/html/ /home/apache2/www/
+
+
+*****************************************
+Copy folder 
+
+cp -r /path/to/directory /path/to/location/new-name
+
+
+
+Example : 
+
+cp -r /media/conceptive/Pradhyuman/New\ folder/Conceptive /dharma
+
+cp -r /conceptive /magento244/app/code/
+
+
+sudo service apache2 start
+
+cp -r /media/conceptive/Pradhyuman/New\ folder/Extension/Conceptive.zip  /dharma
+
+*****************************************
+Copy File
+
+sudo cp Conceptive.pdf /dharma/Conceptive/
+
+*****************************************
+Delete Files & folder 
+
+unlink filename
+
+
+rm filename
+
+## Delete Folder
+
+sudo rm -rf directoryname
+
+sudo mv Conceptive.pdf /Import\ Export\ CMS/
+
+Conceptive\ Import\ Export\ User\ Guide.pdf
+
+
+
+
+*********************************
+
+Create zip  
+
+zip -r magento24.zip magento2/
+
+With all files and folder of current directory
+
+zip -r foo.zip .
+
+zip -r conceptive_cmsimportexport-1.0.0.zip .
+
+zip -r conceptive_deliverydate-1.0.0.zip .
+
+
+Catalog rule indexing failed.see detils in exception log.

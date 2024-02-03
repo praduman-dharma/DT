@@ -20,7 +20,7 @@ Step 2 > git config --gloabal user.email "praduman@gmail.com"
 
 git config --global user.email "pradhyumanp.dharmatechnolabs@gmail.com"
 
-Step 3 > touch .gitignore  > it is option step
+Step 3 > touch .gitignore  > it is optional step
 
 We add files and folder in .gitignore which are too large, that we don't want to upload on github.
 

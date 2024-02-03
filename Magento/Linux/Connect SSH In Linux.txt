@@ -1,0 +1,9 @@
+In Ubuntu, you may wish to consider not using PuTTY at all: you can simply ssh using a terminal. For example, if you want to connect to test.server.com, you could simply type:
+
+
+ssh test.server.com 
+
+
+If your username is different on the remote system, you can specify it by using this syntax:
+
+ssh remote_username@remote_host

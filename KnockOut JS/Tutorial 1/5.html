@@ -5,6 +5,10 @@
     <li data-bind="text:name"></li>
 </ul>
 
+<ul data-bind="foreach:friendsGroup">
+    <li data-bind="text:name"></li>
+</ul>
+
 <script>
 
     function Friend(name){
@@ -16,7 +20,12 @@
         lastname : ko.observable("Pandey"),
 
         // friends is a collection
-        friends : ko.observableArray([new Friend('Arun'), new Friend('Rahul'), new Friend('Parth'), new Friend('Ranjeet'), new Friend('Ritesh'), new Friend('Nirmal')])
+        friends : ko.observableArray([new Friend('Arun'), new Friend('Rahul'), new Friend('Parth'), new Friend('Ranjeet'), new Friend('Ritesh'), new Friend('Nirmal')]),
+
+        // when calling Friend function it just returning the object, above one is same as bellow one
+
+        friendsGroup : ko.observableArray([{ name: "Arun"},{ name: "Rahul"},{ name: "Parth"},{ name: "Rahul"},{ name: "Ritesh"},{ name: "Nirmal"},
+        ])
     };
 
     ko.applyBindings(obj);

@@ -1,0 +1,57 @@
+PHP Training (10 days )
+
+Exercise 1:
+	Read about core php and mysql
+	Session and Cookie
+	Read about html,css
+	Create html form with all element like textbox,select,radio button,textarea etc (Desiging...) 
+	Insert Update Delete data with Grid tabale
+	Html5 form validation
+	Php form validation
+	Message display when trigger any action(ex. add record,delete record,delete record)
+	
+Exercise 2:
+	Jquery and JavaScript
+	Javascript Validation (Add to PHP form which you will create)
+	Jquery Validation (Add to PHP form which you will create)
+	Ajax and its used
+	Insert,Update,Delete data with ajax editable Grid  (for ex. https://www.phpzag.com/demo/create-live-editable-table-with-jquery-php-and-mysql/)
+	
+Exercise 3:
+	Opps in php
+	Class and function in php
+	Insert update delete data with opps function
+	
+Exercise 4: Employee Record Management System (ERMS)
+	Employee Record Management System project used to manage the data of the employees such as personal details, education details, work exp etc. This project will reduce the paper work of the company . Through this project company can manage all data online.
+
+Employee Record Management System project divided in two modules :
+
+	User Module
+	Admin Module
+	User Module
+		User can register himself.
+		User login
+		User password recovery.
+		User can add / edit own work experience details
+		User can add / edit own education details.
+		User can edit own profile.
+		User can update own password.
+		Logout
+	Admin Module
+		Admin Login
+		Admin can manage all employee records.
+		Admin can update / edit user personal details/ work exp. details / Education.
+		Admin can update own profile
+		Change password
+		Logout
+	
+	Like this >>
+		https://prnt.sc/r1qk5c
+		https://prnt.sc/r1qkk7
+		https://prnt.sc/r1qkqp
+		https://prnt.sc/r1qllw
+		https://prnt.sc/r1qlsm
+		https://prnt.sc/r1qm8b
+	
+	
