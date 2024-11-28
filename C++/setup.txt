@@ -1,0 +1,3 @@
+Video link for installion > https://youtu.be/kEEx31DQC2M
+
+MinGW Path > C:\MinGW\bin

@@ -161,11 +161,17 @@
             width: 300px;
         }
 
+        td.bold {
+            margin-top: 4px;
+            display: inline-block;
+        }
+
         .error {
             display: block;
-            color: black;
+            color:black;
             margin-left: 5px;
         }
+
     </style>
 </head>
 
@@ -216,7 +222,7 @@
                     </tr>
 
                     <tr>
-                        <td align="right" class="bold">Maximum 15 characters </td>
+                        <td align="right" class="bold">Maximum 15 characters :</td>
                         <td><textarea id="textarea" maxlength="15" class="tb"></textarea>
                             <div>
                                 <span id="rchars">15 </span>Character(s) Remaining
@@ -238,8 +244,9 @@
                             <input type="reset" value="Clear Form" id="res" class="btn" />
                             <!-- <input type="submit" value="Create Account" class="btn" onclick="registration()"
                                 disabled="disabled" id="submitbtn" /> -->
-                            <input type="submit" value="Create Account" class="btn" disabled="disabled"
-                                id="submitbtn" />
+                            <!-- <input type="submit" value="Create Account" class="btn" disabled="disabled"
+                                id="submitbtn" /> -->
+                            <input type="submit" value="Create Account" class="btn" id="submitbtn" />
                         </td>
                     </tr>
                 </table>
@@ -288,13 +295,13 @@
         });
 
         // submit enable/disable
-        $('#t6').click(function () {
-            if ($('#submitbtn').is(':disabled')) {
-                $('#submitbtn').removeAttr('disabled');
-            } else {
-                $('#submitbtn').attr('disabled', 'disabled');
-            }
-        });
+        // $('#t6').click(function () {
+        //     if ($('#submitbtn').is(':disabled')) {
+        //         $('#submitbtn').removeAttr('disabled');
+        //     } else {
+        //         $('#submitbtn').attr('disabled', 'disabled');
+        //     }
+        // });
 
         // blink text 
         function blink_text() {
@@ -356,58 +363,39 @@
                 var regEx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                 var phoneno = /^\d{10}$/;
 
+                var validName = letters.test(name);
+                var validEmail = regEx.test(email);
+                var validPhone = phoneno.test(phone);
+                var validUser = letters.test(uname);
 
                 $('.error').remove();
 
                 if (name.length < 1) {
                     $('#t1').before('<span class="error">This field is required</span>');
                 }
-                else {
-                    var validName = letters.test(name);
-                    if (!validName) {
-                        $('#t1').before('<span class="error">Enter valid name</span>');
-                    }
-                }
-
-                if (email.length < 1) {
+                else if (!validName) {
+                    $('#t1').before('<span class="error">Enter valid name</span>');
+                } else if (email.length < 1) {
                     $('#t2').before('<span class="error">This field is required</span>');
-                } else {
-                    var validEmail = regEx.test(email);
-                    if (!validEmail) {
-                        $('#t2').before('<span class="error">Enter a valid email</span>');
-                    }
-                }
-
-                if (phone.length < 1) {
+                } else if (!validEmail) {
+                    $('#t2').before('<span class="error">Enter a valid email</span>');
+                } else if (phone.length < 1) {
                     $('#t3').before('<span class="error">This field is required</span>');
-                } else {
-                    var validPhone = phoneno.test(phone);
-                    if (!validPhone) {
-                        $('#t3').before('<span class="error">Enter a valid Number</span>');
-                    }
-                }
-
-                if (uname.length < 1) {
+                } else if (!validPhone) {
+                    $('#t3').before('<span class="error">Enter a valid Number</span>');
+                } else if (uname.length < 1) {
                     $('#t4').before('<span class="error">This field is required</span>');
-                } else {
-                    var validUser = letters.test(uname);
-                    if (!validUser) {
-                        $('#t4').before('<span class="error">Enter a valid Username</span>');
-                    }
-                }
-
-                if (text.length < 1) {
+                } else if (!validUser) {
+                    $('#t4').before('<span class="error">Enter a valid Username</span>');
+                } else if (text.length < 1) {
                     $('#textarea').before('<span class="error">This field is required</span>');
-                }
-
-                if (pwd.length < 6) {
+                } else if (pwd.length < 6) {
                     $('#t5').before('<span class="error">Password must be at least  6 characters long</span>');
-                }
-                if (pwd != cpwd) {
+                } else if (pwd != cpwd) {
                     $('#t6').before('<span class="error">Password Not Matched</span>');
                 } else {
                     alert('Thank You for Login & You are Redirecting to Homepage');
-                    window.location = "05_index.html";
+                    window.location = "05_index2.html";
                 }
 
             });
