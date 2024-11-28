@@ -98,7 +98,8 @@ sudo mkdir -p Conceptive/HelloWorld
 
 
 *****************************************
-Rename folder 
+Rename folder
+
 mv /home/user/oldname /home/user/newname
 
 *****************************************
@@ -108,13 +109,12 @@ Move folder
 
 sudo mv /dharma/Conceptive.zip /var/www/html/magento245/app/code/
 
-
 sudo mv /media/conceptive/Pradhyuman/New\ folder /dharma
+
 
 ## Multiple Folder
 
 mv -t <destination> <src1> <src2> .... <srnN>
-
 
 mv -t Conceptive 
 
@@ -134,15 +134,11 @@ Copy folder
 cp -r /path/to/directory /path/to/location/new-name
 
 
-
 Example : 
 
 cp -r /media/conceptive/Pradhyuman/New\ folder/Conceptive /dharma
 
 cp -r /conceptive /magento244/app/code/
-
-
-sudo service apache2 start
 
 cp -r /media/conceptive/Pradhyuman/New\ folder/Extension/Conceptive.zip  /dharma
 
@@ -156,8 +152,8 @@ Delete Files & folder
 
 unlink filename
 
-
 rm filename
+
 
 ## Delete Folder
 
@@ -166,8 +162,6 @@ sudo rm -rf directoryname
 sudo mv Conceptive.pdf /Import\ Export\ CMS/
 
 Conceptive\ Import\ Export\ User\ Guide.pdf
-
-
 
 
 *********************************
@@ -183,6 +177,3 @@ zip -r foo.zip .
 zip -r conceptive_cmsimportexport-1.0.0.zip .
 
 zip -r conceptive_deliverydate-1.0.0.zip .
-
-
-Catalog rule indexing failed.see detils in exception log.

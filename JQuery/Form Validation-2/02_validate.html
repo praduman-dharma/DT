@@ -3,7 +3,7 @@
 
 <head>
     <title>Welcome To Registration Form</title>
-    <script src="js/jquery.js"></script>
+    <script src="lib/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.5/chosen.jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.5/chosen.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"> </script>
@@ -183,30 +183,30 @@
         </div>
         <!-- create account div -->
         <div class="login">
-            <form action="" id="formABC">
+            <form action="" method="post" id="form">
                 <table cellspacing="2" align="center" cellpadding="8" border="0">
                     <tr>
                         <td align="right" class="bold">Enter Name :</td>
-                        <td><input type="text" placeholder="Enter user here" id="t1" class="tb"></td>
+                        <td><input type="text" placeholder="Enter user here" id="t1" class="tb" name="name"></td>
                     </tr>
                     <tr>
                         <td align="right" class="bold">Enter Email ID :</td>
-                        <td><input type="text" placeholder="Enter Email ID here" id="t2" class="tb" /></td>
+                        <td><input type="email" placeholder="Enter Email ID here" id="t2" class="tb" name="email"></td>
                     </tr>
                     <tr>
                         <td align="right" class="bold">Enter Phone Number :</td>
-                        <td><input type="text" placeholder="Enter Phone Number here" id="t3" class="tb" /></td>
+                        <td><input type="tel" placeholder="Enter Phone Number here" id="t3" class="tb" name="phone"/></td>
                     </tr>
                     <tr>
                         <td align="right" class="bold">Enter Username :</td>
-                        <td><input type="text" placeholder="Enter Username here" id="t4" class="tb" /></td>
+                        <td><input type="text" placeholder="Enter Username here" id="t4" class="tb" name="user"/></td>
                     </tr>
 
                     <tr>
                         <td align="right" class="bold">Select Country :</td>
                         <td>
-                            <select onchange="val()" class="tb chosen" id="select_id">
-                                <option value="Select">Select</option>
+                            <select class="tb chosen" id="select_id" name="country">
+                                <option value="">Select</option>
                                 <option value="India">India</option>
                                 <option value="Russia">Russia</option>
                                 <option value="USA">USA</option>
@@ -222,30 +222,17 @@
                     </tr>
 
                     <tr>
-                        <td align="right" class="bold">Maximum 15 characters :</td>
-                        <td><textarea id="textarea" maxlength="15" class="tb"></textarea>
-                            <div>
-                                <span id="rchars">15 </span>Character(s) Remaining
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr>
                         <td align="right" class="bold">Enter Password :</td>
-                        <td><input type="password" placeholder="Enter Password here" id="t5" class="tb" /></td>
+                        <td><input type="password" placeholder="Enter Password here" id="t5" class="tb" name="pass"/></td>
                     </tr>
                     <tr>
                         <td align="right" class="bold">Enter Confirm Password :</td>
-                        <td><input type="password" placeholder="Enter Password here" id="t6" class="tb" /></td>
+                        <td><input type="password" placeholder="Enter Password here" id="t6" class="tb" name="cpass"/></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>
                             <input type="reset" value="Clear Form" id="res" class="btn" />
-                            <!-- <input type="submit" value="Create Account" class="btn" onclick="registration()"
-                                disabled="disabled" id="submitbtn" /> -->
-                            <!-- <input type="submit" value="Create Account" class="btn" disabled="disabled"
-                                id="submitbtn" /> -->
                             <input type="submit" value="Create Account" class="btn" id="submitbtn" />
                         </td>
                     </tr>
@@ -254,154 +241,11 @@
         </div>
         <!-- create account box ending here.. -->
     </div>
-    <div id="parent">
-
-    </div>
     <!-- Main div ending here... -->
 
-    <!-- <p id="para">Lorem ipsum dolor sit amet.</p> -->
-
-    <button class="bottom" onclick="scrollToTop()">
-        Click to scroll to top
-    </button>
-
-    <div>
-        <a class="ptr printPage" href="#" id="ptr">Print</a>
-    </div>
-
-    <button class="btn" onclick="insert()">
-        Insert Div
-    </button>
-
-    <script>
-        // jquery validation
-
-        $(document).ready(function () {
-
-
-        });
-
-    </script>
-
-    <script>
-        // scroll to top
-        function scrollToTop() {
-            $(window).scrollTop(0);
-        }
-
-        // disable right click
-        $(document).bind("contextmenu", function (e) {
-            return false;
-        });
-
-        // submit enable/disable
-        // $('#t6').click(function () {
-        //     if ($('#submitbtn').is(':disabled')) {
-        //         $('#submitbtn').removeAttr('disabled');
-        //     } else {
-        //         $('#submitbtn').attr('disabled', 'disabled');
-        //     }
-        // });
-
-        // blink text 
-        function blink_text() {
-            $('.blink').fadeOut(500);
-            $('.blink').fadeIn(500);
-        }
-        setInterval(blink_text, 1000);
-
-        // Insert Div
-        function insert() {
-            $("#parent").append('<div id = "newElement">'
-                + '<p>A Computer Science portal for geeks</p></div>');
-        }
-
-
-    </script>
-
-    <script>
-
-        $(document).ready(function () {
-
-            // Print page
-            $('a.printPage').click(function () {
-                window.print();
-                return false;
-            });
-
-            // Limit character input in the textarea including count. 
-            var maxLength = 15;
-            $('textarea').keyup(function () {
-                var textlen = maxLength - $(this).val().length;
-                $('#rchars').text(textlen);
-            });
-
-
-            // Make first word bold of all elements.
-            $(".bold").each(function () {
-                var txt = $(this);
-                txt.html(txt.text().replace(/(^\w+)/, '<strong>$1</strong>'));
-                // console.log("hello");
-            });
-
-            // Search
-            $(".chosen").chosen();
-
-            // jquery validation
-            $('#submitbtn').click(function (e) {
-                e.preventDefault();
-                var name = $('#t1').val();
-                var email = $('#t2').val();
-                var phone = $('#t3').val();
-                var uname = $('#t4').val();
-                var pwd = $('#t5').val();
-                var cpwd = $('#t6').val();
-                var text = $('#textarea').val();
-
-                // Expression
-                var letters = /^[A-Za-z]+$/;
-                var regEx = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-                var phoneno = /^\d{10}$/;
-
-                var validName = letters.test(name);
-                var validEmail = regEx.test(email);
-                var validPhone = phoneno.test(phone);
-                var validUser = letters.test(uname);
-
-                $('.error').remove();
-
-                if (name.length < 1) {
-                    $('#t1').before('<span class="error">This field is required</span>');
-                }
-                else if (!validName) {
-                    $('#t1').before('<span class="error">Enter valid name</span>');
-                } else if (email.length < 1) {
-                    $('#t2').before('<span class="error">This field is required</span>');
-                } else if (!validEmail) {
-                    $('#t2').before('<span class="error">Enter a valid email</span>');
-                } else if (phone.length < 1) {
-                    $('#t3').before('<span class="error">This field is required</span>');
-                } else if (!validPhone) {
-                    $('#t3').before('<span class="error">Enter a valid Number</span>');
-                } else if (uname.length < 1) {
-                    $('#t4').before('<span class="error">This field is required</span>');
-                } else if (!validUser) {
-                    $('#t4').before('<span class="error">Enter a valid Username</span>');
-                } else if (text.length < 1) {
-                    $('#textarea').before('<span class="error">This field is required</span>');
-                } else if (pwd.length < 6) {
-                    $('#t5').before('<span class="error">Password must be at least  6 characters long</span>');
-                } else if (pwd != cpwd) {
-                    $('#t6').before('<span class="error">Password Not Matched</span>');
-                } else {
-                    alert('Thank You for Login & You are Redirecting to Homepage');
-                    window.location = "index.html";
-                }
-
-            });
-
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+    <script src="02_script.js"></script>
 
 </body>
 

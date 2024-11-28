@@ -167,8 +167,6 @@ sudo mv Conceptive.pdf /Import\ Export\ CMS/
 Conceptive\ Import\ Export\ User\ Guide.pdf
 
 
-
-
 *********************************
 
 Create zip  
@@ -182,6 +180,3 @@ zip -r foo.zip .
 zip -r conceptive_cmsimportexport-1.0.0.zip .
 
 zip -r conceptive_deliverydate-1.0.0.zip .
-
-
-Catalog rule indexing failed.see detils in exception log.
