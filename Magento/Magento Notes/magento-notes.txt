@@ -4,7 +4,7 @@ php -dmemory_limit=5G bin/magento setup:install --base-url="http://localhost/mag
 
 # magenot2.4.4
 
-for magento 2.4.4 don't forget to write pub in base rul > example > 
+for magento 2.4.4 don't forget to write pub in base url > example > 
 http://localhost/magento2444/pub/
 
 php bin/magento setup:install --base-url=http://localhost/magento2444/ --db-host=localhost --db-name=magento2444 --db-user=root --db-password= --admin-firstname=admin --admin-lastname=admin --admin-email=admin@example.com --admin-user=admin --admin-password=admin123 --language=en_US --currency=USD --timezone=America/Chicago --use-rewrites=1 --search-engine=elasticsearch7 --elasticsearch-host=localhost --elasticsearch-port=9200

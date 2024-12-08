@@ -2,7 +2,7 @@
     $cookie_name = "user_email";
     if(isset($_REQUEST["set"])){
         $cookie_value = $_REQUEST["email"];
-        $cookie_expire = time() + 86400*1;
+        $cookie_expire = time() + 86400 * 1;
         setcookie($cookie_name,$cookie_value,$cookie_expire);
     }
 ?>

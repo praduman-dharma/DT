@@ -1,10 +1,10 @@
 <?php
     // Final method
     class Father{
-        function disp(){            // Child class cannot redefine this method
+        function disp(){
             echo "You can override me because I am not final";
         }
-        final function show(){
+        final function show(){ // Child class cannot redefine this method
             echo "I am final so you cannot override me";
         }
     }

@@ -65,8 +65,8 @@
     # use escape \ to use double qoute within double qoute.
     # use escape \ to use single qoute within single qoute.
     // Example
-    // echo 'I am \'PHP\' <br>';    # double qoute ke andar double qoute use karna ho to
-    // echo "I am \"PHP\" <br>";
+    // echo 'I am \'PHP\' <br>';    # single qoute ke andar single qoute use karna ho to
+    // echo "I am \"PHP\" <br>";    # double qoute ke andar double qoute use karna ho to
     // echo '\\';                   # it will print only 1 \  and skip 1 \
 
 

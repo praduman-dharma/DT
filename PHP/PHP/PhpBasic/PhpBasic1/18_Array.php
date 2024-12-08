@@ -2,7 +2,7 @@
     // Array - Collection of data Items.
 
     // Types of Array
-    // 1.Numeric/Indexed Array - In this arry index will be represented by a number.By
+    // 1.Numeric/Indexed Array - In this array index will be represented by a number.By
     //                           default numeric array index start from 0
     # Example - $num[0] = "Praduman";
 

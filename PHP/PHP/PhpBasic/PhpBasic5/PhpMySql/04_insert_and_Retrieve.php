@@ -28,7 +28,7 @@
                 echo "New Record Inserted Successfully";
             } 
             else {
-                echo "Unable to Insert".mysqli_query_error();
+                echo "Unable to Insert" . mysqli_query_error();
             }
         }
     }

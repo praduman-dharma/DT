@@ -1,0 +1,83 @@
+* oops
+
+# class
+
+In object-oriented programming, a class is a blueprint for creating objects (a particular data structure), providing initial values for state (member variables or attributes), and implementations of behavior (member functions or methods).
+
+# Object
+-> It represents an instance of a class, that allows multiple objects from the same class to exist.
+
+# $this keyword
+-> its refer to current object.
+-> $this is a reserved keyword in PHP that refers to the calling object.
+
+
+# constructor
+-> when object of class is created than this method is called
+-> two type of __construct method, default and parameterized constructor
+
+# destructor
+The destructor method will be called as soon as there are no other references to a particular object, or in any order during the shutdown sequence.
+
+
+# Inheritance
+-> The child can can access the properties and methods of parent class, its call Inheritance.
+-> The child class will inherit all the public and protected properties and methods from the parent class. In addition, it can have its own properties and methods.
+
+# types
+1. Single Inheritance
+-> Class B extends Class A
+
+    Class A
+        |
+    Class B
+
+2. Multilevel
+-> Class B extends Class A and Class C extends class B
+
+    Class A
+        |
+    Class B
+        |
+    Class C
+
+3. Hierarchical Inheritance
+-> Class B extends Class A and Class C extends class A
+
+        Class A
+    |               |
+Class B          Class C
+
+4. Multiple Inheritance (not supported in php)
+
+# properties scope
+
+Public
+-> Public Property or Method Can be accessed from anywhere
+
+Protected
+-> Cannot access Protected Property or Method Outside Class or Object
+-> Protected Property or Class can be accessed within same class and 
+   Child Class can access Parent's or GrandParent's Protected Property or Method
+
+
+Private
+-> Private Property or Method can be accessed only within same class
+-> Private Property cannot be access outside class or with object
+-> In Inheritance, Child Class cannot access Parent's Private Property or Method
+
+
+# Abstract Class
+-> Abstract class ka object nahi create kar sakte
+-> Abstract class me hi abstract method bana sakte he
+-> Abstract class me abstract method ko define nahi  kar sakte
+-> jo bhi class abstract class ko extend karegi, than us class me vo abstract method ko define karna padega
+
+
+# InterFace
+-> An interface is like a class with nothing but abstract methods. All mehtods of interface must be public. It is also possible to declare a constructor in an interface. It's possible for interface to have constants(can not be overridden by a class/interface that inherites them). interface keyword is used to create an interface.
+
+# Final method
+-> Child class cannot redefine final method in there class
+-> you can't extends final class
+

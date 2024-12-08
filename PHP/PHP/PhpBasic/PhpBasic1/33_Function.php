@@ -78,8 +78,4 @@
     // display("Raj","78910");
     display("Raj","78910","INDIA");
 
-
-
-    
-
 ?>

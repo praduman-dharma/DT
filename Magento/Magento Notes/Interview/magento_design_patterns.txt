@@ -1,0 +1,462 @@
+* Object Manager
+
+-> Object Manager takes the primary responsibility in instantiating and configuring Objects via the two main methods: GET and CREATE. 
+
+-> GET returns a singleton object (an instance of the class is used to share between components when running Magento, on the other hand). 
+
+-> CREATE returns an entirely new object (a new class instance). 
+
+-> Hence, if you call the GET method from 2 places, the same result will be generated. On the contrary, you will receive a new object if you use the CREATE method. 
+
+
+* Dependency Injection
+->  The Magento 2 Dependency Injection(DI) is a system of object management based on Object Manager or Factory to create Objects with available configuration. 
+
+->  DI is a design pattern allowing class A to declare dependencies so that class B can use those dependencies. Class A often uses Interface class and provided class B to implement things in that interface.
+
+* di.xml
+
+In Magento 2, di.xml files define dependency injection configurations. These files can be global or area-specific, and the distinction lies in their scope of application.
+
+# Global di.xml
+
+scope -> Applies to all areas (frontend, adminhtml, cron, etc.)
+File Location -> <module_dir>/etc/di.xml
+Purpose -> Configure services, preferences, plugins, or factories globally.
+Configuration Overriding -> Area-specific configurations can override global configurations.
+Common Use Cases -> General logic that applies everywhere, such as overriding models or services.
+
+-> example
+
+<module_dir>/etc/di.xml
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Catalog\Model\Product" type="Vendor\Module\Model\CustomProduct" />
+</config>
+
+# Area-Specific di.xml
+
+scope -> Applies only to a specific area, such as frontend or adminhtml.
+File Location -> <module_dir>/etc/<area>/di.xml (e.g., etc/frontend/di.xml).
+Purpose -> Configure services, preferences, or plugins that are specific to the area.
+Configuration Overriding -> Area-specific configurations only apply in the defined area.
+Common Use Cases -> Customizations limited to the frontend, adminhtml, or other specific areas.
+
+-> example
+
+<module_dir>/etc/<area>/di.xml
+
+where <area> can be:
+
+frontend: For configurations that apply only to the storefront.
+adminhtml: For configurations that apply only to the admin panel.
+webapi_rest: For configurations specific to REST APIs.
+webapi_soap: For configurations specific to SOAP APIs.
+cron: For configurations specific to cron jobs.
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Catalog\Model\Product" type="Vendor\Module\Model\FrontendProduct" />
+</config>
+
+# How Magento Resolves DI Configurations
+-> Area-Specific Overrides Global:
+    If both global and area-specific configurations exist, Magento uses the area-specific configuration in the respective area.
+
+-> No Area-Specific File:
+    If there is no area-specific configuration, the global configuration is applied.
+
+-> Configuration Merging:
+    Magento merges all di.xml files across modules. Area-specific files take precedence over global configurations when Magento processes DI for a particular area.
+
+# Key Takeaways
+->  Global di.xml applies to all areas unless overridden.
+->  Area-specific di.xml allows you to tailor configurations to specific parts of Magento,  improving performance and avoiding conflicts.
+->  Magento's DI system prioritizes area-specific configurations over global ones during area-specific processing.
+
+* Proxies
+->  Magento 2 Dependency Injection is a design pattern to manage object class and you can make dependency injection in 2 ways: inject via Constructor and via Method. If you inject into Constructor, class and its dependencies in that constructor are instantiated (a set of class instantiation) when you instantiate an object class. 
+
+if there are any classes and their dependencies using many resources, the function’s performance is badly impacted. In reality, you may not use these dependencies taking many resources in the current class. 
+
+To handle this problem, Magento comes up with a solution as Proxy Class – a design pattern for the class whose functions negatively affect performance. It means if class A is dependency injected into a class B, class A is instantiated only when a function of class A is called in class B.
+
+For example, to use the Proxy class, you can transmit via the di.xml file: vendor/magento/module-backend/etc/di.xml
+
+    <type name="Magento\Backend\Helper\Data">
+        <arguments>
+            <argument name="backendUrl" xsi:type="object">Magento\Backend\Model\UrlInterface\Proxy</argument>
+            <argument name="auth" xsi:type="object">Magento\Backend\Model\Auth\Proxy</argument>
+            <argument name="locale" xsi:type="object">Magento\Backend\Model\Locale\Resolver\Proxy</argument>
+        </arguments>
+    </type>
+
+* What is type in Magento 2?
+
+In Magento 2, type is a configuration element used in di.xml to define the behavior or configuration for a specific class or interface in the Dependency Injection (DI) system. It is used to specify preferences, plugins, or constructor arguments for that class or interface.
+
+# Key Characteristics of type
+-> Direct Class Customization:
+    Configures an actual class or interface in the Magento application.
+
+-> Explicit Reference:
+    The type must directly reference a class or interface that exists in the Magento codebase.
+-> Constructor Arguments:
+    Allows passing custom constructor arguments to a specific class.
+-> Plugins:
+    Attaches plugins to the configured class.
+
+-> Example of type
+Let’s configure custom arguments for a Logger class:
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Vendor\Module\Model\Logger">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/custom.log</argument>
+        </arguments>
+    </type>
+</config>
+
+* Virtual Types
+
+-> A Virtual Type in Magento 2 is a mechanism used in the Dependency Injection (DI) system to create a new type (class or object) based on an existing class or interface without defining a new PHP class.
+
+Virtual types allow you to reuse existing classes with different constructor arguments, reducing the need for redundant PHP code. They are defined in the di.xml file and are never instantiated directly but are used internally by Magento's DI system.
+
+# Key Features of Virtual Types
+-> No Additional PHP Code:
+    No need to create new PHP classes; configuration is done in di.xml.
+-> Reusability:
+    Use an existing class with different constructor arguments.
+-> Better Performance:
+    Reduce overhead by avoiding duplication in the PHP codebase.
+-> Custom Behavior:
+    Modify the behavior of a class by overriding constructor arguments.
+
+# How Virtual Types Work
+A virtual type inherits the behavior and constructor arguments of an existing class. You define a virtual type in di.xml by specifying:
+
+The name of the virtual type.
+The parent class or interface it is based on.
+Any overridden constructor arguments.
+
+* What is type and Virtual Type?
+-> type is for configuring specific classes or interfaces directly.
+-> Virtual Types provide a lightweight way to create multiple variations of a class using configuration alone.
+-> Use type for direct customization and virtual types for reusability and flexibility.
+
+
+* Events and Observers
+
+In Magento 2, the event-observer pattern is a mechanism to allow custom functionality to be executed at specific points in the application flow. Magento triggers events during various processes, and observers listen to those events to execute custom logic.
+
+# Key Concepts
+Event:
+->  An event is a specific point in Magento's execution where custom behavior can be hooked.
+->  Magento triggers events in the codebase using the dispatch method.
+
+$this->_eventManager->dispatch('event_name', ['key' => $value]);
+
+Observer:
+
+->  An observer is a class that listens to an event and contains the logic to be executed when the event is triggered.
+
+Event Manager:
+->  Magento's event manager (Magento\Framework\Event\ManagerInterface) handles the dispatching of events and the execution of associated observers.
+
+Events Types:
+->  Predefined Events: Triggered by Magento's core code at specific points.
+->  Custom Events: Triggered by custom modules to extend functionality.
+
+Example: Events and Observers
+Scenario: Log Customer Login
+When a customer logs in, Magento triggers the customer_login event. We'll create an observer to log customer login details.
+
+Step 1: Create the Event Observer
+1. Create events.xml: Define the observer in your module's etc/frontend/events.xml (or etc/events.xml for global events).
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_login">
+        <observer name="log_customer_login" instance="Vendor\Module\Observer\LogCustomerLogin" />
+    </event>
+</config>
+
+2. Create the Observer Class:
+
+<?php
+
+namespace Vendor\Module\Observer;
+
+use Magento\Framework\Event\ObserverInterface;
+use Psr\Log\LoggerInterface;
+
+class LogCustomerLogin implements ObserverInterface
+{
+    private $logger;
+
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
+
+    public function execute(\Magento\Framework\Event\Observer $observer)
+    {
+        $customer = $observer->getEvent()->getCustomer();
+        $this->logger->info('Customer Login: ' . $customer->getEmail());
+    }
+}
+
+# Most Useful Magento 2 Events
+Event Name -> Triggered When -> Area
+-> customer_login  -> A customer logs into their account. -> Frontend
+-> customer_logout -> A customer logs out of their account. -> Frontend
+
+-> sales_order_place_after -> After an order is placed. -> Global
+-> checkout_cart_add_product_complete -> After a product is added to the cart. -> Frontend
+
+-> catalog_product_save_after -> After a product is saved in the admin. -> Adminhtml
+
+# Special Events: Action Dispatch Events
+Magento provides special events related to controller actions that allow you to hook into the request and response flow.
+
+controller_action_predispatch_<action>:
+
+Triggered before the specified controller action is executed.
+Use it to modify or validate requests.
+controller_action_postdispatch_<action>:
+
+Triggered after the specified controller action is executed.
+Use it to modify responses or perform cleanup tasks.
+
+Example: Hook Into a Specific Action
+Scenario: Perform custom logic before a product is viewed (catalog_product_view).
+
+Define the Event in events.xml:
+<event name="controller_action_predispatch_catalog_product_view">
+    <observer name="log_before_product_view" instance="Vendor\Module\Observer\LogBeforeProductView" />
+</event>
+
+-> Events and observers are a versatile and powerful tool in Magento 2, enabling developers to hook into the application flow without modifying core code, ensuring extensibility and maintainability.
+
+-> To disable events, you just insert disabled="true"  behind the observer in the xml file.
+
+* Plugins
+
+A plugin in Magento 2 is a mechanism used to modify or extend the behavior of public methods in classes without altering the core files. Plugins are part of Magento's Interception feature, which allows developers to "intercept" method calls and apply custom logic before, after, or around the execution of the original method.
+
+# When to Use Plugins
+-> To modify the behavior of a specific public method.
+-> When the desired modification cannot be achieved using events or observers.
+-> To avoid core file modifications, ensuring better upgrade compatibility.
+
+# Types of Plugins
+-> before Plugin:
+    Executes before the original method is called.
+    Can modify method arguments.
+
+    # Example : Modify Product Name Before Saving
+
+    public function beforeSetName(\Magento\Catalog\Model\Product $subject, $name)
+    {
+        // Modify the product name before setting it
+        $name = $name . ' - Modified';
+        return [$name];
+    }
+
+
+-> after Plugin:
+    Executes after the original method is called.
+    Can modify the returned value.
+
+    # Example: Append " - Custom" After Getting Product Name
+
+    public function afterGetName(\Magento\Catalog\Model\Product $subject, $result)
+    {
+        return $result . ' - Custom';
+    }
+    
+
+-> around Plugin:
+    Wraps around the original method.
+    Can control whether and when the original method is called.
+
+    # Syntax of an around Plugin
+
+    public function aroundMethodName(
+        $subject,  // The original object (class)
+        callable $proceed,  // The callable to execute the original method
+        ...$args  // The arguments passed to the original method
+    ) {
+        // Modify arguments
+        $args[0] = 'Modified Argument';
+        
+        // Call the original method
+        $result = $proceed(...$args);
+        
+        // Modify the result
+        $result = $result . ' - Modified Result';
+        
+        return $result;
+    }
+
+    # Example: Prevent Product Name from Being Retrieved
+
+    public function aroundGetName(\Magento\Catalog\Model\Product $subject, callable $proceed)
+    {
+        // Optionally call the original method
+        // $result = $proceed();
+
+        // Custom logic, skip calling the original method
+        return 'Custom Product Name';
+    }
+
+    # Example 2
+
+    public function aroundSetName(\Magento\Catalog\Model\Product $subject, callable $proceed, $name)
+    {
+        // Customize the argument (product name)
+        $name = 'Prefix - ' . $name;
+
+        // Call the original method
+        $result = $proceed($name);
+
+        // Optionally, modify the result (though `setName` usually returns void)
+        return $result; // Return modified result, if any
+    }
+
+# Example
+
+Step 1: Define the Plugin in di.xml
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="modify_product_name_plugin" type="Vendor\Module\Plugin\ProductNameModifier" />
+    </type>
+</config>
+
+Step 2: Create the Plugin Class
+
+<?php
+
+namespace Vendor\Module\Plugin;
+
+class ProductNameModifier
+{
+    public function afterGetName(\Magento\Catalog\Model\Product $subject, $result)
+    {
+        // Append " - Custom" to the product name
+        return $result . ' - Custom';
+    }
+}
+
+# How It Works
+-> The plugin listens for calls to the getName() method in the Magento\Catalog\Model\Product class.
+-> When the method is called, the afterGetName method in the plugin executes and modifies the returned value by appending " - Custom".
+
+# Use Case Summary
+-> Use around plugin when you need full control over both arguments and result.
+-> Prefer before or after plugins when you only need to adjust arguments or the result, as they are more efficient.
+-> This flexibility makes around plugins one of the most powerful tools in Magento's interception system.
+
+
+* what is Repositories? and what is diffrenece between Repositories and factory?
+
+-> Basically, Repositories and Factories share a lot of common things when they are used to read, edit, or remove entity or a list of entities. However, you will need Factories when you desire to create a new entity. 
+
+-> Repositories are parts of service contracts – interface, so they support Soap/Rest API.
+
+# Repositories in Magento 2 are service classes that provide an interface-based way to interact with entities like products, customers, orders, etc. They follow the Service Contracts pattern and are used for:
+
+Fetching entities (e.g., retrieving a product by ID or SKU).
+Saving or deleting entities in the database.
+Providing an abstraction layer for CRUD operations on entities.
+
+# Key Characteristics of Repositories
+-> Interface-Based: Every repository implements an interface, ensuring strict contracts for consistency.
+-> Service-Oriented: Designed for interacting with Magento entities through web APIs and core logic.
+-> Standardized Methods: Common methods like getById(), save(), delete(), and getList().
+
+# Factories in Magento 2
+
+A factory in Magento 2 is a class generated by Magento to create new instances of models or objects. Factories are used when you need to create a new instance of an entity without persisting it directly to the database.
+
+# Key Characteristics of Factories
+-> Instance Creation: Used to create new object instances dynamically.
+-> No Database Interaction: Factories only create objects; they do not fetch or save data in the database.
+-> Auto-Generated: Factories are automatically generated by Magento using the Code Generation mechanism.
+
+# Best Practices
+-> Use Repositories for interacting with database entities or exposing entities through APIs.
+-> Use Factories when creating a new entity or object that does not immediately require database persistence.
+-> Combine both when needed. For instance:
+-> Use a factory to create a new object.
+-> Use a repository to save that object to the database.
+
+
+* Injectable/Non-Injectable Object
+
+# Injectable Objects
+An object is injectable if it is safe to be instantiated and injected via the Magento Dependency Injection (DI) mechanism. Injectable objects have a shared lifecycle and are reusable across the application.
+
+Characteristics of Injectable Objects
+-> Reusable: Can be reused in multiple places without side effects.
+Stateless or Immutable: Do not store instance-specific state that could lead to unexpected behavior when shared.
+
+-> Injectable via Constructor: They are injected using DI via the constructor.
+Examples:
+    Models: Magento\Catalog\Model\Product
+    Helpers: Magento\Framework\App\Helper\AbstractHelper
+    Repositories: Magento\Catalog\Api\ProductRepositoryInterface
+
+# Non-Injectable Objects
+An object is non-injectable if it is stateful or requires unique instantiation each time it is used. These objects are typically created using factories.
+
+Characteristics of Non-Injectable Objects
+-> Stateful: May hold unique state or data, making them unsafe to share across the application.
+
+-> Requires Unique Instances: Each usage may need a fresh instance.
+-> Created Using Factories: Instead of DI, they are created via factories or object manager.
+
+# Example
+
+namespace Vendor\Module\Model;
+
+use Magento\Catalog\Model\ProductFactory;
+
+class Example
+{
+    private $productFactory;
+
+    public function __construct(ProductFactory $productFactory)
+    {
+        $this->productFactory = $productFactory; // Non-Injectable, requires factory
+    }
+
+    public function createProduct()
+    {
+        $product = $this->productFactory->create();
+        $product->setName('New Product');
+        return $product;
+    }
+}
+
+-> Here, ProductFactory is used to create a new instance of the Product model because the product object is stateful and may have unique properties.
+
+# Differences Between Injectable and Non-Injectable Objects
+
+# Injectable Objects
+
+State : Stateless or immutable
+Reusability : Can be shared across the application
+Injection : Injected via DI
+Scope : Shared lifecycle
+Examples : Repositories, Helpers, Loggers	
+
+
+# Non-Injectable Objects
+
+State : Stateful
+Reusability : Requires a new instance for each usage
+Injection : Created via factories
+Scope : Unique lifecycle
+Examples : Models, Collections, Service Models
+

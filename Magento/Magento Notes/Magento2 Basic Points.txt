@@ -19,7 +19,7 @@
 Rendering
 •    Template structure
 •    Blocks
-•    Design layout SML schema, CMS content directives
+•    Design layout XML schema, CMS content directives
 Working with Database in Magneto
 •    Models resource and collections
 •    Magneto Object Relational Mapping

@@ -9,7 +9,7 @@
 
     // for($num = 1; $num <= 3; $num++):       # first { (curly bracket) replace by :(colon)
     //     echo "GeekyShows Count: $num <br>";
-    // endfor;                         # and } (ending curly bracket)replace  by endfor;
+    // endfor;                         # and } (ending curly bracket) replace by endfor;
 
 
     # Nested for loop

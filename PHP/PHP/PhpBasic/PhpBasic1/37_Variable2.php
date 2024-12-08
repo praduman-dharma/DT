@@ -14,10 +14,10 @@
     // echo "Accessing Value outside Function = $a <br>";
 
     # 
-    // Global Variable - The variable which is declared outside a fucntion has GLOBAL scope. 
+    // Global Variable - The variable which is declared outside a function has GLOBAL scope. 
     // Its accessibility is just outside the function
 
-    // Global Keyword -If we want to access data outside a fuction from code 
+    // Global Keyword - If we want to access data outside a fuction from code 
     // inside a function we have to use global keyword within the function.
 
     

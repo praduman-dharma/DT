@@ -1,6 +1,6 @@
 <?php
     # InterFace
-    // An interface is like a class with nothing but abstract methods. All mehtods of interface must be public. It is also possible to declare a constructor in an interface. It's possible for interface to have constants(can not be overridden by a class/interface that inherites themm). interface keyword is used to create an interface.
+    // An interface is like a class with nothing but abstract methods. All mehtods of interface must be public. It is also possible to declare a constructor in an interface. It's possible for interface to have constants(can not be overridden by a class/interface that inherites them). interface keyword is used to create an interface.
 
     ## Defining Interface
     # Syntax

@@ -3,7 +3,7 @@
     // $a = array("Rahul" => 500,"Sonam" => 600,"Sumit" => 700);
     // $b = array("Rahul" => "PHP","Sonam" =>"Java","Sam" => "CSS","JK" =>"Book");
     
-    // // $results = $a + $b;  # a union b, it will add item from a and remove duplicat from b
+    // // $results = $a + $b;  # a union b, it will add item from a and remove duplicate from b
     // $result = $b + $a;      # b union a, it will add item from b and remove duplicat from a
     // echo print_r($result);
 

@@ -1,5 +1,5 @@
 <?php
-    # The function is used to display information is a way that's redable by humans.
+    # The function is used to display information in a way that's redable by humans.
     # Syntax - print_r($array_name,Bool_Return);
 
     // Return can be True or False. By default there is False.

@@ -1,4 +1,6 @@
 <?php
+    # heredoc
+
     // echo<<<MYDATA
     // <b>This is first line</b>
     // This is "second line"
@@ -12,7 +14,7 @@
     // MYDATA;
     // echo $info;
 
-    # nowdoc - It works similar as single qutoes.
+    # nowdoc - It works similar as single quotes.
 
     # Example of nowdoc
 

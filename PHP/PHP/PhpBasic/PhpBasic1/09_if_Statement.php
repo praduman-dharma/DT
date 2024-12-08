@@ -16,7 +16,7 @@
     // if (10>2):                          # first { (curly bracket) replace by :(colon)
     //     echo "Yes, It is True 1 <br>";
     //     echo "Yes, It is True 2 <br>";  # You can write multiple block of statement
-    // endif;                              # and } (ending curly bracket)replace  by endif;
+    // endif;                              # and } (ending curly bracket) replace  by endif;
 
     // echo "Rest of the code  <br>";
 

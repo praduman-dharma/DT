@@ -20,7 +20,7 @@
 
     // Check connection
     if(!$conn){
-        die("Connection Failed".mysqli_connect_error);
+        die("Connection Failed" . mysqli_connect_error());
     } 
     echo "Connected Successfuly<hr>";
 
@@ -33,10 +33,6 @@
         }
     } else {
         echo "0 Results";
-    }
-
-    
-    
-    
+    } 
 
 ?>

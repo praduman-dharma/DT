@@ -7,7 +7,7 @@
 
     class Son extends Father{
         function disp(){            // redefining parent method,if parent have parameter you
-                                    // have write parameter in child class also
+                                    // have to write parameter in child class also
             echo "Son Class <br>";
         }
     }

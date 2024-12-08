@@ -5,7 +5,7 @@
     // $name[2] = "Suman";
     // $name[3] = "Rohan";
 
-    #below array return using array fucntion
+    # below array return using array fucntion
 
     // $name = array("Rahul","Sumit","Suman","Rohan");
     // echo $name[0];
