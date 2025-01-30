@@ -102,3 +102,60 @@ Magento 2 Admin ACL panel use an authentication system and a robust system for c
 
 -> save data in table by sales_model_service_quote_submit_before event
 
+
+* EAV
+
+EAV (Entity-Attribute-Value) is a database model used in Magento 2 to store flexible and dynamic data structures efficiently. It is primarily used for storing product, category, and customer-related data.
+
+-> The entity types (e.g., a product) are stored in the main entity table (entity_type).
+# Types of entity
+    1. customer
+    2. customer_address
+    3. catalog_category
+    4. catalog_product
+    5. order
+    6. invoice
+    7. creditmemo
+    8. shipment
+
+-> Attributes (e.g., name, price, color) are defined in separate tables (eav_attribute).
+
+-> Values for different attributes are stored in multiple tables based on data type:
+
+    catalog_product_entity_varchar (for string values like names)
+    catalog_product_entity_int (for integer values like status, visibility)
+
+
+*  Authorize and Capture
+
+# Authorize
+
+Authorization is the process of verifying whether a customer has sufficient funds in their payment method (credit card, PayPal, etc.).
+The amount is not deducted until the merchant manually captures it.
+The amount is reserved but not yet deducted from the customer’s account.
+The store owner can later capture the authorized amount to complete the transaction.
+
+Example: A customer places an order using a credit card, and the system verifies the funds without charging them immediately.
+
+
+# Capture
+
+Capture is the process of actually charging the customer’s payment method for the authorized amount.
+The funds are transferred from the customer’s account to the merchant’s account.
+Magento allows capturing payment manually (after authorization) or automatically (authorization and capture together).
+
+Example: When the order is shipped, the store owner captures the payment, and the amount is deducted from the customer’s account.
+
+
+# Authorize and Capture (Immediate Capture)
+
+The payment is both authorized and captured in a single step.
+The funds are deducted from the customer’s account instantly.
+Example: Instant digital product purchases where payment is required immediately.
+
+
+# Authorize vs. Capture in Magento 2 Payment Settings
+
+Authorize Only: The payment is authorized but not charged until manually captured.
+Authorize and Capture: The payment is authorized and charged immediately.
+
