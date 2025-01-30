@@ -40,3 +40,65 @@ When sharing cache storage across applications, use clean to avoid unnecessary d
 In Magento 2, indexing is a mechanism that transforms data (like products, categories, and prices) into optimized tables for quick access, ensuring fast and efficient store operations. Index management helps maintain the accuracy and performance of the store by updating these tables when underlying data changes.
 
 -> Index management ensures that Magento's dynamic data is always up-to-date and optimized, playing a critical role in delivering fast and reliable storefront operations.
+
+
+* What is the difference between Composer.lock and Composer.json?
+
+composer.json
+
+Purpose: This file defines the dependencies your project requires, as well as other metadata such as version constraints, package repositories, scripts, and configuration.
+Manual Editing: Developers manually edit this file to add, update, or remove dependencies.
+
+Version Constraints: You can specify flexible constraints (e.g., ^1.0, ~1.2.3, *) or exact versions.
+Effect: It tells Composer what you want in terms of dependencies.
+
+
+composer.lock
+
+Purpose: This file locks the exact versions of dependencies that were installed in your project, ensuring consistency across environments.
+Automatic Generation: Composer automatically updates this file when you run commands like composer install or composer update.
+Content: Contains the resolved versions, URLs, and checksums for all installed packages, including transitive (nested) dependencies.
+Effect: It ensures that all developers and environments use the same dependency versions.
+
+
+# Why Both Are Needed
+
+composer.json allows you to specify desired dependencies and flexibility for future updates.
+composer.lock ensures everyone on the project uses the exact same versions, avoiding "it works on my machine" issues.
+
+
+# Commands Behavior
+
+composer install: Reads composer.lock and installs locked versions.
+composer update: Updates dependencies based on composer.json, resolving new versions and updating composer.lock.
+
+
+* hard dependencies and soft dependencies
+
+A soft dependency is a package, listed in "suggest", a hard dependency a package in "require".
+
+
+Hard dependency
+Implies that a module cannot function without the other modules on which it depends.
+
+Soft dependency
+Implies that a module can function without the other modules on which it depends.
+
+
+* What is the use of <sequence> Tab in magento2?
+
+<sequence> declares the list of components that must be loaded before the current component is loaded. It’s used for loading a different kind of files: configuration files, view files (including CSS, LESS, and template files), or setup classes.
+
+
+* ACL
+
+Magento 2 Admin ACL panel use an authentication system and a robust system for create Access Control List Rules (ACL) which allows a store owner to create fine grained roles for each and every user in their system
+
+
+# add custom field on checkout
+-> add column in quote, sales_order by InstallData.php or by db_schema.xml
+
+-> add field on checkout page by checkout_index_index.xml or by createing plugin of Magento\Checkout\Block\Checkout\LayoutProcessor class
+
+-> save data in table by sales_model_service_quote_submit_before event
+
