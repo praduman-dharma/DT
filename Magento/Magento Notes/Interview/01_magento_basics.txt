@@ -16,6 +16,14 @@
 
     Comprehensive inventory management with stock notifications and backorder functionality.
 
+-> Related Products, Upsell, and Cross-Sell:
+
+    Related Products: Products that are recommended based on customer interest in a specific product. Displayed on the product page to encourage additional purchases.
+
+    Upsell Products: Higher-end or premium alternatives to the product a customer is viewing. These are displayed on the product page to promote better-quality or more expensive options.
+
+    Cross-Sell Products: Items that complement the product being purchased. Typically shown in the cart or checkout page to encourage add-on sales.
+
 -> Flexible Pricing and Promotions
     Rule-based discounts and promotions for products and carts.
     Coupons, discounts, and special pricing rules.

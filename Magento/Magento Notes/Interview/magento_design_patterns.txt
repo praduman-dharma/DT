@@ -14,6 +14,13 @@
 
 ->  DI is a design pattern allowing class A to declare dependencies so that class B can use those dependencies. Class A often uses Interface class and provided class B to implement things in that interface.
 
+-> Another explanation of Dependency Injection
+
+In programming languages, a dependency is known as the object which is needed by a class to perform some functions. Injection is the passing of that particular dependency to a dependent object/class. The real meaning of Dependency Injection is to inject the dependency into the class from another source.
+
+For example, if you have defined a Class in Magento 2 that fetches some data by using Magento 2 Helper Class, we can say that your Class has a dependency of that Magento 2 Helper Object.
+
+
 * di.xml
 
 In Magento 2, di.xml files define dependency injection configurations. These files can be global or area-specific, and the distinction lies in their scope of application.
@@ -72,6 +79,49 @@ cron: For configurations specific to cron jobs.
 ->  Global di.xml applies to all areas unless overridden.
 ->  Area-specific di.xml allows you to tailor configurations to specific parts of Magento,  improving performance and avoiding conflicts.
 ->  Magento's DI system prioritizes area-specific configurations over global ones during area-specific processing.
+
+
+Magento 2 Service Contracts
+==========================
+
+-> Service Contracts are just a set of interfaces and classes that protect data integrity and hide the business logic. The reason why customers will want to use this is that the contract allows the service to evolve without affecting its users.
+
+
+-> In Magento 2, Service Contracts are a set of PHP interfaces that define the API for different business functionalities. They provide a stable and modular way to interact with core functionalities, ensuring better customization, upgradability, and decoupling of modules.
+
+## Key Concepts of Magento 2 Service Contracts
+1. Interfaces Over Implementation  
+   - Service contracts are based on PHP interfaces, ensuring that implementations can change without affecting dependent modules.
+
+2. Data Interfaces (Data Transfer Objects - DTOs)  
+   - Represent immutable objects used to transfer data between layers.
+   - Typically located in `Api/Data/` and use getter/setter methods.
+   - Example: `Magento\Catalog\Api\Data\ProductInterface`
+
+3. Repositories (CRUD Operations)  
+   - Manage entities and abstract database logic.
+   - Use dependency injection to avoid direct model usage.
+   - Example: `Magento\Catalog\Api\ProductRepositoryInterface`
+
+4. Service Interfaces (Custom Business Logic)  
+   - Define specific actions beyond standard CRUD.
+   - Example: `Magento\Quote\Api\CartManagementInterface`
+
+5. SearchCriteria for Filtering Data  
+   - `Magento\Framework\Api\SearchCriteriaInterface` is used to fetch and filter data efficiently.
+   - Works with repositories for paginated and filtered results.
+
+6. APIs (REST & GraphQL Ready)  
+   - Service contracts automatically expose methods to Magento's REST and GraphQL APIs.
+   - Ensures better API compatibility.
+
+
+## Advantages of Using Service Contracts
+-> Loose Coupling – Modules interact via interfaces, avoiding direct model dependencies.
+-> Upgrade-Safe – Core implementations can change without breaking custom modules.
+-> API Ready – Exposes functionalities to Magento REST & GraphQL APIs automatically.
+-> Reusability – The same service can be used in CLI commands, controllers, and APIs.
+
 
 * Proxies
 ->  Magento 2 Dependency Injection is a design pattern to manage object class and you can make dependency injection in 2 ways: inject via Constructor and via Method. If you inject into Constructor, class and its dependencies in that constructor are instantiated (a set of class instantiation) when you instantiate an object class. 
@@ -143,6 +193,22 @@ Any overridden constructor arguments.
 -> type is for configuring specific classes or interfaces directly.
 -> Virtual Types provide a lightweight way to create multiple variations of a class using configuration alone.
 -> Use type for direct customization and virtual types for reusability and flexibility.
+
+-> Example of type
+Scenario: Customizing a Logger Without Creating a New Class
+
+Suppose we want to use Magento’s default Magento\Framework\Logger\Monolog class but with a custom channel name. Instead of creating a new PHP class, we define a Virtual Type in di.xml.
+
+<virtualType name="CustomLogger" type="Magento\Framework\Logger\Monolog">
+    <arguments>
+        <argument name="name" xsi:type="string">custom_channel</argument>
+    </arguments>
+</virtualType>
+
+
+-> name="CustomLogger" - This is the virtual type name, which can be used for dependency injection.
+-> type="Magento\Framework\Logger\Monolog"- It is based on the existing Monolog class.
+-> We override the name argument with "custom_channel".
 
 
 * Events and Observers
@@ -356,6 +422,7 @@ class ProductNameModifier
 -> Use around plugin when you need full control over both arguments and result.
 -> Prefer before or after plugins when you only need to adjust arguments or the result, as they are more efficient.
 -> This flexibility makes around plugins one of the most powerful tools in Magento's interception system.
+-> Magento recommends avoiding the use of around plugins unless necessary.
 
 
 * what is Repositories? and what is diffrenece between Repositories and factory?
