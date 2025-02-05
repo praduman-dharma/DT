@@ -159,3 +159,74 @@ Example: Instant digital product purchases where payment is required immediately
 Authorize Only: The payment is authorized but not charged until manually captured.
 Authorize and Capture: The payment is authorized and charged immediately.
 
+
+* Interface and Abstract Class
+
+# Interface
+
+Defines a contract that implementing classes must follow.
+Cannot contain any method implementations (only method signatures).
+A class can implement multiple interfaces (supports multiple inheritance).
+Methods in an interface must be public.
+
+-> Example
+
+interface ProductInterface
+{
+    public function getName();
+    public function getPrice();
+}
+
+-> Usage 
+
+class Product implements ProductInterface
+{
+    public function getName()
+    {
+        return "Laptop";
+    }
+
+    public function getPrice()
+    {
+        return 1000;
+    }
+}
+
+
+# Abstract Class
+
+Can contain both fully implemented and abstract methods.
+Cannot be instantiated directly.
+A class can extend only one abstract class (single inheritance).
+Can have properties and method implementations.
+
+-> Example
+
+abstract class AbstractProduct
+{
+    protected $name;
+    
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    
+    abstract public function getPrice();
+}
+
+-> Usage
+
+class Product extends AbstractProduct
+{
+    public function getPrice()
+    {
+        return 1000;
+    }
+}
+
+
+# When to Use What in Magento 2?
+
+Use an Interface when defining a service contract (e.g., ProductRepositoryInterface for repositories).
+Use an Abstract Class when multiple classes share common functionality (e.g., Magento\Framework\Model\AbstractModel).
+

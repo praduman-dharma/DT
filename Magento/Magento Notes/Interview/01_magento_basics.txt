@@ -196,3 +196,16 @@ php bin/magento setup:install \
 -> Development Mode:
     php bin/magento deploy:mode:set developer
 
+# Varnish Cache
+
+Varnish is a powerful HTTP accelerator used in Magento 2 to improve page load times and reduce server load by caching full-page responses. Instead of processing every request through PHP and Magento, Varnish serves pre-cached pages to visitors, making the store significantly faster.
+
+#  How Varnish Works in Magento 2
+
+Magento 2 uses Full Page Cache (FPC) to store fully rendered HTML pages. It supports two caching methods:
+
+-> Built-in cache (file system, database, Redis)
+-> Varnish (recommended for production environments)
+
+Varnish caches pages at the HTTP level, meaning Magento doesn’t need to generate them every time a request is made.
+
