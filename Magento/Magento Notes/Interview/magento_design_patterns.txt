@@ -6,7 +6,7 @@
 
 -> CREATE returns an entirely new object (a new class instance). 
 
--> Hence, if you call the GET method from 2 places, the same result will be generated. On the contrary, you will receive a new object if you use the CREATE method. 
+-> Hence, if you call the GET method from 2 places, the same result will be generated. On the contrary (on the other hand), you will receive a new object if you use the CREATE method. 
 
 
 * Dependency Injection

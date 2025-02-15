@@ -31,3 +31,24 @@ Ex > mysqldump klinq > klinq_redesign.sql
 Ex > mysqldump -h localhost -u root -p klinq > klinq_redesign.sql
 
 Go to the directory where you ran the mysqldump command, the exported sql file will be genereated at that place
+
+
+***************************************
+
+# Wampp
+
+Step 1 - Open cmd in this directory > C:\wamp64\bin\mysql\mysql8.0.27\bin
+
+mysql -u root -p -h localhost
+
+Step 2 - C:\wamp\bin\mysql\mysql5.0.51b\bin> mysql.exe -use databasename -u username -p
+
+Step 3 - source myfilename.sql;
+	
+or > SOURCE /var/test.sql 
+
+Ex. SOURCE C:/wamp64/www/db_superbazaar.sql
+
+SOURCE P:/Magento/Project/db_superbazaar.sql
+
+Note - don't write folder path in "(quatoes).
