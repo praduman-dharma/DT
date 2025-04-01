@@ -1,6 +1,6 @@
 <?php
 
-namespace Magesolution\CustomApi\Model\Api;
+namespace Conceptive\CustomApi\Model\Api;
 
 use Psr\Log\LoggerInterface;
 

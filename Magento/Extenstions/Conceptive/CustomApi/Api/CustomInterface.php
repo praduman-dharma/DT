@@ -1,6 +1,6 @@
 <?php
 
-namespace Magesolution\CustomApi\Api;
+namespace Conceptive\CustomApi\Api;
 
 interface CustomInterface
 {

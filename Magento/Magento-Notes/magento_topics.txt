@@ -24,7 +24,7 @@ Interview Questions
 - optimization technique
 - what is observer 
 - what is plugin
-- difference betwen plugin and observer
+- difference between plugin and observer
 - what is soap and rest
 - created any admin module?
 - what is service contract with example

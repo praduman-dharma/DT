@@ -38,9 +38,6 @@ Composer >> composer create-project --repository-url=https://repo.magento.com/ m
 
 Composer >> composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.4 magento244
 
-Composer >> composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.4.5-p1 magento245p1
-
-composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition=2.3.7
 
 Step 2 > Download Elasticsearch
 

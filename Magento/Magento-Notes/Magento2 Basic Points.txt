@@ -1,11 +1,11 @@
 •    General OOP and MVC concepts
 
- Event-driven architecture
- Magento module-based architecture
- Magento directory structure/naming conventions/code pools/namespaces/module structure
- Configuration XML
- Factory and functional class groups
- Class overrides
+Event-driven architecture
+Magento module-based architecture
+Magento directory structure/naming conventions/code pools/namespaces/module structure
+Configuration XML
+Factory and functional class groups
+Class overrides
 •    Event observer Page 6 v.021811
 •    Request Flow
 •    Application initialization

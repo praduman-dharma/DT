@@ -26,3 +26,21 @@ sudo update-alternatives --config php
 above command will return the list of installed php version with a unique ID
 
 after that enter the unique ID number and press enter.
+
+after that > sudo systemctl restart apache2
+
+
+**************************************************
+
+# Change php version
+
+=> sudo a2dismod php8.1     ## Disable Old version
+=> sudo a2enmod php7.4      ## Enable new version
+
+=> sudo a2dismod php7.4    ## Disable Old version
+=> sudo a2enmod php8.1      ## Enable new version
+
+sudo update-alternatives --config php
+
+sudo systemctl restart apache2
+sudo service elasticsearch restart
