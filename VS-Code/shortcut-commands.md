@@ -104,6 +104,10 @@ Ctrl + Click
 ```
 
 ## Navigate Cursor Location
-- Go to Previous Location: `Alt + Left Arrow`
-- Navigate Forward: `Alt + Right Arrow`
+### Windows
+- **Go to Previous Location**: `Alt + Left Arrow`
+- **Navigate Forward**: `Alt + Right Arrow`
 
+### Ubuntu Linux
+- **Go to Previous Location**: `Ctrl + Alt + -`
+- **Navigate Forward**: `Ctrl + Shift + -`

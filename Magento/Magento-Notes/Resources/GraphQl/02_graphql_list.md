@@ -1,8 +1,58 @@
-Magento 2 provides several built-in GraphQL endpoints for retrieving store configuration, customer data, products, categories, and other essential information. Below are some commonly used GraphQL endpoints:
+## Magento 2 GraphQL: Fetching All Available Queries and Mutations
+
+Magento 2 provides a powerful GraphQL API that allows retrieving and modifying store data efficiently. Below is a guide on how to fetch the complete list of GraphQL queries and mutations along with additional useful endpoints.
+
+---
+### **1. Get List of All GraphQL Queries and Mutations**
+To retrieve a list of all available GraphQL queries and mutations in Magento 2, use the **introspection query** below:
+
+#### **Query:**
+```graphql
+{
+  __schema {
+    queryType {
+      fields {
+        name
+        description
+      }
+    }
+    mutationType {
+      fields {
+        name
+        description
+      }
+    }
+  }
+}
+```
+
+#### **Response (Example):**
+```json
+{
+  "data": {
+    "__schema": {
+      "queryType": {
+        "fields": [
+          { "name": "products", "description": "Retrieve product data" },
+          { "name": "storeConfig", "description": "Retrieve store configuration" }
+        ]
+      },
+      "mutationType": {
+        "fields": [
+          { "name": "addSimpleProductsToCart", "description": "Add products to cart" },
+          { "name": "createCustomer", "description": "Register a new customer" }
+        ]
+      }
+    }
+  }
+}
+```
+
+This will return all **GraphQL queries and mutations** available in Magento 2 along with their descriptions.
 
 ---
 
-### **1. Get List of Countries**
+### **2. Get List of Countries**
 Query:
 ```graphql
 {
@@ -51,7 +101,7 @@ Response:
 
 ---
 
-### **2. Get Store Configuration**
+### **3. Get Store Configuration**
 Query:
 ```graphql
 {
@@ -85,7 +135,7 @@ Response:
 
 ---
 
-### **3. Get Category Tree**
+### **4. Get Category Tree**
 Query:
 ```graphql
 {
@@ -125,7 +175,7 @@ Response:
 
 ---
 
-### **4. Get Customer Details (Requires Authorization)**
+### **5. Get Customer Details (Requires Authorization)**
 Query:
 ```graphql
 {
@@ -165,7 +215,7 @@ Response:
 
 ---
 
-### **5. Get Shipping Methods for a Cart**
+### **6. Get Shipping Methods for a Cart**
 Query:
 ```graphql
 {
@@ -188,7 +238,7 @@ Query:
 
 ---
 
-### **6. Get Payment Methods**
+### **7. Get Payment Methods**
 Query:
 ```graphql
 {
@@ -218,7 +268,7 @@ Response:
 
 ---
 
-### **7. Get Order Details (After Placing Order)**
+### **8. Get Order Details (After Placing Order)**
 Query:
 ```graphql
 {
