@@ -1,0 +1,181 @@
+@import 'variable';
+
+// using @import you can import other files css in this file,
+
+// variable
+
+@primary-color: #3498db;
+@secondary-color: #ffffff;
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Open Sans", sans-serif;
+    margin-bottom: 20px;
+}
+
+// Nesting
+
+.hero{
+    height: 80vh;
+    background-color: @primary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .hero-text{
+        color: @secondary-color;
+        text-align: center;
+
+        h1{
+            font-size: 100px;
+            font-weight: 600;
+        }
+    
+        p{
+            font-size: 20px;
+        }
+    }
+}
+
+// parent selector
+
+.hero-text{
+    &-heading{
+        text-transform: uppercase;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    &-para{
+        letter-spacing: 5px;
+    }
+}
+
+
+// variable
+
+@btn-primary: #007bff;
+@btn-secondary: #6c757d;
+@btn-success: #28a745;
+@btn-danger: #dc3545;
+@btn-warning: #ffc107;
+@btn-info: #17a2b8;
+@btn-light: #f8f9fa;
+@btn-dark: #343a40;
+
+@btn-hover-darken: 20%;
+
+.btn-container{
+    margin: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn{
+    color: #fff;
+    border: 1px solid transparent;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: .25rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease-in-out;
+    cursor: pointer;        
+
+    &-primary{
+        background-color: @btn-primary;
+
+        &:hover{
+            background-color: lighten(@btn-primary, @btn-hover-darken);
+        }
+    }
+
+    &-secondary{
+        background-color: @btn-secondary;
+
+        &:hover{
+            background-color: darken(@btn-secondary, @btn-hover-darken);
+        }
+    }
+
+    &-success{
+        background-color: @btn-success;
+    }
+
+    &-danger{
+        background-color: @btn-danger;
+    }
+
+    &-warning{
+        background-color: @btn-warning;
+    }
+
+    &-info{
+        background-color: @btn-info;
+    }
+
+    &-light{
+        color: #000;
+        background-color: @btn-light;
+    }
+
+    &-dark{
+        background-color: @btn-dark;
+    }
+}
+
+// Mixins
+.center-alignment(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box.center{
+    .center-alignment();
+}
+
+// Mixins with parameters
+.alert-container{
+    margin: 40px 20px;
+}
+
+.alert{
+    cursor: pointer;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+}
+
+.create-alert(@color, @background-color, @border-radius: 3px) {
+    color: @color;
+    background-color: @background-color;
+    border-color: @background-color;
+    border-radius: @border-radius;
+
+    &:hover{
+        background-color: darken(@background-color, 20%);
+    }
+}
+
+.alert-primary{
+    .create-alert(#004085, #cce5ff);
+}
+
+.alert-success{
+    .create-alert(#155724, #d4edda);
+}
+
+.alert-danger{
+    .create-alert(#721c24, #f8d7da);
+}
+
+.alert-warning{
+    .create-alert(#856404, #fff3cd, 10px);
+}

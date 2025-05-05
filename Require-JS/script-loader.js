@@ -1,3 +1,3 @@
-require(['config'],function(){
+require(['config'], function(){
     require(['customScripts/jqueryFile']);
 });

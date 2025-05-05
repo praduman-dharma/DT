@@ -26,7 +26,7 @@ requirejs.config({
 // loading from path > jquery : 'jquery-min',
 // loading from cdn > 
 
-//##  now the jqeury will be fetched from the two resources, required would first fetch the first resource that is right now is cdn url and it in some cases its failed to load our jquery from cdn link, then it would load the second which is the local copy of jquery file and you can just have a more another URL right there which is another cdn and then we can write our local file path. we can add as much cdn we wanted.
+//##  now the jquery will be fetched from the two resources, required would first fetch the first resource that is right now is cdn url and it in some cases its failed to load our jquery from cdn link, then it would load the second which is the local copy of jquery file and you can just have a more another URL right there which is another cdn and then we can write our local file path. we can add as much cdn we wanted.
 
 // means the fallbacks sytem is working with the paths
 

@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 20px;
+}
+.hero {
+  height: 80vh;
+  background-color: #3498db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero .hero-text {
+  color: #ffffff;
+  text-align: center;
+}
+.hero .hero-text h1 {
+  font-size: 100px;
+  font-weight: 600;
+}
+.hero .hero-text p {
+  font-size: 20px;
+}
+.hero-text-heading {
+  text-transform: uppercase;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+.hero-text-para {
+  letter-spacing: 5px;
+}
+.btn-container {
+  margin: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.btn {
+  color: #fff;
+  border: 1px solid transparent;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #007bff;
+}
+.btn-primary:hover {
+  background-color: #66b0ff;
+}
+.btn-secondary {
+  background-color: #6c757d;
+}
+.btn-secondary:hover {
+  background-color: #3d4246;
+}
+.btn-success {
+  background-color: #28a745;
+}
+.btn-danger {
+  background-color: #dc3545;
+}
+.btn-warning {
+  background-color: #ffc107;
+}
+.btn-info {
+  background-color: #17a2b8;
+}
+.btn-light {
+  color: #000;
+  background-color: #f8f9fa;
+}
+.btn-dark {
+  background-color: #343a40;
+}
+.box.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alert-container {
+  margin: 40px 20px;
+}
+.alert {
+  cursor: pointer;
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+}
+.alert-primary {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #cce5ff;
+  border-radius: 3px;
+}
+.alert-primary:hover {
+  background-color: #66b1ff;
+}
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #d4edda;
+  border-radius: 3px;
+}
+.alert-success:hover {
+  background-color: #8ccf9c;
+}
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f8d7da;
+  border-radius: 3px;
+}
+.alert-danger:hover {
+  background-color: #e9808a;
+}
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #fff3cd;
+  border-radius: 10px;
+}
+.alert-warning:hover {
+  background-color: #ffdb67;
+}
