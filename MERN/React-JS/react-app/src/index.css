@@ -1,0 +1,59 @@
+body {
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.block {
+  background-color: green;
+  padding: 10px 30px;
+  margin: 10px;
+  max-width: 1200px;
+}
+
+.hover_effect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 300px;
+  transition: 0.7s ease;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.hover_effect img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s ease;
+  transform: translateZ(0);
+}
+
+.hover_effect:hover img {
+  transform: scale(1.1) translateZ(50px);
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #000;
+
+  button{
+    font-weight: 600;
+  }
+}
+
+
+.form > div{
+  margin: 10px;
+
+  label{
+    margin: 10px;
+  }
+}

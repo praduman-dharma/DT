@@ -1,0 +1,11 @@
+<h1>Blog Home Page</h1>
+
+<div class="container">
+    {{#each blogs}}
+        <div class="blog">
+            <a href="/blog/{{this.slug}}">
+                <h2>{{this.title}}</h2>
+            </a>
+        </div>
+    {{/each}}
+</div>

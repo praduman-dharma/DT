@@ -1,0 +1,28 @@
+/* meals Wrapper */
+.meals-wrapper{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px;
+
+    .meal{
+       max-width: 220px;
+    }
+
+    .meal-name{
+      margin: 15px 0;
+      text-align: center;
+    }
+}
+
+.search-bar{
+    max-width: 600px;
+    margin: 20px auto 50px;
+    text-align: center;
+    padding: 0 30px;
+
+    .search{
+        width: 100%;
+    }
+}

@@ -1,0 +1,23 @@
+.navbar.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(69, 60, 78);
+    padding: 0;
+    
+    .item{
+        color: #fff;
+        padding: 15px;
+        text-decoration: none;
+        display: inline-block;
+
+        &:hover{
+            color: #000;
+            background-color: yellow;
+        }
+    }
+
+    button.item{
+        border: none;
+    }
+}
