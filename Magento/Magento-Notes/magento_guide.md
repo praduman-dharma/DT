@@ -19,7 +19,7 @@
 - **Sort Order for Plugins**: Defines execution priority.
 - **Creating a Custom Command**: Register a command in `di.xml` and implement `CommandInterface`.
 - **Magento Execution Flow**: Defined in `registration.php`, `module.xml`, and `di.xml`.
-- **Service Contracts**: API interfaces to ensure stability in custom modules.
+- **Service Contracts**: API interfaces to ensure stability in custom modules. || Service contracts are nothing more than a set of interfaces used to define the public api of a module.
 - **Object Manager**: Used to instantiate objects but should be avoided in business logic.
 - **Hard Dependency vs. Soft Dependency**:
   - Hard: Defined in `__construct()`.
