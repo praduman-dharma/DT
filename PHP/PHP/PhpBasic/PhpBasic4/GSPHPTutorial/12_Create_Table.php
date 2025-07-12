@@ -5,24 +5,24 @@
     $db_name = "new_db";
 
     // Create Connection
-     $conn = mysqli_connect($db_host,$db_user,$db_password,$db_name);
+    $conn = mysqli_connect($db_host,$db_user,$db_password,$db_name);
 
-     // Check Connection
-     if(!$conn){
-         die("Connection Failed");
-     }
-     echo "Connected Successfully<hr>";
+    // Check Connection
+    if(!$conn){
+        die("Connection Failed");
+    }
+    echo "Connected Successfully<hr>";
 
-     $sql = "create table new_tab(
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        name varchar(255),
-        roll INT,
-        address TEXT
-     )";
+    $sql = "create table new_tab(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name varchar(255),
+    roll INT,
+    address TEXT
+    )";
 
-     if(mysqli_query($conn,$sql)){
-         echo "Table Created Successfully";
-     } else {
-         echo "Unable to Create Table";
-     }
+    if(mysqli_query($conn,$sql)){
+    echo "Table Created Successfully";
+    } else {
+    echo "Unable to Create Table";
+    }
 ?>

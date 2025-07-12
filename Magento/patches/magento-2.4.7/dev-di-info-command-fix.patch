@@ -1,0 +1,22 @@
+diff --git a/vendor/magento/module-developer/Console/Command/DiInfoCommand.php b/vendor/magento/module-developer/Console/Command/DiInfoCommand.php
+index 2235aa5e5..677c62a2b 100644
+--- a/vendor/magento/module-developer/Console/Command/DiInfoCommand.php
++++ b/vendor/magento/module-developer/Console/Command/DiInfoCommand.php
+@@ -93,7 +93,7 @@ class DiInfoCommand extends Command
+             $paramsTableArray[] = $parameterRow;
+         }
+         $paramsTable->setRows($paramsTableArray);
+-        $output->writeln($paramsTable->render());
++        $paramsTable->render();
+     }
+ 
+     /**
+@@ -142,7 +142,7 @@ class DiInfoCommand extends Command
+             ->setHeaders(['Plugin', 'Method', 'Type'])
+             ->setRows($parameters);
+ 
+-        $output->writeln($table->render());
++        $table->render();
+     }
+ 
+     /**

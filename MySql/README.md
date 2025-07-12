@@ -3,6 +3,9 @@
 ## 1. Database Fundamentals
 
 ### What is a Database?
+
+Is a Collection of data (Information) stored in format that can easliy be accessed.
+
 A database is an organized collection of structured data stored electronically in a computer system. Databases allow for efficient data storage, retrieval, and management.
 
 **Key Characteristics:**

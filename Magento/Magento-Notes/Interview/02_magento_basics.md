@@ -12,7 +12,7 @@ Magento is a powerful **open-source e-commerce platform** written in PHP. It is 
 - **Magento 1 Initial Release:** March 31, 2008  
 - **Magento 2 Initial Release:** November 17, 2015  
 - **Magento 2.4 Initial Release:** July 28, 2020  
-- **Latest Version:** As of December 2024, the latest version is **Magento 2.4.7** (released October 2024 — verify for updates).
+- **Latest Version:** As of December 2024, the latest version is **Magento 2.4.8** (released April 2025 — verify for updates).
 
 ---
 

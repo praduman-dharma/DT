@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Indexer/etc/indexer.xsd">
+    <indexer id="conceptive_custom_indexer" view_id="conceptive_custom_indexer" class="Conceptive\CustomIndexer\Model\Indexer\Indexer">
+        <title translate="true">Custom Indexer</title>
+        <description translate="true">Custom Indexer</description>
+    </indexer>
+    <indexer id="conceptive_merchandizing_popular" view_id="conceptive_merchandizing_popular_order" class="Conceptive\CustomIndexer\Model\Indexer\Popular">
+        <title translate="true">Popular Products</title>
+        <description translate="true">Sort products in a category by popularity</description>
+    </indexer>
+</config>

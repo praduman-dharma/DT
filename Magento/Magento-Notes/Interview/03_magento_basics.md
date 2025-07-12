@@ -205,9 +205,11 @@ Magento 2 uses EAV for **flexible data storage**, especially for entities like p
 * Attribute definitions stored in `eav_attribute`.
 * Values stored in **type-specific tables**:
 
-  * `catalog_product_entity_varchar` (string)
   * `catalog_product_entity_int` (integer)
-  * `catalog_product_entity_decimal`, etc.
+  * `catalog_product_entity_varchar` (string)
+  * `catalog_product_entity_text`
+  * `catalog_product_entity_decimal`,
+  * `catalog_product_entity_datetime`, etc.
 
 ---
 
