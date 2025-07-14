@@ -1,0 +1,13 @@
+<?php
+/** @var \Conceptive\RequestQuote\Block\RequestQuote $block */
+$product = $block->getData('product');
+$helper  = $block->getHelper();
+$imgUrl  = $helper->getProductImageUrl($product);
+?>
+<div style="text-align: center;">
+    <h2><?= $escaper->escapeHtml($product->getName()) ?></h2>
+    <img src="<?= $escaper->escapeHtmlAttr($imgUrl) ?>" 
+         alt="<?= $escaper->escapeHtmlAttr($product->getName()) ?>" 
+         style="max-width: 100%; height: auto;" />
+    <p><?= $escaper->escapeHtml(__('Your Request has been submitted successfully.')) ?></p>
+</div>

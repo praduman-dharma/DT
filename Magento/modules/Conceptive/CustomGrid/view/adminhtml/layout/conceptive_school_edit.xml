@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Conceptive\CustomGrid\Block\Adminhtml\School\Edit" name="school_edit"/>
+        </referenceContainer>
+
+        <referenceContainer name="left">
+            <block class="Conceptive\CustomGrid\Block\Adminhtml\School\Edit\Tabs" name="school_edit_tabs">
+                <block class="Conceptive\CustomGrid\Block\Adminhtml\School\Edit\Tab\Main" name="school_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">school_edit_tab_main</argument>
+                </action>
+                <block class="Conceptive\CustomGrid\Block\Adminhtml\School\Edit\Tab\Product" name="school_edit_tab_product"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">product_section</argument>
+                    <argument name="block" xsi:type="string">school_edit_tab_product</argument>
+                </action>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

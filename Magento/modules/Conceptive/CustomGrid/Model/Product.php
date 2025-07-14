@@ -1,0 +1,14 @@
+<?php
+
+namespace Conceptive\CustomGrid\Model;
+
+use Magento\Framework\Model\AbstractModel;
+use Conceptive\CustomGrid\Model\ResourceModel\Product as ResourceModel;
+
+class Product extends AbstractModel
+{
+    protected function _construct()
+    {
+        $this->_init(ResourceModel::class);
+    }
+}

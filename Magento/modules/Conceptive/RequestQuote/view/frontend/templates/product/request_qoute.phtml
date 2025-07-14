@@ -1,0 +1,8 @@
+<?php
+$product = $block->getProduct();
+?>
+<?= $block->getLayout()
+    ->createBlock(\Conceptive\RequestQuote\Block\RequestQuote::class)
+    ->setProduct($product)
+    ->setTemplate('Conceptive_RequestQuote::request_quote.phtml')
+    ->toHtml(); ?>

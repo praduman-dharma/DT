@@ -1,0 +1,32 @@
+{
+    "school_information": {
+        "column": {
+            "entity_id": true,
+            "name": true,
+            "image": true,
+            "description": true,
+            "email": true,
+            "phone_number": true,
+            "created_at": true,
+            "updated_at": true,
+            "status": true
+        },
+        "index": {
+            "SCHOOL_INFORMATION_NAME_DESCRIPTION_EMAIL_PHONE_NUMBER": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "SCHOOL_INFORMATION_EMAIL": true
+        }
+    },
+    "school_products": {
+        "column": {
+            "entity_id": true,
+            "school_id": true,
+            "product_ids": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

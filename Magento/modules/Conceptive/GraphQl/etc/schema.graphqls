@@ -1,0 +1,21 @@
+#Magento Customer GraphQl Schema
+
+type Query {
+    customGreeting(name: String): String 
+        @resolver(class: "Conceptive\\GraphQl\\Model\\Resolver\\CustomGreeting")
+
+    currentCustomerName: String 
+        @resolver(class: "Conceptive\\GraphQl\\Model\\Resolver\\CurrentCustomer")
+
+    currentCustomerEmail: String 
+        @resolver(class: "Conceptive\\GraphQl\\Model\\Resolver\\CurrentCustomerEmail")
+
+    recentOrders(limit: Int = 5): [Order]
+        @resolver(class: "Conceptive\\GraphQl\\Model\\Resolver\\RecentOrders")
+}
+
+type Order {
+    order_id: String
+    grand_total: Float
+    status: String
+}

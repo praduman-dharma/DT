@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Ui Grid -->
+    <virtualType name="ConceptiveSchoolFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="ConceptiveSchoolDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Conceptive\CustomGrid\Model\ResourceModel\School\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">ConceptiveSchoolFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Conceptive\CustomGrid\Model\ResourceModel\School\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">school_information</argument>
+            <argument name="resourceModel" xsi:type="string">Conceptive\CustomGrid\Model\ResourceModel\School</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="school_page_listing_data_source" xsi:type="string">Conceptive\CustomGrid\Model\ResourceModel\School\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

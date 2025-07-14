@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Conceptive_RequestQuote::requestquote" title="Request Quote" module="Conceptive_RequestQuote" sortOrder="30" resource="Conceptive_RequestQuote::requestquote"/>
+        <add id="Conceptive_RequestQuote::manage" title="Manage Request Quotes" module="Conceptive_RequestQuote" sortOrder="10" parent="Conceptive_RequestQuote::requestquote" action="requestquote/index/" resource="Conceptive_RequestQuote::manage"/>
+        <add id="Conceptive_RequestQuote::config" title="Configuration" module="Conceptive_RequestQuote" sortOrder="20" parent="Conceptive_RequestQuote::requestquote" action="adminhtml/system_config/edit/section/requestquote" resource="Conceptive_RequestQuote::config_requestquote"/>
+    </menu>
+</config>

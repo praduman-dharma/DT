@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <!-- Get RequestQuote List -->
+    <route url="/V1/requestquote/list" method="GET">
+        <service class="Conceptive\RequestQuote\Api\RequestQuoteRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    
+    <!-- Get RequestQuote by ID -->
+    <route url="/V1/requestquote/:id" method="GET">
+        <service class="Conceptive\RequestQuote\Api\RequestQuoteRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- Save RequestQuote -->
+    <route url="/V1/requestquote" method="POST">
+        <service class="Conceptive\RequestQuote\Api\RequestQuoteRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- Delete RequestQuote by ID -->
+    <route url="/V1/requestquote/:id" method="DELETE">
+        <service class="Conceptive\RequestQuote\Api\RequestQuoteRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>
