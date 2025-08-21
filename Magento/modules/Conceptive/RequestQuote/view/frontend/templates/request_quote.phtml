@@ -1,7 +1,0 @@
-<?php if ($block->isEnabled()): ?>
-    <div class="cc-request-quote-block">
-        <button type="submit" class="action primary cc-request-quote-btn" data-product-id="<?= $escaper->escapeHtmlAttr($block->getProduct()->getId()) ?>">
-            <span><?= $escaper->escapeHtml($block->getButtonText()) ?></span>
-        </button>
-    </div>
-<?php endif; ?>
