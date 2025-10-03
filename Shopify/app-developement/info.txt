@@ -1,0 +1,52 @@
+# NPM
+
+# check globally installed packages
+
+npm list -g 
+
+# check package version
+
+-> shopify --version
+
+npm view @shopify/polaris
+
+# Initilize app
+
+-> npm init @shopify/app@latest (installed by default with Node)
+
+-> npm init @shopify/app@latest -- --template=node
+
+
+-> npm run dev
+
+-> npm install 
+
+
+# if its showing in shopify dasboard that *The app couldn't be loaded
+
+-> npm run dev --reset
+
+
+
+# Links
+
+# partners portal
+https://partners.shopify.com/
+
+
+# demo store
+https://smartcodingtest.myshopify.com/
+
+# Dev docs
+https://shopify.dev/docs
+
+
+# tailwind css integration
+
+https://www.youtube.com/watch?v=DwQVP1nKkAk
+
+
+# skeleton theme
+
+https://github.com/Shopify/skeleton-theme/tree/main
+
