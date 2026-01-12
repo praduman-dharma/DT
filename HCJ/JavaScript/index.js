@@ -175,8 +175,7 @@ var a = 2;
 // function drink(age){
 //     if(age>18){
 //         console.log("You can drink RASNA")
-//     }
-//     else{
+//     } else {
 //         console.log("You cannot drink RASNA")
 //     }
 // }
@@ -212,7 +211,7 @@ var arr = [1, 2, 3, 4, 5, 6, 7];
 // let j = 0 ;
 //while loop
 
-// while(j<arr.length){
+// while (j < arr.length) {
 //     console.log(arr[j]);
 //     j++;
 // }
@@ -309,7 +308,7 @@ tn[0].appendChild(createdElement);
 
 createdElement2 = document.createElement('b');
 createdElement2.innerText = "This is a created bold";
-tn[0].replaceChild(createdElement2,createdElement);
+tn[0].replaceChild(createdElement2, createdElement);
 
 // tn[0].removeChild(createdElement2); //---> removes an element
 

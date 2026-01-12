@@ -1,6 +1,6 @@
 // function statements and Expression.
 
-var whatDoYouDo = function(job,firstName){
+var whatDoYouDo = function  (job, firstName){
     switch(job){
         case "teacher":
             return firstName + " teaches kids how to code.";

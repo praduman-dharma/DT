@@ -1,7 +1,7 @@
 var firstName = "John";
 var civilStatus = "single";
 
-if(civilStatus === "married"){
+if (civilStatus === "married") {
     console.log(firstName + " is married");
 } else {
     console.log(firstName + " will hope fully marry soon ");
@@ -10,7 +10,7 @@ if(civilStatus === "married"){
 // You can even directly assign boolean value in conditions
 
 var isMarried = true;
-if(isMarried){
+if (isMarried) {
     console.log(firstName + " is married");
 } else {
     console.log(firstName + " will hope fully marry soon ");

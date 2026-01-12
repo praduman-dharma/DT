@@ -54,6 +54,14 @@
             border-radius: 4px;
             margin-top: 10px;
         }
+        .normal {
+            background: #f5f5f5;
+        }
+
+        .highlighted {
+            background: #cdeffd;
+            border-color: #3399ff;
+        }
     </style>
 </head>
 <body>
@@ -99,11 +107,44 @@
 
     <div class="demo-section">
         <h2>6. Breakpoint on DOM Changes</h2>
+        <h3>6.1. Breakpoint on Subtree Modifications</h3>
         <button onclick="domChangeDemo()">Modify DOM</button>
         <div id="mutation-target" style="background: lightyellow; padding: 10px; margin: 10px 0; border: 1px solid orange;">
             Original content
         </div>
         <p><small>In Elements panel, set breakpoint on this div: Right-click → Break on → Subtree modifications. Then click "Modify DOM" button.</small></p>
+
+        <h3>6.2. Breakpoint on Attribute Changes</h2>
+        <button onclick="attributeChangeDemo()">Change Class</button>
+
+        <div id="attribute-target" class="box normal"
+            style="padding:10px; margin:10px 0; border:1px solid #999;">
+            Attribute target element
+        </div>
+
+        <p>
+            <small>
+                In Elements panel, set breakpoint on this div:  
+                Right-click → Break on → Attribute modifications.  
+                Then click "Change Class".
+            </small>
+        </p>
+
+        <h3>6.3. Breakpoint on Node Removal</h3>
+        <button onclick="nodeRemovalDemo()">Remove Element</button>
+
+        <div id="removal-container"
+            style="padding:10px; margin:10px 0; border:1px solid red; background:#ffeaea;">
+            This element will be removed
+        </div>
+
+        <p>
+            <small>
+                In Elements panel, set breakpoint on this div:  
+                Right-click → Break on → Node removal.  
+                Then click "Remove Element".
+            </small>
+        </p>
     </div>
 
     <div class="demo-section">
@@ -203,10 +244,24 @@
         }
 
         // Demo 6: DOM Mutation
+        // Demo 6: DOM Subtree Modifications
         function domChangeDemo() {
             const target = document.getElementById('mutation-target');
             target.textContent = 'Content modified!';  // If breakpoint set, pauses here
             target.style.background = 'lightgreen';
+        }
+
+        // Demo 6.2: Attribute modification
+        function attributeChangeDemo() {
+            const el = document.getElementById('attribute-target');
+            el.classList.toggle('highlighted');
+            el.textContent = 'Class changed to: ' + el.className;
+        }
+
+        // Demo 6.3: Node removal
+        function nodeRemovalDemo() {
+            const el = document.getElementById('removal-container');
+            el.remove();
         }
 
         // Demo 7: Event Listener Breakpoint
