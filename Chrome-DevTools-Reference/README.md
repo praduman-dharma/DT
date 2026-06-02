@@ -56,6 +56,7 @@ This reference provides comprehensive documentation and working examples for eac
 - **C** = CSS (Ctrl/Cmd + Shift + C) → Elements Panel
 - **J** = JavaScript (Ctrl/Cmd + Shift + J) → Console Panel
 - **I** = Choice (Ctrl/Cmd + Shift + I) → Your choice
+- **Ctrl + ]** or **Cmd + ]** = To switch between tabs in Chrome DevTools panels (like Elements, Console, Network)
 
 ### First Steps
 

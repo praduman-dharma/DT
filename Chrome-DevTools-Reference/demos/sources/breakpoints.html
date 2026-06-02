@@ -114,14 +114,13 @@
         </div>
         <p><small>In Elements panel, set breakpoint on this div: Right-click → Break on → Subtree modifications. Then click "Modify DOM" button.</small></p>
 
-        <h3>6.2. Breakpoint on Attribute Changes</h2>
+        <h3>6.2 Breakpoint on Attribute Changes</h3>
         <button onclick="attributeChangeDemo()">Change Class</button>
 
         <div id="attribute-target" class="box normal"
             style="padding:10px; margin:10px 0; border:1px solid #999;">
             Attribute target element
         </div>
-
         <p>
             <small>
                 In Elements panel, set breakpoint on this div:  
@@ -130,7 +129,7 @@
             </small>
         </p>
 
-        <h3>6.3. Breakpoint on Node Removal</h3>
+        <h3>6.3 Breakpoint on Node Removal</h3>
         <button onclick="nodeRemovalDemo()">Remove Element</button>
 
         <div id="removal-container"
@@ -244,7 +243,7 @@
         }
 
         // Demo 6: DOM Mutation
-        // Demo 6: DOM Subtree Modifications
+        // Demo 6.1: DOM Mutation
         function domChangeDemo() {
             const target = document.getElementById('mutation-target');
             target.textContent = 'Content modified!';  // If breakpoint set, pauses here
