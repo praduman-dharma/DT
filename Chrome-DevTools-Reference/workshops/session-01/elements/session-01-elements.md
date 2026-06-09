@@ -14,8 +14,12 @@ The Elements panel allows you to inspect, edit, and debug the HTML and CSS of yo
 6. [DOM Change Breakpoints](#dom-change-breakpoints)
 7. [Event Listeners](#event-listeners)
 8. [Accessibility Tree](#accessibility-tree)
-9. [Advanced Techniques](#advanced-techniques)
-10. [Tips and Tricks](#tips-and-tricks)
+9. [AI Assistance for Elements](#ai-assistance-for-elements)
+10. [Advanced Techniques](#advanced-techniques)
+
+**Demo files:**
+- [DOM inspection demo](01-dom-inspection.html)
+- [AI assistance demo](02-ai-assistance-demo.html)
 
 ---
 
@@ -23,24 +27,6 @@ The Elements panel allows you to inspect, edit, and debug the HTML and CSS of yo
 
 ### The DOM Tree
 The DOM Tree in the Elements panel shows the hierarchical structure of HTML elements on the page.
-
-**Expanding Elements:**
-- Click the arrow (`▶`) next to an element to expand/collapse its children
-- Double-click an element to expand all descendants
-- The DOM Tree updates in real-time as JavaScript modifies the page
-
-**Highlighting Elements:**
-- Hover over an element in the DOM Tree to highlight it on the page
-- The overlay shows:
-  - Element dimensions
-  - Margin and padding
-  - Content area
-  - Box model visualization
-
-**Selecting Elements:**
-- Click an element in the DOM Tree to select it
-- Use keyboard arrows to navigate the tree
-- Press Enter to expand/collapse
 
 ### Bread Crumb Navigation
 At the bottom of the Elements panel, a breadcrumb trail shows the element hierarchy:
@@ -344,11 +330,43 @@ DevTools includes tools for debugging accessibility issues.
 - Heading level skips (h1 → h3)
 - Missing landmarks
 
-### Audit Accessibility
-Use the **Lighthouse** panel for comprehensive accessibility audits:
-1. Lighthouse panel → Generate report
-2. Check "Accessibility" category
-3. Detailed violations and fixes
+---
+
+## AI Assistance for Elements
+
+Chrome DevTools can use AI assistance to help explain layout and styling issues for the currently selected element.
+
+### Open AI Assistance from Elements
+
+1. Open the **Elements** panel.
+2. Select a DOM node.
+3. Right-click the node and choose **Ask AI**.
+4. Or use the AI assistance button when it appears near a hovered DOM node.
+
+The selected element becomes the conversation context. If you select another element in the DOM tree, you can change the context for the next question.
+
+### Useful Prompts
+
+Try prompts like:
+
+```text
+Why is this card overflowing its container?
+Which CSS rule controls this element's spacing?
+How can I center this button inside the panel?
+Why does this text have low contrast?
+What styles are inherited by this element?
+```
+
+### What to Verify Manually
+
+AI assistance can suggest explanations and fixes, but always verify:
+
+- The selected element is the correct context.
+- Suggested CSS matches your design system.
+- Accessibility suggestions work with real keyboard and screen reader behavior.
+- Any copied code is reviewed before adding it to the project.
+
+Practice this with [AI assistance demo](02-ai-assistance-demo.html).
 
 ---
 
@@ -398,61 +416,6 @@ $0.querySelectorAll('a')    // Find children
 1. Right-click element → **Store as global variable**
 2. Creates variable like `temp1`
 3. Usable in Console for testing
-
-### DOM Breakpoints with Debugging
-Combine DOM breakpoints with the debugger:
-
-```javascript
-// In DevTools Console
-// Set a DOM breakpoint first, then:
-$0.innerHTML = '<div>Test</div>';  // Triggers breakpoint
-// Execution pauses, examine call stack
-```
-
----
-
-## Tips and Tricks
-
-### Efficient Debugging Workflow
-
-1. **Identify element** → Right-click on page → Inspect
-2. **Search DOM** → `Ctrl+F` to find related elements
-3. **Set breakpoint** → Right-click → Break on subtree modifications
-4. **Trigger action** → Click button or interact with page
-5. **Examine stack** → Look at call stack in Sources panel
-6. **Jump to code** → Click file name in stack
-
-### Performance Tips
-- Large DOM trees are slow to inspect
-- Collapse unnecessary elements while debugging
-- Use search filters to focus on relevant elements
-- Disable DevTools when not debugging (performance impact)
-
-### Common Use Cases
-
-**Finding Applied Styles:**
-1. Select element
-2. Styles panel shows all CSS
-3. Scroll to bottom for user agent styles
-4. Look for overridden rules (crossed-out)
-
-**Debugging Layout Issues:**
-1. Inspect element
-2. Check Box Model visualization
-3. Use rulers to measure dimensions
-4. Check computed styles for conflicts
-
-**Finding Event Handlers:**
-1. Select element
-2. Event Listeners tab
-3. Expand listener to see function
-4. Click function name to jump to source
-
-**Testing CSS Changes:**
-1. Select element
-2. Edit CSS in Styles panel
-3. See changes instantly
-4. Copy final CSS back to source files
 
 ---
 

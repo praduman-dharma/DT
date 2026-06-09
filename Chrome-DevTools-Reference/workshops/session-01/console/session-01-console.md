@@ -7,14 +7,19 @@ The Console panel is your JavaScript REPL (Read-Eval-Print Loop) and debugging i
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
-2. [Console Methods](#console-methods)
-3. [Styling Console Output](#styling-console-output)
-4. [Organizing Messages](#organizing-messages)
-5. [Filtering and Searching](#filtering-and-searching)
-6. [Console Utility Functions](#console-utility-functions)
-7. [Performance Profiling](#performance-profiling)
-8. [Advanced Debugging](#advanced-debugging)
-9. [Tips and Best Practices](#tips-and-best-practices)
+2. [Live Expressions](#live-expressions)
+3. [Console Methods](#console-methods)
+4. [Styling Console Output](#styling-console-output)
+5. [Organizing Messages](#organizing-messages)
+6. [Filtering and Searching](#filtering-and-searching)
+7. [Understand Errors and Warnings](#understand-errors-and-warnings)
+8. [Console Utility Functions](#console-utility-functions)
+9. [Performance Profiling](#performance-profiling)
+10. [Advanced Debugging](#advanced-debugging)
+11. [Tips and Best Practices](#tips-and-best-practices)
+
+**Demo file:**
+- [Console demo](01-console-demo.html)
 
 ---
 
@@ -61,6 +66,43 @@ console                   // Console API
 // Access page's custom code
 appVariable              // If exists on window
 myFunction()             // If exists on window
+```
+
+---
+
+## Live Expressions
+
+Live Expressions let you pin a JavaScript expression at the top of the Console and watch it update automatically.
+
+### Add a Live Expression
+
+1. Open the **Console** panel.
+2. Click the **Create live expression** eye icon.
+3. Enter an expression.
+4. Press `Enter`.
+
+### Useful Examples
+
+```javascript
+document.activeElement
+window.scrollY
+document.querySelectorAll('button').length
+performance.memory?.usedJSHeapSize
+```
+
+### When to Use It
+
+- Watch which element currently has focus.
+- Track a changing counter or state value.
+- Monitor scroll position while interacting with the page.
+- Check whether DOM nodes are being added or removed.
+
+Try this in the demo with:
+
+```javascript
+window.demoState.clicks
+window.demoState.lastAction
+document.querySelectorAll('.generated-log').length
 ```
 
 ---
@@ -379,6 +421,18 @@ url:https://example.com
 
 Shows messages from any script on that domain.
 
+### Practice URL Filtering
+
+When logs come from different files or inline scripts, use the filter box at the top of the Console:
+
+```text
+url:01-console-demo.html
+url:session-01-console-url-filter-demo.js
+-url:extension
+```
+
+Use this to focus on messages from the current demo page and hide noisy browser extension messages.
+
 ### Search Console Messages
 
 `Ctrl+F` (Windows/Linux) or `Cmd+F` (macOS) to search:
@@ -392,6 +446,45 @@ Shows messages from any script on that domain.
 - Exact text match
 - No regex by default
 - Case-insensitive by default
+
+---
+
+## Understand Errors and Warnings
+
+Chrome DevTools can explain some Console errors and warnings with **Console Insights**. The action appears as **Understand this error** or **Understand this warning** on supported messages.
+
+### Requirements
+
+You may need:
+
+- A recent version of Chrome.
+- A signed-in Google account.
+- DevTools language set to English (US).
+- DevTools **Settings > AI Innovations** enabled.
+- A supported region and account policy.
+
+### Use Understand This Error or Warning
+
+1. Open the **Console** panel.
+2. Trigger an error or warning.
+3. Hover the message.
+4. Click **Understand this error** or **Understand this warning**.
+5. Read the explanation, related sources, and data used.
+6. Verify the suggestion before changing code.
+
+### Good Messages to Test
+
+The demo page includes buttons that generate:
+
+- A custom warning.
+- A thrown JavaScript error.
+- A failed `fetch()` request that creates a network-related error.
+
+### Important Notes
+
+- The explanation is AI-generated and can be incomplete or wrong.
+- Do not include confidential or personal data in feedback.
+- Use the explanation as a debugging aid, then confirm in code, Network, or Sources.
 
 ---
 
@@ -820,5 +913,5 @@ Master console utilities to debug faster and understand your application deeply.
 ---
 
 ## Related Docs
-- [Elements Panel - DOM Inspection](01-elements.md)
-- [Sources Panel - Debugging](03-sources.md)
+- [Elements Panel - DOM Inspection](../elements/session-01-elements.md)
+- [Console demo](01-console-demo.html)
