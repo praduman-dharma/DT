@@ -252,8 +252,8 @@ Type directly into the filter text input to apply property-based filters.
 |---|---|
 | `status-code:404` | Only 404 responses |
 | `status-code:200` | Only 200 responses |
-| `type:fetch` | Only Fetch requests |
-| `type:xhr` | Only XHR requests |
+| `resource-type:fetch` | Only Fetch requests |
+| `resource-type:xhr` | Only XHR requests |
 | `larger-than:1k` | Responses over 1 KB |
 | `larger-than:10k` | Responses over 10 KB |
 | `domain:jsonplaceholder.typicode.com` | Requests to this domain |
